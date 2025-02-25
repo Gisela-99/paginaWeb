@@ -17,10 +17,58 @@
       <th>Tercera celda</th>
     </tr>
     <tr>
-      <th>Primera celda, segunda fila</th>
-      <th>Segunda celda, segunda fila</th>
-      <th>Tercera celda, segunda fila</th>
+      <td>Primera celda, segunda fila</td>
+      <td>Segunda celda, segunda fila</td>
+      <td>Tercera celda, segunda fila</td>
     </tr>
   </table>
+  <div>
+    <table border="2px">
+      <tr>
+        <td colspan="2">Primera celda</td>
+        <td colspan="2" rowspan="2">Segunda celda</td>
+      </tr>
+      <tr>
+        <td>Siguiente fila</td>
+        <td>Bla bla</td>
+      </tr>
+    </table>
+  </div>
+
+  <main>
+    <h1>Ejercicio de maquetación de una tabla con HTML</h1>
+    <table >
+      <tr>
+        <!-- <td colspan="6"><img src="./imgpicasso/picassor1.jpg" alt="primera pieza">1</td> -->
+         <td colspan="6"><img src="./imgpicasso/picassor1.jpg" alt=""></td>
+      </tr>
+      <tr>
+        <td rowspan="4"><img src="./imgpicasso/picassor2_c1.jpg" alt=""></td>
+        <td><img src="./imgpicasso/picassor2_c2.jpg" alt=""></td>
+        <td colspan="2"><img src="./imgpicasso/picassor2_c3.jpg" alt=""></td>
+        <td><img src="./imgpicasso/picassor2_c5.jpg" alt=""></td>
+        <td rowspan="4"><img src="./imgpicasso/picassor2_c6.jpg" alt=""></td>
+      </tr>
+      <tr>
+        <td><img src="./imgpicasso/picassor3_c2.jpg" alt=""></td>
+        <td><img src="./imgpicasso/picassor3_c3.jpg" alt=""></td>
+        <td rowspan="3"><img src="./imgpicasso/picassor3_c4.jpg" alt=""></td>
+        <td><img src="./imgpicasso/picassor3_c5.jpg" alt=""></td>
+      
+      </tr>
+      <tr>
+        <td colspan="2" rowspan="2"><img src="./imgpicasso/picassor4_c2.jpg" alt=""></td>
+        <td><img src="./imgpicasso/picassor4_c5.jpg" alt=""></td>
+    
+      </tr>
+      <tr>
+        <td><img src="./imgpicasso/picassor5_c5.jpg" alt=""></td>
+    
+      </tr>
+      <tr>
+        <td colspan="6"><img src="./imgpicasso/picassor6_c1.jpg" alt=""></td>
+      </tr>
+    </table>
+  </main>
 </body>
 </html>
