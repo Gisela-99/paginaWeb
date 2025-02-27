@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display</title>
+</head>
+<body>
+  <h1>Display</h1>
+    <div style="background-image: url(./img/bg-2.jpg); width: 750px; height: 571px; display: block; margin: auto;">
+      <div style="display: flex;padding: 10px; box-sizing: border-box;">
+        <div style="margin-right: 20px;">
+          <p style="padding: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur omnis odit deleniti amet, ducimus suscipit dolorem
+          dolor facere, odio possimus iusto inventore quod eaque ipsam molestiae. Quis, provident. Quam, aliquid?</p>
+        </div>
+        <div style="margin-right: 20px;">
+          <p style="padding: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur omnis odit deleniti amet, ducimus suscipit
+            dolorem
+            dolor facere, odio possimus iusto inventore quod eaque ipsam molestiae. Quis, provident. Quam, aliquid?</p>
+        </div>
+        <div >
+          <p style="padding: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur omnis odit deleniti amet, ducimus suscipit
+            dolorem
+            dolor facere, odio possimus iusto inventore quod eaque ipsam molestiae. Quis, provident. Quam, aliquid?</p>
+        </div>
+      </div>
+    </div>
+
+    <h1>Float</h1>
+    <div style="background-image: url(./img/bg-2.jpg); width: 750px; height: 571px; display: block; margin: auto;">
+     
+        <div>
+          <div style=" width: 250px; display: inline-block; box-sizing: border-box;">
+            <p style="padding: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur omnis odit deleniti
+              amet, ducimus suscipit dolorem
+              dolor facere, odio possimus iusto inventore quod eaque ipsam molestiae. Quis, provident. Quam, aliquid?</p>
+          </div>
+          <div style=" width: 250px;float: left;">
+            <p style="padding: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur omnis odit deleniti
+              amet, ducimus suscipit
+              dolorem
+              dolor facere, odio possimus iusto inventore quod eaque ipsam molestiae. Quis, provident. Quam, aliquid?</p>
+          </div>
+          <div style=" width: 250px;float: left;">
+            <p style="padding: 1em;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur omnis odit deleniti
+              amet, ducimus suscipit
+              dolorem
+              dolor facere, odio possimus iusto inventore quod eaque ipsam molestiae. Quis, provident. Quam, aliquid?</p>
+          </div>
+        </div>
+    </div>
+      <h2>Ejercicio float 2</h2>
+      <!-- El overflow: hiddens sirve para que se adapte a la altura de la caja que no se vea -->
+      <div style="background-color: pink; overflow: hidden; width: 600px; height: 600px; margin: auto;">
+          <div style="width: 50px; height: 600px; background-color: red; float: left;"></div>
+          <div style="width: 500px; height: 500px; background-color: salmon; float: left;"> 
+            <div style="width: 500px; height: 50px; background-color: orange;; float: left;"></div>
+            <div style="width: 500px; height: 500px; background-color: rgb(24, 3, 206); float: left;"></div>
+            <div style="width: 500px; height: 50px; background-color: rebeccapurple; float: left;"></div>
+          </div>
+          <div style="width: 50px; height: 600px; background-color: green; float: left;"></div>
+      </div>
+
+    <h2>Ejercicio display:flex 2</h2>
+    <div style="background-color: pink; display: flex; width: 600px; height: 600px; margin: auto;">
+      <div style="width: 50px; height:100%; background-color: red;  "></div>
+      <div style="width: 500px; height: 100%; background-color: rgb(216, 24, 184);  ">
+        <div style=" height: 50px; background-color: orange; "></div>
+        <div style="height: 500px; background-color: blue;"></div>
+        <div style=" height: 50px; background-color: rebeccapurple; "></div>
+      </div>
+      <div style="width: 50px; height: 100%; background-color: green;  "></div>
+    </div>
+
+    <h2> Ejercicio display: block-inline </h2>
+    <div style="background-color: pink; width: 800px; height: 600px; margin: auto; font-size: 0;">
+      <div style="background:red; width:50px; height:100%; display: inline-block"></div>
+      <div style="background: salmon; height: 100%; width: 700px; display: inline-block">
+        <div style="background-color: orange; height: 50px;"></div>
+        <div style="background-color: blue; height: 500px;"></div>
+        <div style="background-color: purple; height:50px;"></div>
+      </div>
+      <div style="background-color: green; height:100%; width: 50px; display: inline-block;"></div>
+    </div>
+</body>
+</html>
