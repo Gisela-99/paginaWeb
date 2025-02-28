@@ -1,0 +1,38 @@
+body{
+  background-color: #287554;
+  color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+  font-size: 3em;
+}
+p{
+  width:50%;
+  padding: 1rem;
+}
+#cita{
+  color: black;
+  background-color: white;
+  margin: auto;
+  border: 5px solid black;
+}
+
+.primero{
+background-color: #aa5a3a;
+border: 5px solid #862600;
+}
+
+.segundo{
+  background-color: #aa7a3a;
+  border: 5px solid #864d00;
+  margin-left: 47.7%;
+}
+
+.tercero{
+  background-color: #2a506d;
+  border: 5px dashed #697c8b;
+  margin: auto;
+}
+

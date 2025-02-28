@@ -1,0 +1,45 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fbc79f;
+}
+h1{
+  color: white;
+  margin: auto;
+  text-align: center;
+  font-size: 3em;
+}
+.central{
+  width:1200px;
+  margin: auto;
+}
+
+p{
+  padding: 1rem;
+}
+
+.primero{
+  background-color: #8ad0c0;
+  border: 5px solid #65988c; 
+}
+
+.segundo{
+  background-color: #e0e0e0;
+  border: 5px dotted #848484;
+}
+
+.tercero{
+  background-color: #ffffb5;
+  border: 5px solid #ffff00;
+}
+
+.cuarta{
+    background-color: #e0e0e0;
+    border: 5px double #848484 ;
+}
+
+.quinta{
+  background-color: #dfdaf2;
+  border: 5px dashed #A89BDB;
+}

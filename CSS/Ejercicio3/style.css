@@ -1,0 +1,20 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #c6d9ee;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+  font-size: 3em;
+  text-align: right;
+}
+.contenedora{
+  width: 50%;
+  margin: auto;
+}
+h2{
+  font-size: 2em;
+  text-transform:uppercase;
+}

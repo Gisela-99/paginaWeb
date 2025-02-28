@@ -1,0 +1,63 @@
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #d3d3d3;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+  background-color: black;
+  color: white;
+  padding: 0.6em;
+  text-align: right;
+}
+h2{
+  /* text-decoration:underline ; */
+  font-style:normal;
+  border-bottom: 4px solid white;
+  font-size: 2em;
+  text-align: center;
+  padding-bottom: 0.5em;
+}
+ p{
+    margin-top: 2em;
+    text-align: justify;
+ }
+.negrita{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.cursiva{
+    font-style: oblique;
+    border-bottom: 1px dashed red;
+    font-size: 1.5em;
+}
+.subrallado{
+  background-color: white;
+  color: red;
+}
+
+.fecha{
+  background-color: grey;
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  padding:  0.3em 1em;
+  margin: auto;
+  font-weight: bold;
+}
+
+.boxg{
+  width: 50%;
+  margin: auto;
+  border-bottom: 2px solid black;
+  padding-bottom: 2em;
+}
+.bl{
+  display: flex;
+  flex-direction: column;
+}
+.azul{
+  color: blue;
+}
