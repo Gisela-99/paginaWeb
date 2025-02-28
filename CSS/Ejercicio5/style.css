@@ -1,0 +1,18 @@
+.img{
+    background-image: url(./img/bg-2.jpg);
+    width: 750px;
+    height: 571px;
+    display: block;
+    margin: auto;
+}
+.abuelo{
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.padre{
+  margin-right: 20px;
+}
+p{
+  padding: 1em;
+}

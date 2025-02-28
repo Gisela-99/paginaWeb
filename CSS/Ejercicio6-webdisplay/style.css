@@ -1,0 +1,17 @@
+.abuelo{
+  display: flex;
+  width: 50%;
+  margin: auto;
+  padding: 1em;
+}
+.padre{
+  padding: 1em;
+}
+
+.boxg{
+  border-left: 2px solid black;
+}
+.boxp{
+  border-top: 2px solid black;
+  margin: 0px;
+}

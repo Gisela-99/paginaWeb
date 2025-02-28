@@ -11,14 +11,16 @@ h1{
   color: white;
   padding: 0.6em;
   text-align: right;
+  margin-top: 0px;
 }
 h2{
   /* text-decoration:underline ; */
   font-style:normal;
   border-bottom: 4px solid white;
-  font-size: 2em;
+  font-size: 1.6em;
   text-align: center;
   padding-bottom: 0.5em;
+  padding-top: 1em;
 }
  p{
     margin-top: 2em;
@@ -27,11 +29,12 @@ h2{
 .negrita{
   font-weight: bold;
   text-transform: uppercase;
+  font-size: 0.9em;
 }
 .cursiva{
     font-style: oblique;
     border-bottom: 1px dashed red;
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 .subrallado{
   background-color: white;
