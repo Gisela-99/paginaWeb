@@ -1,0 +1,61 @@
+body,h1,h2{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+  background-color: #bbbbbb;
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+h2{
+  background-color: #DDDDDD;
+  border-bottom: 2px dashed #bbbbbb;
+  padding-bottom: 0.3em;
+  text-align: right;
+}
+h3,h4{
+  background-color: #DDDDDD;
+  margin-top: 0;
+}
+h3{
+  padding: 0.6em;
+  text-align: center;
+  margin-top: 0;
+}
+h4{
+  color: white;
+  text-align: right;
+  margin-bottom: 0;
+}
+ p{
+  padding: 0px  20px 10px;
+ }
+.boxc{
+  display: flex;
+  margin: 0.5em 1em 0em;
+  padding-top: 0;
+  max-width: 1200px;
+/* para que se ajuste todo el contendio de la caja principal */
+}
+
+.father{
+  padding: 0px 10px;
+  margin-right: 1em;
+  border-top: black 2px solid;
+  border-bottom: black 2px solid;
+  border-left: #bbbbbb 2px dashed;
+  border-right: #bbbbbb 2px dashed;
+  width: 25%;
+}
+
+.child{
+  border: 1px solid black;
+  margin-top: 0.3em;
+  margin-bottom: 1em;
+  padding: 0;
+}
+
+.father p{
+  overflow: auto;
+}

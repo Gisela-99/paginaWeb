@@ -1,0 +1,36 @@
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.imagen{
+  background-image: url(./img/panteon.jpg);
+  width: 722px;
+  height: 480px;
+  margin: auto;
+  overflow: hidden;
+}
+.box{
+  display: flex;
+  gap: 45px;
+  text-align: center;
+  margin-top: 20px;
+  margin: auto;
+  margin-top: 100px;
+  justify-content: center;
+}
+
+.child{
+
+  padding: 0.3em;
+  margin: auto;
+  /* width: 33%; */
+}
+.boxp{
+  width: 15%;
+  height: 170px;
+  overflow: auto;
+  margin-top: 210px;
+}
+
+/* flex: 0 0 100px; para forzar la anchura de una caja  */

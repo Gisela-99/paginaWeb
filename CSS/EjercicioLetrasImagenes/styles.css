@@ -1,0 +1,37 @@
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color:#BFC1B0;
+}
+h1{
+  text-transform: uppercase;
+  color: #191970;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 50px;
+  text-align: right;
+}
+h2{
+  color: white;
+  background-color: #5b6135;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  margin:0;
+  padding-left: 1rem;
+
+}
+
+main{
+  max-width: 1200px;
+  margin: auto;
+  text-align: justify;
+}
+.abuelo{
+  display: flex;
+  margin: auto;
+  padding-bottom: 1rem;
+}
+
+.boxp>p{
+  padding-left: 1rem;
+}
