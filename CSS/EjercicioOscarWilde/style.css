@@ -1,0 +1,39 @@
+body{
+  background-color: #fddbbd;
+}
+@media screen and (min-width: 30em) and (orientation: landscape) {
+  /* … */
+  .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  
+    .boxp {
+      width: 15%;
+      border: 2px dashed #c9a568;
+      padding: 0.7rem;
+    }
+}
+h1{
+  color: #b0b0b0;
+  text-align: center;
+}
+p:first-of-type:first-letter {
+  font-size: 3em;
+  color: #c9a568;
+}
+/* .container{
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.boxp{
+  width: 15%;
+  border: 2px dashed #c9a568;
+  padding: 0.7rem;
+} */

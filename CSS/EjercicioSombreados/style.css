@@ -1,0 +1,12 @@
+h1{
+  text-shadow: 20px 13px 5px blue;
+  text-align: center;
+  padding-top: 50px;
+}
+.caja{
+  width: 500px;
+  height: 500px;
+  background-color: red;
+  border-radius:10%;
+  box-shadow: 10px 20px 100px green, inset 30px 30px 100px blue;
+}

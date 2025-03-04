@@ -1,0 +1,29 @@
+.libreta{
+  width: 100%;
+  height:800px ;
+  background-image: url(./img/fondo.png);
+  background-repeat: repeat-y;
+}
+
+.animation{
+  margin-top: 50px;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  background-image: 
+    url(./img/html-left.png), 
+    url(./img/html-right.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: left, right;
+}
+.gradient{
+  margin-top: 50px;
+    width: 500px;
+    border: 2px solid black;
+    height: 500px;
+    background:
+      url(./img/tijeras.svg) no-repeat bottom right, 
+      url(./img/mundo.svg) no-repeat top left, 
+      radial-gradient(ellipse at center, #f230b4 0%, #f230b4 20%, #f230b4 20%, #f230b4 23%, #f230b4 23%, #25ed68 45%, #25ed68 56%, #2989d8 88%, #7db9e8 100%); 
+    background-size: auto auto auto, 50% 50% 50%;
+}
