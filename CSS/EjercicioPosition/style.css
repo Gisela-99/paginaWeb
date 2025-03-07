@@ -1,0 +1,48 @@
+main{
+  width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+h2{
+  background-color: #dbc9a6;
+  padding: 20px;
+  font-weight: lighter;
+}
+.boxRelative{
+  position: relative;
+  display: flex;
+  height: 600px;
+  width: 1200px;
+}
+.box{
+  position: absolute;
+  /* display: flex;
+  flex-wrap: wrap; */
+  width: 50%;
+  height: 300px;
+}
+.box:hover {
+  z-index: 10;
+}
+.Yellow{
+  background-color: #ffffb3;
+}
+.Blue {
+  top: 300px;
+  background-color: #c6ffff;
+}
+.Green{
+  background-color: #91ff91;
+  left: 600px;
+  top: 300px;
+}
+.Pink{
+  background-color: #ffe5ff;
+  left: 600px;
+}
+.Brown{
+  background-color:#FFB4B4;
+  top: 25%;
+  left: 25%;
+  }
+

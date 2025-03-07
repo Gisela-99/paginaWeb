@@ -1,0 +1,6 @@
+.borderImage{
+  border-width: 30px;
+  border-style: solid;
+  padding: 20px;
+  border-image: url(./IMG/border.png) 30 30 stretch;
+}

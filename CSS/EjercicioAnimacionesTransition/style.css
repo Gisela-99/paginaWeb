@@ -1,0 +1,135 @@
+.cambioColor{
+  width: 400px;
+  height: 400px;
+  background-color: pink;
+  transition: 2s;
+}
+
+.cambioColor:hover{
+  background-color: black;
+  transition: 0.6s;
+}
+
+p:hover span{
+  transition: 2s;
+}
+
+p:hover .letra1{
+  font-size: 6em;
+  color: aquamarine;
+}
+p:hover .letra2{
+  font-size: 0.5em;
+  color: blueviolet;
+}
+p:hover .letra3{
+  font-size: 2em;
+  color: chocolate;
+}
+p:hover .letra4{
+  font-size: 15em;
+  color: gold;
+}
+
+.textShadown{
+  font-size: 3rem;
+  text-shadow: 
+  -50px -30px 2px blue, 
+  -30px 50px 2px orange, 
+  110px 50px 2px red, 
+  90px -50px 2px green;
+  transition: 2s;
+  font-size: 2em;
+}
+
+.textShadown:hover{
+  text-shadow: 
+  50px 30px 2px blue,
+  30px -50px 2px orange,
+  -110px -50px 2px red,
+  -90px 50px 2px green;
+  ;
+
+}
+
+nav{
+  display: flex;
+  gap: 20px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: white;
+}
+
+/* nav p{
+  width: 60px;
+  padding: 20px;
+  border: 2px solid red;
+  border-radius: 20px;
+  text-shadow: 2px 2px 3px orange ;
+  box-shadow:3px 3px 3px black;
+  background: 
+  url(./img/indiana.png) top left, 
+  linear-gradient(to bottom, #f230b4 0%, #f230b4 0%, #f230b4 0%, #ff3232 0%, #ff3232 26%, #ff3232 26%, #25ed68 100%);
+  transition: 2s;
+  
+
+}
+
+nav p:hover{
+  background: url(./img/indiana.png) center center,
+  linear-gradient(to bottom, #f230b4 0%, #f230b4 0%, #f230b4 0%, #ff3232 0%, #ff3232 26%, #ff3232 26%, #25ed68 100%);
+} */
+
+
+nav ul{
+  display: flex;
+    gap: 20px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    list-style-type: none;
+}
+nav li a{
+  text-decoration: none;
+
+}
+nav li a{
+  width: 60px;
+    padding: 20px;
+    color: white;
+    border: 2px solid red;
+    border-radius: 20px;
+    text-shadow: 2px 2px 3px orange;
+    box-shadow: 3px 3px 3px black;
+    background:
+      url(./img/indiana.png) top left,
+      linear-gradient(to bottom, #f230b4 0%, #f230b4 0%, #f230b4 0%, #ff3232 0%, #ff3232 26%, #ff3232 26%, #25ed68 100%);
+    transition: 2s;
+    /* background-size:cover, background-position, background-repeat */
+}
+nav li:hover a{
+  background: url(./img/indiana.png) center center,
+    linear-gradient(to bottom, #f230b4 0%, #f230b4 0%, #f230b4 0%, #ff3232 0%, #ff3232 26%, #ff3232 26%, #25ed68 100%);
+}
+.box{
+  width: 400px;
+  height: 400px;
+  background-color: red;
+  transition: 
+    width 10s,
+    height 5s, 
+    font-size 3s,
+    background-color 2s
+  ;
+  transition-timing-function: linear, ease-in;
+  /* transition-property: width, height;
+  transition-duration: 10s, 5s; */
+   /* transition: 2s; */
+  
+}
+.box:hover{
+  font-size: 15em;
+  background-color: blue;
+  width: 700px;
+}
