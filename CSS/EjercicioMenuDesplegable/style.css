@@ -1,0 +1,61 @@
+@font-face {
+  font-family: flecha;
+  src: url(./letra/Arrows_tfb.ttf);
+}
+/*ul{
+  display: flex;
+   para menu horizontal
+} */
+ul li{
+
+  display: inline-block;
+}
+ul a{
+  text-decoration: none;
+  display: block;
+  color: black; 
+  transition: 0.5s;
+  list-style-type: none;
+  background-color: pink;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 2px;
+}
+nav{
+  width: 500px;
+}
+
+ul a:hover{
+  background-color: sandybrown;
+ 
+}
+nav li.hasChildren>a::after {
+  color: purple;
+  font-family: flecha;
+  content: " o";
+}
+
+nav .hasChildren ul{
+  position:absolute;
+  padding-left: 0px;
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: 1s;
+
+}
+nav .hasChildren li{
+  display: block;
+  
+}
+nav .hasChildren:hover ul{
+  position: absolute;
+  padding-left: 0px;
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: 1s;
+  opacity: 1;
+  max-height: 800px;
+}
