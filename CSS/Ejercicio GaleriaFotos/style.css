@@ -1,0 +1,37 @@
+.container{
+  display: flex;
+  flex-wrap: wrap;
+}
+.black{
+  width: 200px;
+  background-color: black;
+  position: relative;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  
+}
+.black img{
+  width: 100%;
+  display: block;  
+  transition: 0.5s;
+  
+}
+.black:hover img{
+  opacity: 0.5;
+
+  transform: scale(2)
+
+}
+.black p{
+  position: absolute;
+   text-align: center;
+   top: 0px;
+   width: 200px;
+   height: 100%;
+   opacity: 0;
+   margin: 10px;
+}
+.black p:hover{
+   opacity: 1;
+}
