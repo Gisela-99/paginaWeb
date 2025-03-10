@@ -1,0 +1,61 @@
+@font-face {
+  font-family: flecha;
+  src: url(./letra/Arrows_tfb.ttf);
+}
+nav ul{
+  list-style-type: none;
+}
+nav{
+  width: 300px;
+}
+nav ul a{
+  text-decoration: none;
+  background-color: pink;
+  border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+  display: block;
+}
+
+nav ul a:hover{
+  background-color: orange;
+}
+
+nav li{
+  position: relative;
+}
+
+nav li.hasChildren>a::after {
+  color: purple;
+  font-family: flecha;
+  content: " o";
+}
+
+nav .hasChildren ul {
+  position: absolute;
+  padding-left: 0px;
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: 1s;
+  left: 100%;
+  top: 0;
+  /* Para que el submenú esta al lado */
+
+}
+
+nav .hasChildren li {
+  display: block;
+}
+
+nav .hasChildren:hover ul{
+  position: absolute;
+  padding-left: 0px;
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: 1s;
+  opacity: 1;
+  max-height: 800px;
+
+}
