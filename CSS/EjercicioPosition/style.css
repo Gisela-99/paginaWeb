@@ -56,21 +56,28 @@ h2{
 .boxg a{
   text-decoration: none;
   color: black;
+  width: 100%;
+  background-color:#91ff91 ;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 2px; 
+  width: 200px; 
+  display: block;
  
 }
 .boxg li{
   list-style-type: none;
-  width: 200px; 
-  background-color:#91ff91 ;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 2px;
-  transition: 
-  width 2s, background-color #FFB4B4 1s;
 }
 
-.boxg li:hover{
-  width: 300px;
+.boxg ul{
+  position: relative; 
+
+ 
+}
+
+.boxg a:hover{
+  background-color: pink;  transition: 1s;  
+  width: 130%;
 }
 
 .boxp{
