@@ -37,3 +37,23 @@ animation: move 1s forwards;
   /* transition: 1s; */
   animation: move 1s forwards;
 }
+
+
+img{
+  margin-top: 100px;
+  width: 300px;
+  animation: rotat 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rotat{
+  from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+}
