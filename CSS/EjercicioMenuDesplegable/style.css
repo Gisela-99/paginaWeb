@@ -6,6 +6,7 @@
   display: flex;
    para menu horizontal
 } */
+
 ul li{
 
   display: inline-block;
@@ -59,3 +60,10 @@ nav .hasChildren:hover ul{
   opacity: 1;
   max-height: 800px;
 }
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
