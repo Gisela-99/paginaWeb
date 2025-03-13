@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularios en HTML</title>
+  <style>
+    h1{
+      text-align: center;
+      padding: 20px;
+    }
+    label {
+      display: inline-block;
+      width: 200px;
+      vertical-align: top;
+    }
+    textarea{
+      width: 300px;
+      height: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+       -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    input{
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+    input:focus {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+    form{
+      max-width: 400px; margin: 0 auto;
+    }
+    button{
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Maquetación de un formulario con HTML y CSS</h1>
+  <form>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" /><br><br>
+    
+    <label for="Email">Email:</label>
+    <input type="text" id="Email" /><br><br>
+    
+    <label for="comentario">Comentario:</label>
+    <textarea></textarea><br><br>
+
+    <label for="Condiciones">Acepto las condiciones</label>
+    <input type="checkbox">
+    <br><br>
+    <!-- <input type="submit"> -->
+     <button>Enviar</button>
+  </form>
+  
+</body>
+</html>
