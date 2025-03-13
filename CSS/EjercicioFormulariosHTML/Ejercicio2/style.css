@@ -1,0 +1,29 @@
+input:invalid{
+  background-color: salmon;
+}
+input:valid {
+  background: palegreen;
+}
+input{
+  border: 5px solid black;
+  width: 250px;
+}
+label{
+  display: inline-block;
+  width: 150px;
+    margin-bottom: 5px;
+    vertical-align: top;
+}
+
+form{
+  width: 900px;
+  margin: auto;
+  margin-top: 50px;
+}
+h1{
+  text-align: left;
+}
+button{
+  width: 250px;
+  margin:auto;
+}
