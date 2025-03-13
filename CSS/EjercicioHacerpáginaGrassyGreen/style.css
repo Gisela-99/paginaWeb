@@ -1,35 +1,53 @@
+@font-face {
+  font-family: letra;
+  src: url(./grassy/fuente.woff);
+}
 body,h1,h2{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: letra; 
+  font-weight: bold;
 }
+
 nav ul{
   list-style-type: none;
+  margin:0;
 }
 ul li {
   display: inline-block;
 }
 nav ul a{
-  background-color: blueviolet;
-  padding: 20px;
   text-decoration: none;
   color: white;
   justify-content: space-between;
+  display: inline-block;
+  margin:0px 100px;
+  padding: 40px;
+  z-index: 100;
 }
 nav{
-  background-color: #1e7f6c;
-  padding: 20px;
+  width: 100%;
+  background-color: #1e7f6c80;
   text-align: center;
-  position: sticky;
+  position: fixed;
+  top: 0;
+  opacity: 1;
 }
+nav a:hover{
+  /* opacity: 0.5; */
+  background-color:#62bdab;
+}
+
 h1{
   text-align: center;
+  font-size: 10rem;
 }
 .container {
-  padding: 50px;
+  padding: 3rem;
   display: flex;
-  gap: 50px;
+  gap: 40px;
+  
 }
 .black{
   background-color: #333333;
@@ -45,5 +63,59 @@ article .black a{
 footer{
   text-align: center;
   background-color: #1e7f6c;
+  padding: 20px;
+  padding: 5rem;
+}
+
+.fondo{
+  height:600px ;
+  background: url(./grassy/pic01.jpg);
+}
+
+.container ul{
+  padding-left: 0;
+}
+.container li{
+  margin-bottom: 20px;
+}
+.enlace a{
+  color: black;
+}
+.header{
+  padding: 10rem;
+  text-align: center;
+}
+.container .green h2{
+  color: #1e7f6c;
+}
+
+ h3{
+  color: grey;
+}
+img{
+  display: inline-block;
+  margin-left: 2px;
+  margin-top: 5px;
+}
+
+.fotos{
+  width: 60%;
+}
+main{
+  max-width: 80%;
+  margin: auto;
+  text-align: justify;
+}
+.caja{
+  max-width: 500px;;
+}
+ .center{
+  max-width: 80%;
+  margin: auto;
+}
+article{
+  background-color: #333333;
+}
+.container h2{
   padding: 20px;
 }
