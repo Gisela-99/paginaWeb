@@ -1,0 +1,16 @@
+input[type="checkbox"]{
+  display: none;
+}
+
+label{
+  background-color: pink;
+  cursor: pointer;
+}
+
+input[type="checkbox"]+label+.contenido {
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked+label+.contenido {
+  opacity: 1;
+}

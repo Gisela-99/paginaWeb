@@ -3,11 +3,19 @@ body{
 }
 
 .calculadora{
+  margin: auto;
   border: 2px solid black;
   border-radius: 20px;
-  max-width: 500px;
+  max-width: 300px;
   padding: 2rem;
   background-color: cornflowerblue;
+  display: flex;
+    /* Activar Flexbox */
+    flex-direction: column;
+    /* Los elementos se apilan verticalmente */
+    justify-content: center;
+    /* Centra los elementos verticalmente */
+    align-items: center;
 }
 h1,p{
   text-align: center;
@@ -17,4 +25,21 @@ h1,p{
 }
 p{
   font-size: x-large;
+}
+
+button{
+  padding: 1rem;
+  /* margin: 0 auto; */
+  border-radius: 10px;
+  font-size:larger;
+  background-color: white;
+  color: cornflowerblue;
+  border: 2px solid white;
+}
+
+input{
+ width: 50px;
+ margin: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
