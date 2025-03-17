@@ -7,14 +7,14 @@
   <title>Ejercico 2 formulario</title>
 </head>
 <body>
- 
+   
   <form>
     <h1>Validación de un formulario con HTML</h1>
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre "required="required" /><br><br>
   
     <label for="Edad">Edad:</label>
-    <input type="text" id="Edad" required="required" /><br><br>
+    <input type="text" id="Edad" required="required" min="0" max="100"/><br><br>
   
     <label for="Codigo">Codigo Postal:</label>
     <input type="text" id="Codigo" required="required" pattern="^[0-9]{5}$" title="Debes introducir 5 dígitos numéricos"/><br><br>

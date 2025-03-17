@@ -7,21 +7,26 @@ input:valid {
 input{
   border: 5px solid black;
   width: 250px;
+  margin-bottom: 10PX;
 }
 label{
   display: inline-block;
   width: 150px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     vertical-align: top;
 }
 
 form{
-  width: 900px;
+  width: 500px;
   margin: auto;
   margin-top: 50px;
+  border: 2px solid black;
+  /* text-align: center; */
+  padding: 2.5rem;
+  border-radius: 20px;
 }
 h1{
-  text-align: left;
+  text-align: center; 
 }
 button{
   width: 250px;

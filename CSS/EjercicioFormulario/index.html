@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Formulario</title>
+</head>
+<body>
+  <form action="https://dummyjson.com/auth/login" method="post" > 
+    <h1>Formulario</h1>
+    <label for="nombre">Usuario:</label>
+    <input type="text" id="nombre" placeholder="Gysel99" minlength="5" required/>
+    <label for="password">Contraseña:</label>
+    <input type="password" name="password" id="password" required>
+     <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="email@gmail.com" pattern=""> 
+    <label for="comentario"> Comentario:</label>
+    <textarea name="cometario" id="comentario"></textarea>
+    <label for="Condiciones">Acepto las condiciones</label>
+    <input type="checkbox">
+    <label for="si">Si</label>
+    <input type="radio" id="si" name="si" value="si" />
+    <label for="no">No</label>
+    <input type="radio" id="no" name="no" value="no"  />
+    
+    <input type="submit" value="Enviar " class="form-submit-button"/> <input type="reset" value="Borrar" class="form-submit-button">
+  </form>
+</body>
+</html>
