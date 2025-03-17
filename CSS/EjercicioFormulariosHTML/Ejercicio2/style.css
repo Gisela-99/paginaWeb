@@ -1,3 +1,7 @@
+body{
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 input:invalid{
   background-color: salmon;
 }
@@ -5,23 +9,27 @@ input:valid {
   background: palegreen;
 }
 input{
-  border: 5px solid black;
+  border: 2px solid black;
   width: 250px;
   margin-bottom: 10PX;
+  /* padding: 0.5rem; */
+  border-radius: 2px;
+
 }
 label{
   display: inline-block;
   width: 150px;
-    margin-bottom: 10px;
-    vertical-align: top;
+  margin-bottom: 10px;
+  vertical-align: top;
+  text-align: right;
+  margin-right: 5px;
 }
 
 form{
   width: 500px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 10%;
   border: 2px solid black;
-  /* text-align: center; */
   padding: 2.5rem;
   border-radius: 20px;
 }
@@ -29,6 +37,12 @@ h1{
   text-align: center; 
 }
 button{
-  width: 250px;
-  margin:auto;
+  width: 150px;
+  display: block;
+  text-align: center;
+}
+.persona{
+  font-size: 100px;
+  display: block;
+  text-align: center;
 }
