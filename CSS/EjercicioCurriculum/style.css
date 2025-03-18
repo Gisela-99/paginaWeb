@@ -1,0 +1,142 @@
+body{
+  background-color: #600e27;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main{
+  background-color: #f9e9d4;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+h1{
+  text-align: center;
+}
+
+h2{
+  font-size: 3rem;
+  text-align: center;
+  color:#85afb1;
+}
+
+nav{
+  width: 700px;
+  margin: auto;
+}
+
+header ul li {
+  display: inline-block;
+}
+
+header ul a {
+  text-decoration: none;
+  display: block;
+  color: #85afb1;
+  transition: 0.5s;
+  list-style-type: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 2px;
+  text-align: center;
+} 
+
+.menu{
+  width: 100px;
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+article.fondo{
+  display: flex;
+  gap:50%;
+  background: url("./img/europeana.jpg") no-repeat center;
+  background-size: contain;
+  color: grey;
+  width: 100%;
+}
+article h3{
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
+
+article div:nth-child(1){
+/* background-color: blueviolet; */
+padding: 1.2rem;
+text-align: left;
+}
+article div:nth-child(2){
+  /* background-color: coral; */
+  padding: 1.2rem;
+  text-align: right;
+}
+article h4{
+  font-weight: lighter;
+  color: #85afb1;
+}
+.arrow{
+  display: block;
+  width: 70px; 
+  margin: auto;
+  font-size: 70px;
+  color: #85afb1;
+}
+
+ section{
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  /* background-color: burlywood; */
+  justify-content: space-around;
+}
+.bateria{
+  width: 20%;
+  height: 10px;
+  background-color: brown;
+  margin-top: 10px;
+  
+} 
+
+ .icono{
+  /* background-color: aqua; */
+  padding: 10px;
+  width: 80px;
+  display: inline-block;
+} 
+.box{
+  background-color: burlywood;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  width: 15%;
+}
+i{
+  font-size: 100px;
+}
+.html{
+color: rgb(241, 158, 2);
+}
+
+.css{
+  color: rgb(77, 160, 238);
+}
+
+.js{
+  color: rgb(248, 248, 94);
+}
+.rect{
+  color: rgb(39, 248, 248);
+}
+
+.linkedin{
+  color: rgb(34, 34, 212);
+}
+
+.movil{
+  color: grey;
+}
