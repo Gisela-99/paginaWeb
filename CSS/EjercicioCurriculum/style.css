@@ -135,8 +135,30 @@ color: rgb(241, 158, 2);
 
 .linkedin{
   color: rgb(34, 34, 212);
+  font-size: 50px;
 }
 
 .movil{
   color: grey;
+  font-size: 50px;
+}
+
+article .about{
+  /* padding: 50px; */
+}
+.about h2{
+  margin: 0;
+}
+.about p{
+  text-align: justify;
+}
+.sobreMi{
+  display: flex;
+  justify-content: baseline;
+  margin-top: 100px;
+}
+
+.icono-about{
+  width: 50%;
+  border-right: 2px solid #85afb1;
 }
