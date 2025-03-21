@@ -5,3 +5,10 @@ export function holalib(){
 export function adiosLib(){
   console.log("Aaaaaaaa")
 }
+
+
+// const operaciones=[];
+// export function anadeNumeros(entrada){
+// operaciones.push()
+// console.log(operaciones)
+// }

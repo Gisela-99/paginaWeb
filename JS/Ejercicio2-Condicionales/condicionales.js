@@ -1,19 +1,19 @@
 
- function restar(a,b){
+export function restar(a,b){
   return a-b;
  }
-function sumar(a,b){
+export function sumar(a,b){
 return a+b;
 }
 
-function multiplicar(a,b){
+export function multiplicar(a,b){
   return a*b;
 }
-function division(a,b){
+export function division(a,b){
   return a/b;
 }
 
-function argumentOperador(num1,num2,operador){
+ export function argumentOperador(num1,num2,operador){
 
   if(operador==="+"){
     return num1 + num2;
@@ -39,7 +39,7 @@ console.log(argumentOperador(21, 3, "*"));  // 21
 console.log(argumentOperador(7, 3, "/"));
 
 // Switch
-function calcular(num1,num2,operador){
+export function calcular(num1,num2,operador){
   let resultado;
   switch(operador){
     case '+':
@@ -66,3 +66,4 @@ function calcular(num1,num2,operador){
   }
 
 }
+
