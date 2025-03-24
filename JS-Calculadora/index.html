@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio Calculadora</title>
+</head>
+<body>
+  <h1>Calculadora</h1>
+
+  <script>
+    const num1= parseInt(prompt('Introduce el 1r número'));
+    const num2= parseInt(prompt('Introduce el 2n número'));
+
+    const operador= prompt('Introduce el operador')
+    
+    function operacion(num1, num2, operador){
+      let resultado;
+      if(operador==='+'){
+        resultado= num1 + num2;
+      }else if(operador ==='-'){
+        resultado= num1 - num2;
+      }else if(operador ==='*'){
+        resultado= num1 * num2;
+      } else if (operador === '/') {
+        if (num2 !== 0) {
+          resultado = num1 / num2;
+        } else {
+          resultado = "No divisible"; // Para evitar la división por cero
+        }
+      } else {
+        resultado = "Operador no válido"; // Para el caso en que el operador no sea válido
+      }
+        return resultado
+    }
+    
+    //alert(operacion(num1,num2,operador))
+
+  let resultado = operacion(num1, num2, operador);
+    alert(`El resultado final de ${num1} ${operador} ${num2} = ${resultado}`);
+    
+  </script>
+  
+</body>
+</html>

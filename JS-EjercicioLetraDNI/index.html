@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio Letra DNI</title>
+</head>
+<body>
+  <h1>Ejercicio Letra DNI</h1>
+  <script>
+    let numDni= Number(prompt('Introduce tu DNI sin la letra'));
+    //alert(letrasDni);
+
+    if(numDni< 10000000 && numDni> 999999999){
+      alert('Por favor, introduce un número con al menos 8 dígitos')
+    } else{
+      let letraMayuscula = ['T', 'R', 'W', 'A','G', 'M','Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K','E'];
+      
+      let letras = letraMayuscula.join('');
+
+      const n= Math.floor(Math.random() * 23);
+
+      let letra=letras.charAt(n);
+      //let letra=prompt('Introduce la letra que se añadirá en el DNI');
+      let resultado= numDni + letra;
+      alert(`El número con la letra agregada es: ${resultado}`);
+    }
+
+  </script>
+
+  
+
+  
+</body>
+</html>

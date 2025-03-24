@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcular número secreto con 3 oportunidades</title>
+</head>
+<body>
+  <h1>Calcular número secreto con 3 oportunidades</h1>
+  <script>
+    const numSecreto=Math.floor(Math.random() * 10 + 1);
+    //alert(numSecreto);
+    let numAleatorio;
+    let intentos=0;
+    let resultado;
+
+    while(intentos<3){
+      numAleatorio =Number(prompt('Introduce el número de 1-10'));
+
+      if(numSecreto===numAleatorio){
+        resultado="Has acertado";
+        break;
+      }else{
+        intentos++;
+        if(intentos<3){
+          resultado="Inténtalo de nuevo"
+        alert(resultado)
+        }
+        
+      }
+
+    }   
+    
+    if(intentos===3 && numAleatorio !== numSecreto){
+      resultado=`Has agotado todos tus intentos. El número secreto era ${numSecreto}`
+    }
+    alert(resultado)
+
+  </script>
+</body>
+</html>

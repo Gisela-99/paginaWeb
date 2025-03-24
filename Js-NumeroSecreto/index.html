@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calcular número secreto</title>
+</head>
+<body>
+  <h1>Calcular número secreto</h1>
+  <script>
+    const numeroSecreto=Math.floor(Math.random()*5+1);
+    const numAleatorio=Number(prompt('Introduce un número aleatorio'));
+    console.log(numAleatorio)
+    let resultado;
+    if(numeroSecreto===numAleatorio){
+      resultado="Acertado"
+    }else{
+      resultado= `Lo siento, el número secreto era ${numeroSecreto}. Intenta de nuevo.`;
+    }
+
+    alert(resultado);
+
+  </script>
+
+  <!-- <script>
+    // Paso 1: Almacenar el número secreto (aleatorio entre 1 y 5)
+    const numeroSecreto1 = Math.floor(Math.random() * 5 + 1);
+
+    let numAleatorio1;
+    let resultado1;
+
+    // Paso 2: Bucle para seguir pidiendo un número hasta que sea correcto
+    while (numAleatorio1 !== numeroSecreto1) {
+      // Pedir al usuario que ingrese un número
+      numAleatorio1 = Number(prompt('Introduce un número aleatorio entre 1 y 5'));
+
+      // Comprobar si el número es correcto
+      if (numAleatorio1 === numeroSecreto1) {
+        resultado1= "¡Felicidades! Has adivinado el número secreto.";
+      } else {
+        resultado1 = `Lo siento, el número secreto era ${numeroSecreto1}. Intenta de nuevo.`;
+        alert(resultado1);  // Muestra el mensaje si es incorrecto
+      }
+    }
+
+    // Cuando el número es correcto, mostrar el mensaje final
+    alert(resultado1);
+  </script> -->
+
+  
+</body>
+</html>

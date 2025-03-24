@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Las funciones alert, prompt y confirm</title>
+</head>
+<body>
+  <h1>Las funciones alert, prompt y confirm</h1>
+  <script>
+    window.alert("Hola, que tal?");
+    const nombre = window.prompt("Introduce un nombre por favor");
+    const respuesta = window.confirm("Los datos introducidos ¿Son correctos?");
+    console.log(typeof nombre);
+    console.log(typeof respuesta); // boolean
+
+    //Convertir número como texto en número = 3 maneras
+    const n = prompt("Introduce un número");
+      const n1 = parseInt(n); // Esta conversión a número nos lo deja como entero, eliminando los decimales.
+      const n2 = Number(n);
+      const n3 = +n;
+  </script>
+</body>
+</html>

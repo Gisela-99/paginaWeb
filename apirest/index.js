@@ -4,8 +4,8 @@ const port = 5000
 
 const nombres =[
   {id:1, nombre:'joe Banana', direccion:'c/aragon 123', postal:12254, telefono:6352178},
-  {id:2, nombre:'Marta Banana', direccion:'c/aragon 123',postal:12254, telefono:6352178},
-  {id:3, nombre:'José Banana',direccion:'c/aragon 123',postal:12254, telefono:6352178},
+  {id:2, nombre:'Marta Banana', direccion:'c/napoles 123',postal:12254, telefono:6352178},
+  {id:3, nombre:'José Banana',direccion:'c/corsega 123',postal:12254, telefono:6352178},
 ]
 //cargamos el soporte de Json de express
 app.use(express.json())
