@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+  <style>
+      body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+
+    form {
+      background-color: #fff;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      /** poner un width */
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    div {
+      margin-bottom: 20
+      px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript</h1>
+  <form action=""  onsubmit="validarFormulario(event)">
+
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" required placeholder="Gisela" />
+    </div>
+
+    <div>
+      <label for="apellidos">Apellidos:</label>
+      <input type="text" id="apellidos" required placeholder="Carballo"/>
+    </div>
+
+    <div>
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" required placeholder="26" min="0" max="100">
+
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="email@gmail.com">
+    </div>
+
+    <div>
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" required placeholder="c/Fantasia 123 Esc.A "/>
+    </div>
+
+    <div>
+      <label for="comentario"> Comentario:</label>
+      <textarea name="cometario" id="comentario"></textarea>
+    </div>
+
+    <div>
+      <button>Enviar Formulario</button>
+    </div>
+
+  </form>
+
+  <script>
+    function validarFormulario(ev){
+      console.log(ev) // nos da toda la información referente al formulario del evento que se ha creado el mismo navegador
+
+      ev.preventDefault() //--> esto sirve para desactivar el evento. Con esto mantenemos las validaciones, y no se carga la página. Es decir, EVITA EL ENVVÍO DEL FORMULARIO AL SERVIDOR Y, POR LO TANTO, QUE SE RECARGUE LA PÁGINA  ----   Ventajas: que no se pueda romper la página (NO puede Manipular)
+        
+        // RECUPERAR LOS DATOS DEL FORMULARIO
+        // aquí para el formulario se puede utilizar tanto let o const
+        let nombre = document.getElementById('nombre').value.trim() //trim:elimina todos los espacios 
+        console.log(nombre)// para ver que es lo que coge
+
+        let apellidos = document.querySelector('#apellidos').value.trim() // puedes accder con Id, clase, etc.
+        let direccion = document.querySelector('#direccion').value.trim()
+        let edad = document.querySelector('#edad').value.trim()
+        let email = document.querySelector('#email').value.trim()
+        let comentario = document.querySelector('#comentario').value.trim() 
+
+
+        try{
+        //VALIDAR LOS DATOS
+
+        let errores= ''
+          if(!nombre){// if(nombre == "")
+            errores = errores + 'Nombre obligatorio\n'
+          }
+
+          if (!apellidos) {
+            errores += 'Apellidos obligatorio\n'
+          }
+        
+          if (!direccion) {
+            errores += 'Dirección obligatorio\n'
+          }
+
+          if (isNaN(edad) || edad <0 || edad >120) {
+              errores +='Edad no númerica o esta fuera del rango\n'
+          }
+
+          if (!email) {
+              errores += 'Email obligatorio\n'
+            }
+
+            if(errores){
+              throw(errores)
+            }
+      //...
+
+      // Enviar los datos a una Api externa
+          window.alert('No ha habido errores\n')
+      }
+      catch (error) {
+          //captura todos los errores
+          window.alert(error)
+        }
+      }
+    
+  </script>
+  <!-- Cuando se pulsa el boton envia los datos en un sitio, el action indica donde se enviará. -->
+  <!-- Try/ catch : hay un flujo distinto de los errores -->
+  <!-- El servidor siempre se volverá a validar -->
+  <!-- onSubmit se envia al servidor, para que no se envie en el servidor para ello se recoge el event
+    event.preventDefault = 
+    -->
+</body>
+</html>

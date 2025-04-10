@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+</head>
+<body>
+  <h1>DOM</h1>
+  <form action="">
+    <input type="number" id="euros" placeholder="Euros">
+    <input type="number" id="dolares" placeholder="Dolares" disabled>
+    <button type="button"> Cambiar</button>
+  </form>
+    <script>
+      // forma correcta de activar eventos
+
+      /* OPCION 1: 
+        document.querySelector('button').onclick = cambiaDivisas  // asignar el nombre de la función del evento. Si ponemos los paréntesis no se vincula muy bien. 
+        
+        function cambiaDivisas() {
+          alert('ok')
+        }*/
+
+
+      /* OPCIÓN 2: */
+        document.querySelector('button').onclick = function (){
+        cambiaDivisas()
+      }
+      /*OPCIÓN 3:
+      document.querySelector('button').addEventListener('contextmenu', function (){ cambiaDivisas()})*/
+      
+      function cambiaDivisas(){
+        
+        // recuperar los euros y convertilos a numéricos con parseFloat () o Number ()
+        let euros = parseFloat(document.querySelector('#euros').value)  
+        // convertir a dolares 
+        let dolares = euros * 1.1
+        
+        // monstrar los dolares en el formulario 
+
+        document.querySelector('#dolares').value = dolares         
+      
+      }
+    </script>
+</body>
+</html>

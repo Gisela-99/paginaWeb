@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+</style>
+<body>
+  <h1>Ejercicios: DOM</h1>
+  <form action="" onsubmit="validarFormulario(event)">
+
+    <div>
+      <label for="nombre">Nombre del cliente:</label>
+      <input type="text" id="nombre" required placeholder="Gisela" />
+    </div>
+
+    <div>
+      <label for="material">Material:</label>
+      <select name="material" id="material">
+        <option value="Madera">Madera</option>
+        <option value="Plastico" selected>Plástico</option>
+        <option value="Metal">Metal</option>
+      </select>
+    </div>
+    <div>
+      <label for="dimension">Seleccione unas dimensiones para la caja:</label>
+      <input type="radio" value="Diminuta" name="dimension"> Diminuta <br> 
+      <input type="radio" value="Pequeña" name="dimension"> Pequeña <br>
+      <input type="radio" value="Grandes" name="dimension" checked> Grandes <br>
+    </div>
+    <div>
+      <label for="comentario"> Comentarios:</label>
+      <textarea name="cometario" id="comentario"></textarea>
+    </div>
+    <div>
+      <button type="button">Enviar</button>
+    </div>
+  </form>
+
+  <script>
+     // detectar pulsación del botón de enviar 
+        document.querySelector('button').onclick = function () {
+        validarFormulario()
+      }
+     // función para confeccionar el mensaje 
+      function validarFormulario(event){
+            // recuperar datos del formulario 
+          let nombre = document.getElementById('nombre').value 
+          console.log(nombre)
+
+          let material = document.querySelector('#material').value
+          let dimension =document.querySelector ('[name=material]:checked')
+
+          let comentario = document.querySelector('#comentario').value
+
+          const frase = nombre + ' ha pedido una caja de ' + material + ' con unas dimensiones ' + dimension+ '. ' + comentario;
+          alert (frase)
+
+          
+
+          // validar el nombre, material y dimensión informados 
+            try{
+              let errores = ''
+              if (!nombre) {
+                errores = errores + 'Nombre obligatorio\n'
+              }
+
+              if (!material) {
+                errores += 'Material obligatorio\n'
+              }
+
+              if (!comentario) {
+                errores += 'Comentario obligatorio\n'
+              }
+
+              if (errores) {
+                throw (errores)
+              }
+            } catch (error) {
+              window.alert(error)
+            }
+
+            document.querySelector('button').addEventListener('click', send);
+      } 
+      //confeccionar el mensaje 
+      document.querySelector('output').value = frase;
+      // enviar el mensaje al formulario
+
+
+  </script>
+</body>
+</html>
