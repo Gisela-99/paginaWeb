@@ -26,9 +26,9 @@
     <input type="number" id="noches" required min="1">
     <select id="ciudad">
       <option disabled selected value="">Seleccione destino</option>
-      <option>Roma</option>
-      <option>Londres</option>
-      <option>Berlin</option>
+      <option value="Roma">Roma</option>
+      <option value="Londres">Londres</option>
+      <option value="Berlin">Berlin</option>
     </select>
     <br><br>
     <label>Alquiler coche</label>
@@ -50,7 +50,14 @@
     //coste avión: Roma 300€, Berlin: 400€, Londres: 350€
     //coste coche: 40€/dia (si se alquila por 3 o más días descuento de 20€ y se se alquila por 7 o más descuento de 50€ no acumulable a los 20€)
 
+    //
+
     //función asociada al botón para recuperar los datos del formulario, calcular el total y enviar los importes al formulario
+
+    // contantes a utilizar en la aplicación
+    const ALQUILER_COCHE= 45;
+    const NOCHE_HOTEL = 60;
+
     // activar el botón de activar
     document.querySelector('form').onsubmit = sumaTotal         //onsubmit siempre asociado al formulario
     
@@ -100,7 +107,7 @@
     }
     //función específica para el cálculo del coste del hotel
     function costeHotel(noches){
-      return noches * 60;
+      return noches * NOCHE_HOTEL;
     }
 
     //función específica para el cálculo del coste del avión
@@ -130,7 +137,7 @@
     }
     //función específica para el cálculo del coste del coche
     function costeCoche(dias){
-     let precioCoche = dias * 40;
+     let precioCoche = dias * ALQUILER_COCHE;
       if (dias >= 7) { // que cumpla las dos condiciones
         precioCoche -= 50; 
       } else if (dias >= 3) {
@@ -138,6 +145,8 @@
       }
       return precioCoche;
     }
+
+    /**/
   </script>
 </body>
 

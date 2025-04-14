@@ -96,7 +96,7 @@
             // limpiar mensaje anterior 
             document.querySelector('#mensaje').value = '';
             // recuperar datos del formulario 
-          let nombre = document.querySelector('#nombre').value.trim() 
+          let nombre = document.querySelector('#nombre').value.trim().replace(/\s+/g, ' ') //inputValue = inputValue.replace(/\s+/g, " ").trim(); se llama expresiones regulares
           let material = document.querySelector('#material').value.toLowerCase()
           let dimension =document.querySelector ('[name=dimension]:checked')?.value //window.alert(dimension) . ? = quiere decir cabe la posibilidad, es como una cosa opcional. para que no tengas errores en la consola. 
           let comentario = document.querySelector('#comentario').value.trim()
@@ -128,8 +128,7 @@
               window.alert(error)
             }
 
-            document.querySelector('button').addEventListener('click', send);
-
+            
              //confeccionar el mensaje 
           let frase = nombre + ' ha pedido una caja de ' + material + ' con unas dimensiones ' + dimension + '. ' + comentario;
           // enviar el mensaje al formulario
