@@ -23,17 +23,18 @@
 <body>
   <form>
     <label>Número de noches y ciudad</label>
-    <input type="number" id="noches">
+    <input type="number" id="noches" required min="1">
     <select id="ciudad">
+      <option disabled selected value="">Seleccione destino</option>
       <option>Roma</option>
       <option>Londres</option>
       <option>Berlin</option>
     </select>
     <br><br>
     <label>Alquiler coche</label>
-    <input type="number" id="coche">
+    <input type="number" id="coche" min="0">
     <br><br>
-    <input type="button" value="Calcular">
+    <input type="submit" value="Calcular">
     <hr>
     <label>Coste hotel</label>
     <input type="text" disabled id="costehotel"><br>
@@ -50,16 +51,38 @@
     //coste coche: 40€/dia (si se alquila por 3 o más días descuento de 20€ y se se alquila por 7 o más descuento de 50€ no acumulable a los 20€)
 
     //función asociada al botón para recuperar los datos del formulario, calcular el total y enviar los importes al formulario
-
-    document.querySelector('input[type="button"]').onclick = sumaTotal
+    // activar el botón de activar
+    document.querySelector('form').onsubmit = sumaTotal         //onsubmit siempre asociado al formulario
     
+    function sumaTotal(ev){
+      //desactivar el envío del servidor 
+     ev.preventDefault()       // cualquier evento (que se acrtiva el navegador crea un objeto con datos). Este objeto tiene atributos y métodos el prevenDeafult() intercepta y lo desactiva del submit 
 
-
-    function sumaTotal(){
+      //recoger los datos del formulario
       let noches = Number(document.querySelector('#noches').value)
       let coche = Number(document.querySelector('#coche').value)
       let ciudad = document.querySelector('#ciudad').value
 
+      //validar los datos antes de calcular los datos
+      if(noches <= 0){
+        alert('Número de noches debe ser como mínimo 1')
+        return
+      }
+
+      if(ciudad == ''){
+        alert('Se debe seleccionar un destino')
+        return
+      }
+      if(coche < 0){
+        alert('Días de alquiler coche no puede ser negativo')
+        return
+      }
+      if(coche > noches){
+        alert('Días alquiler coche no puede superar a noches de hotel')
+        return
+      }
+
+      //calcular el precio del hotel (número)
       let costeHotelTotal = costeHotel(noches);
       let costeAvionTotal = costeAvion(ciudad);
       let costeCocheTotal = costeCoche(coche);
@@ -83,6 +106,19 @@
     //función específica para el cálculo del coste del avión
     function costeAvion(ciudad){
       let precio;
+
+      //también se puede utilizar el switch = si tenemos una variable y tenemos que comprobar y es limitado es perfecto
+        /*switch(ciudad){
+        case 'Roma':
+        return 300
+        
+        case 'Londres':
+        return 400
+
+        case 'Berlin':
+        return 350
+        }*/
+
       if(ciudad== 'Roma'){
         precio = 300;
       } else if( ciudad == 'Londres'){
@@ -95,7 +131,7 @@
     //función específica para el cálculo del coste del coche
     function costeCoche(dias){
      let precioCoche = dias * 40;
-      if (dias >= 7) {
+      if (dias >= 7) { // que cumpla las dos condiciones
         precioCoche -= 50; 
       } else if (dias >= 3) {
         precioCoche -= 20; 
