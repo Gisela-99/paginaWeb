@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Ejercicios: DOM</title>
 </head>
 <style>
   
@@ -11,6 +11,9 @@
       display: block;
       font-weight: bold;
       margin-bottom: 5px;
+    }
+    input#mensaje{
+      width: 500px;
     }
 
 </style>
@@ -44,38 +47,74 @@
     <div>
       <button type="button">Enviar</button>
     </div>
+    <div>
+      <input type="text" id="mensaje" disabled>
+    </div>
   </form>
 
   <script>
      // detectar pulsación del botón de enviar 
+
+     // opción 1: document.querySelector('button').onclick = confeccionarMensaje
         document.querySelector('button').onclick = function () {
         validarFormulario()
       }
      // función para confeccionar el mensaje 
-      function validarFormulario(event){
-            // recuperar datos del formulario 
-          let nombre = document.getElementById('nombre').value 
-          console.log(nombre)
 
-          let material = document.querySelector('#material').value
-          let dimension =document.querySelector ('[name=material]:checked')
-
+     /*opción 1:  function confeccionarMensaje (){
+        //window.alert('hola')
+        // limpiar mensaje anterior 
+          document.querySelector('#mensaje').value = '';
+        // recuperar datos del formulario 
+          let nombre = document.querySelector('#nombre').value.trim() 
+          let material = document.querySelector('#material').value.toLowerCase()
+          let dimension = document.querySelector ('[name=dimension]:checked').value
           let comentario = document.querySelector('#comentario').value
 
-          const frase = nombre + ' ha pedido una caja de ' + material + ' con unas dimensiones ' + dimension+ '. ' + comentario;
-          alert (frase)
+        // validar el nombre, material y dimensión informados 
+        if(nombre == ''){
+          window.alert(`El nombre es obligatorio`)
+          return;
+        }
+           //undefined, null, '', 0, false --- false
+        if(!dimension){ // (dimension === undefined)
+          window.alert('Te has paso de listo y te hemos pillado')
+          return
+        }
 
-          
+        //confeccionar el mensaje 
+        let mensaje = nombre + ' ha pedido una caja de ' + material + ' con unas dimensiones ' + dimension + '. ' + comentario;
+        //----opción 2: let mensaje = `${nombre} ha pedido una caja de ${material} con unas dimensiones ${dimension}. ${comentario}`
 
-          // validar el nombre, material y dimensión informados 
+        //enviar el mensaje al formulario
+        document.querySelector('mensaje').value = mensaje
+
+      }*/
+
+      function validarFormulario(event){
+
+            // limpiar mensaje anterior 
+            document.querySelector('#mensaje').value = '';
+            // recuperar datos del formulario 
+          let nombre = document.querySelector('#nombre').value.trim() 
+          let material = document.querySelector('#material').value.toLowerCase()
+          let dimension =document.querySelector ('[name=dimension]:checked')?.value //window.alert(dimension) . ? = quiere decir cabe la posibilidad, es como una cosa opcional. para que no tengas errores en la consola. 
+          let comentario = document.querySelector('#comentario').value.trim()
+            
+            // validar el nombre, material y dimensión informados 
             try{
               let errores = ''
-              if (!nombre) {
+              if (!nombre) { // if (nombre == '')
                 errores = errores + 'Nombre obligatorio\n'
-              }
+            
+              } 
 
               if (!material) {
                 errores += 'Material obligatorio\n'
+            
+              }
+              if (!dimension) {
+                errores += 'Dimension obligatorio\n'
               }
 
               if (!comentario) {
@@ -90,11 +129,13 @@
             }
 
             document.querySelector('button').addEventListener('click', send);
-      } 
-      //confeccionar el mensaje 
-      document.querySelector('output').value = frase;
-      // enviar el mensaje al formulario
 
+             //confeccionar el mensaje 
+          let frase = nombre + ' ha pedido una caja de ' + material + ' con unas dimensiones ' + dimension + '. ' + comentario;
+          // enviar el mensaje al formulario
+          document.querySelector('#mensaje').value = frase; 
+      } 
+  
 
   </script>
 </body>

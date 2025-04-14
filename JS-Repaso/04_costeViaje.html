@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio de coste de viaje</title>
+  <style>
+    form {
+      width: 40%;
+      margin: auto;
+      border: 1px solid grey;
+      padding: 20px
+    }
+
+    label {
+      display: inline-block;
+      width: 200px
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <label>Número de noches y ciudad</label>
+    <input type="number" id="noches">
+    <select id="ciudad">
+      <option>Roma</option>
+      <option>Londres</option>
+      <option>Berlin</option>
+    </select>
+    <br><br>
+    <label>Alquiler coche</label>
+    <input type="number" id="coche">
+    <br><br>
+    <input type="button" value="Calcular">
+    <hr>
+    <label>Coste hotel</label>
+    <input type="text" disabled id="costehotel"><br>
+    <label>Coste avión</label>
+    <input type="text" disabled id="costeavion"><br>
+    <label>Coste coche</label>
+    <input type="text" disabled id="costecoche"><br>
+    <label>COSTE TOTAL</label>
+    <input type="text" disabled id="total">
+  </form>
+  <script>
+    //coste hotel: 60€/noche
+    //coste avión: Roma 300€, Berlin: 400€, Londres: 350€
+    //coste coche: 40€/dia (si se alquila por 3 o más días descuento de 20€ y se se alquila por 7 o más descuento de 50€ no acumulable a los 20€)
+
+    //función asociada al botón para recuperar los datos del formulario, calcular el total y enviar los importes al formulario
+
+    document.querySelector('input[type="button"]').onclick = sumaTotal
+    
+
+
+    function sumaTotal(){
+      let noches = Number(document.querySelector('#noches').value)
+      let coche = Number(document.querySelector('#coche').value)
+      let ciudad = document.querySelector('#ciudad').value
+
+      let costeHotelTotal = costeHotel(noches);
+      let costeAvionTotal = costeAvion(ciudad);
+      let costeCocheTotal = costeCoche(coche);
+
+
+      document.querySelector('#costehotel').value = costeHotelTotal + '€' ;
+      document.querySelector('#costeavion').value = costeAvionTotal + '€';
+      document.querySelector('#costecoche').value = costeCocheTotal + '€';
+
+      let total = costeHotelTotal + costeAvionTotal + costeCocheTotal;
+
+      document.querySelector('#total').value = total + '€'; 
+    
+
+    }
+    //función específica para el cálculo del coste del hotel
+    function costeHotel(noches){
+      return noches * 60;
+    }
+
+    //función específica para el cálculo del coste del avión
+    function costeAvion(ciudad){
+      let precio;
+      if(ciudad== 'Roma'){
+        precio = 300;
+      } else if( ciudad == 'Londres'){
+      precio = 400 ;
+      }else if(ciudad == 'Berlin'){
+      precio = 350;
+      }
+      return precio;
+    }
+    //función específica para el cálculo del coste del coche
+    function costeCoche(dias){
+     let precioCoche = dias * 40;
+      if (dias >= 7) {
+        precioCoche -= 50; 
+      } else if (dias >= 3) {
+        precioCoche -= 20; 
+      }
+      return precioCoche;
+    }
+  </script>
+</body>
+
+</html>
