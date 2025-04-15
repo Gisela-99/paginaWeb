@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métodos Arrays</title>
+</head>
+<body>
+  <h1>Métodos Arrays</h1>
+
+  <script>
+    // array escalares 
+    let capitales =['Roma', 'Londres', 'Berlin']
+    let precios =[300, 350, 400]
+
+    //longitud de un array 
+    console.log ()
+    document.write('Longitud array ', capitales.length, '<br>')               // para escribir en el navegador, sólo para comprobar. length = es un atributos
+
+    //buscar un elemento en un array
+       //buscar un elemento de array para conocer el indice que ocupa
+        let indice = capitales.indexOf('Berlin') 
+        document.write('Indice: ', indice, '<br>')                            //sino existe devuelve -1, si existe te da la posición en dónde se encuenta. 
+
+        let precio = precios[indice]                                         //para conocer el precio
+        document.write('Precio: ', precio, '<br>')
+
+        //buscar un elemento de un array para comprobar que existe -- te devolverá si es verdaderos
+        let existe =capitales.includes ('Roma')
+        document.write('Existe: ', existe, '<br>')
+
+    //añadir una nueva capital al array
+    capitales.push('Madrid')
+    precios.push(150)
+    document.write(capitales, '<br>') //
+
+    //modificar el precio 
+    precios[0]=320 //conocer el indice, con eso tenemos que utilizar indexOf
+    document.write(precios,'<br>')
+
+    //borrar un elemento de un array 
+    //shift -elimina el primer elemento ---NO UTILIZARLO JAMÁS
+    //pop -elimina el último elemento
+
+    //PASO1: buscar que indice ocupa el elemento a borrar 
+    indice = capitales.indexOf('Berlin')                                     // si lo escribes mal te dará -1, y eso lo que llevará es que te elimine el último elemento
+    //PASO2:borrar el elemento del indice que hemos buscado antes
+    if(indice >= 0){
+      capitales.splice(indice, 1)                                           // dos argumentos:1 donde quieres utilzarlo,2  has que posiciones
+      precios.splice(indice, 1)
+    }
+    document.write(capitales, '<br>')
+    document.write(precios, '<br>')
+
+    //ordenar un array 
+    /*capitales.sort()
+    document.write(capitales,'<br>')*/
+
+
+    //recórrer un array desde el primer hasta el último elemento
+    for(let c=0 ; c < capitales.length ; c++){
+      document.write(capitales[c], '<br>')
+    }
+
+    //recórrer un array utilizandp el iterardor map
+    capitales.map(capital => document.write(capital,'<br>'))                //el map () no es universal método iterador. función flecha 
+    capitales.map(function(capital){ document.write(capital, '<br>') })    // funciones callback (poner el nombre del parámetro), funciones anónimas 
+
+
+  </script>
+</body>
+</html>

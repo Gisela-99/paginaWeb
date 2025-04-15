@@ -61,7 +61,7 @@
       }
      // función para confeccionar el mensaje 
 
-     /*opción 1:  function confeccionarMensaje (){
+    /*opción 1:  function confeccionarMensaje (){
         //window.alert('hola')
         // limpiar mensaje anterior 
           document.querySelector('#mensaje').value = '';
@@ -96,7 +96,7 @@
             // limpiar mensaje anterior 
             document.querySelector('#mensaje').value = '';
             // recuperar datos del formulario 
-          let nombre = document.querySelector('#nombre').value.trim().replace(/\s+/g, ' ') //inputValue = inputValue.replace(/\s+/g, " ").trim(); se llama expresiones regulares
+          let nombre = document.querySelector('#nombre').value.trim().replace(/\s+/g, ' ') //replace(/\s+/g, " ")-- se llama expresiones regulares
           let material = document.querySelector('#material').value.toLowerCase()
           let dimension =document.querySelector ('[name=dimension]:checked')?.value //window.alert(dimension) . ? = quiere decir cabe la posibilidad, es como una cosa opcional. para que no tengas errores en la consola. 
           let comentario = document.querySelector('#comentario').value.trim()
@@ -134,6 +134,28 @@
           // enviar el mensaje al formulario
           document.querySelector('#mensaje').value = frase; 
       } 
+
+      /*ELIMINAR LOS ESPACIOS EN BLANCO INECESARIOS EN EL CENTRO
+
+      let nombre = document.querySelector('#nombre').value.trim()
+        // while(mientras sea cierta no se sabe cuántas veces de va ejecutar)  for(interacion desde 0 hasta un contador final, es un número que se ejecuta si sa sabe cuántas se va ejecutar)
+        
+        nombre =  eliminarEspacios(texto){
+          while (texto.indexOf ('  ') >= 0){
+            texto = texto.replace(' ', ' ')
+          }
+          return texto;
+        }
+      OPCION 2:
+      function eliminarEspaciosConsecutivos(texto) {
+        while (texto.includes("  ")) {
+          texto = texto.split("  ").join(" ");
+        }
+        return texto.trim();
+      }
+
+      */
+
   
 
   </script>
