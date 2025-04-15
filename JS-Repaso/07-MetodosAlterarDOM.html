@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métodos Alterar DOM</title>
+</head>
+<body>
+  <h1>Métodos Alterar DOM: innertHTML + insertAdjcentHTML</h1>
+
+  <div>
+    <button type="button"> Añadir párrafo</button>
+  </div>
+  
+  <script>
+    //activar el evento para el botón
+
+    document.querySelector('button').onclick = insertarParrafo
+    // document.querySelector('button').addEventListener('click', agregarParrafo)
+    
+    function agregarParrafo(){
+      //añadir un nuevo párrafo después del botón 
+      document.querySelector('div').innerHTML += '<p> Nuevo párrafo </p>'  //conservar el párrafo. Su peligro solo para se utiliza para añadir contenido nuevo , y que no dependa de un evento activo. Se pierde las referencias.
+
+    }
+
+    function insertarParrafo(){
+      //añadir un nuevo párrafo después del botón del contenido
+      document.querySelector('div').insertAdjacentHTML ('beforeend', '<p> Nuevo párrafo </p>')  //beforeend= después del principio  afterbegin =  
+      
+      // es un método y tiene dos parámetros, 1: donde queremos poner el contenido, el segundo donde lo quiero añadir. No vuelve a renderizar, es decir, no vacía la caja, todas los eventos activos se mantiene
+    }
+
+    
+
+
+  </script>
+</body>
+</html>

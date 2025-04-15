@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Array multidimensional</title>
 </head>
 <body>
-  <h1>Array bidimensional</h1>
+  <h1>Array multidimensional</h1>
   <script>
+    //array multidimensional (dos dimensiones)
+    let capitalesPrecios=[['Roma',300], ['Londres',350]]
+    document.write('Precio Londres: ', capitalesPrecios[1][1], '<hr>')
+
     let ciudades = [
         {
-          nombre: 'Roma',
+          nombre: 'Roma',                                                                //clave/atributos: valor = 
           precio: 300
         },
         {
@@ -22,6 +26,31 @@
           precio: 400
         }
       ]
-  </script>
+    //iterar todos los elementos del array para mostrar la ciudad y el precio 
+    for( let k=0; k< ciudades.length; k++){
+      document.write('Ciudad: ', ciudades[k].nombre , ' , Precio: ', ciudades[k].precio, '<br>')
+    }
+    ciudades.map(ciudad => document.write('Ciudad: ',ciudad.nombre,' => Precio: ',ciudad.precio, '<br>')) 
+
+    //obtener todas las ciudades cuyo precio sea precio sea superior a 300$
+    let ciudadesCaras = ciudades.filter(ciudad => ciudad.precio > 300 )  //iterador lo recorre, función flecha se pude filtrar . El filter se dice que es una condición. Siempre te va delvolver una array 
+    console.log(ciudadesCaras)
+    ciudadesCaras.map(ciudad => document.write ('Ciudad: ', ciudad.nombre, ' --- Precio: ', ciudad.precio, '<br>' ))
+        //conquetenación
+        ciudades.filter(ciudad => ciudad.precio > 300 ).map(ciudad => document.write ('Ciudad: ', ciudad.nombre, ' ____ Precio: ', ciudad.precio, '<br>' ))
+
+    //buscar una ciudad determinada (Roma)
+    let ciudadABuscar = ciudades.find(ciudad => ciudad.nombre == 'Roma' )  //nos entrega el primer objeto que cumple la condición
+    console.log(ciudadABuscar)
+
+    if(ciudadABuscar){
+      document.write('Ciudad: ', ciudadABuscar.nombre, ' Precio : ', ciudadABuscar.precio, '<br>');
+    }
+
+    //obtener el índice de una ciudad determinada 
+    let indiceCiudad = ciudades.findIndex(ciudad => ciudad.nombre == 'Londres')
+    document.write ('Indice: ', indiceCiudad)
+
+</script>
 </body>
 </html>
