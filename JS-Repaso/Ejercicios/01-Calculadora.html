@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <style>
+   * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #74ebd5, #98aaf8);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    form {
+      background-color: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: border 0.3s;
+    }
+
+    input[type="text"]:focus,
+    select:focus {
+      border-color: #6c63ff;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #6c63ff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #5848c2;
+    }
+
+    input[disabled] {
+      background-color: #f2f2f2;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  
+  <form action="">
+    <h1>Calculadora</h1>
+    <input type="text" id="primerNum">
+    <input type="text" id="segundoNum">
+    <select name="operadores" id="operadores">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <button type="button" id="calcular">Calcular</button>
+    <input type="text" id="resultado" disabled>
+  </form>
+
+  <script>
+    document.querySelector('#calcular').onclick = function (){
+      const num1 = Number(document.querySelector('#primerNum').value)
+      const num2 = Number(document.querySelector('#segundoNum').value)
+      const operador = document.querySelector('#operadores').value
+
+      const resultadoFinal = calcularOperacion(num1, num2, operador)
+      document.querySelector('#resultado').value = resultadoFinal
+    }
+
+    function calcularOperacion (num1, num2, operador){
+      let resultado;
+      if (operador === '+') {
+        resultado = num1 + num2;
+      } else if (operador === '-') {
+        resultado = num1 - num2;
+      } else if (operador === '*') {
+        resultado = num1 * num2;
+      } else if (operador === '/') {
+        if (num2 !== 0) {
+          resultado = num1 / num2;
+        } else {
+          resultado = "No divisible"; 
+        }
+      } else {
+        resultado = "Operador no válido"; 
+      }
+      return resultado
+      
+    }
+  </script>
+</body>
+</html>

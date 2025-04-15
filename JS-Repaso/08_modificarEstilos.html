@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modificar Estilos</title>
+  <style>
+    div{
+      padding: 50px;
+      background-color: cornflowerblue;
+
+    }
+    .rojo{
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button type="button" id="cambiar"> Cambiar Color</button>
+    <button type="button" id="restablecer"> Restablecer Color</button>
+    <button type="button" id="alternar"> Alternar Color</button>
+  </div>
+
+  <script>
+    document.querySelector('#cambiar').onclick = cambiarEstilosClase
+    document.querySelector('#restablecer').onclick = restablecerEstilo
+    document.querySelector('#alternar').onclick = alternarEstilo
+
+    function cambiarEstilos(){
+      //cambiar varios estilos css de la caja de forma directa con JS
+      document.querySelector('div').style.backgroundColor = 'orange'
+      //document.querySelector('div').style.padding = '20px'
+    }
+    function cambiarEstilosClase(){
+      document.querySelector('div').classList.add('rojo')  // añade una clase, es un métodos de javascript classList.add| classList.remove (eliminar) classList.toggle (alterna)
+    }
+
+    function restablecerEstilo(){
+      //si hemos utilizado style 
+          //document.querySelector('div').style.backgroundColor = 'cornflowerblue'
+      //si hemos utilizado classList
+        document.querySelector('div').classList.remove('rojo')
+    }
+
+    function alternarEstilo(){
+      document.querySelector('div').classList.toggle('rojo')
+    }
+
+  </script>
+</body>
+</html>
