@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio de Seleccion Formulario</title>
+  <style>
+    section {
+      width: 60%;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid grey;
+    }
+
+    table,
+    td {
+      border: 1px solid grey;
+      margin: auto;
+    }
+
+    tbody tr {
+      cursor: pointer;
+    }
+
+    tbody tr:hover {
+      background-color: lightblue;
+    }
+
+    td {
+      padding: 5px
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <form>
+      <input type="text" placeholder="Nombre" id="nombre">
+      <input type="text" placeholder="Apellidos" id="apellidos">
+      <button type="button" id="alta">Alta</button>
+      <button type="button" id="modi" disabled>Modificar</button>
+      <button type="button" id="baja" disabled>Baja</button>
+    </form>
+    <hr>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="nombre">John</td>
+          <td class="apellidos">Rambo</td>
+        </tr>
+        <tr>
+          <td class="nombre">O-Ren</td>
+          <td class="apellidos">Ishii</td>
+        </tr>
+        <tr>
+          <td class="nombre">Johny</td>
+          <td class="apellidos">Mentero</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <script>
+    //PARTE 1: Formulario alta
+    /*
+    Al pulsar el botón de alta se trasladará el nombre y apellidos de la persona que hemos informado en el formulario a la tabla situada debajo previa validación de los datos (nombre y apellidos son obligatorios).
+    Una vez se hayan trasladado se limpiará el formulario
+    --innerHTML adjacentHTML
+    */
+    document.querySelector('button').onclick = insertarUsuario
+
+    function insertarUsuario(){
+      let nombre = document.querySelector('#nombre').value.trim()
+      let apellidos = document.querySelector('#apellidos').value.trim()
+
+      if (nombre === '' || apellidos === '') {
+        alert('Por favor, introduce nombre y apellidos.');
+        return;
+      }
+
+      let filaHTML=`<tr> <td class="nombre">${nombre} </td> <td class="apellidos"> ${apellidos}</td> </tr>`
+      document.querySelector('table').insertAdjacentHTML('beforeend', filaHTML)
+    }
+
+
+    //PARTE 2: Tabla consulta
+    /*
+    Al pulsar sobre una fila de la tabla (que no sea la de las cabeceras) se trasladará el nombre y apellidos de la fila pulsada a  los inputs del formulario y se activarán los botones de modificación y baja (que inicialmente están desactivados)
+    */
+
+    document.querySelectorAll('tr').onclick = modificarFomulario 
+    function modificarFomulario(){
+      alert('Hola')
+    }
+    //PARTE 3: Formulario modificación
+    /*
+    Al pulsar el botón de modificación se modificará el nombre y apellidos de la persona que hemos seleccionado antes en la tabla y se trasladarán los cambios a la tabla situada debajo previa validación de los datos (nombre y apellidos son obligatorios).
+    */
+
+    //PARTE 4: Formulario baja
+    /*
+    Al pulsar el botón de baja se borrará la persona que hemos seleccionado antes de la tabla.
+    Una vez borrada se desactivarán los botones de baja y modificación 
+    */
+  </script>
+</body>
+
+</html>
