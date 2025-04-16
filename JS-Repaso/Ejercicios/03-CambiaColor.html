@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambiar color Body</title>
+</head>
+<body>
+
+  <select id="color">
+    <option disabled selected>Seleccione color de fondo</option>
+    <option value="initial">Color por defecto</option>
+    <option value="green">Verde</option>
+    <option value="blue">Azul</option>
+    <option value="red">Rojo</option>
+    <option value="yellow">Amarillo</option>
+    <option value="black">Negro</option>
+  </select>
+  
+  <script>
+    //activar el combo
+    document.querySelector('#color').oninput = cambiarColor
+
+    function cambiarColor(){
+      //recuperar el color seleccionado
+      let color = document.querySelector('#color').value
+      //cambiar el color body 
+      document.querySelector('body').style.backgroundColor = color
+    }
+  </script>
+</body>
+</html>

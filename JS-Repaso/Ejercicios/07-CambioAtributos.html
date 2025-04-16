@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambiar el atributo + optimizar</title>
+  <style>
+    div {
+      text-align: center;
+    }
+
+    img {
+      width: 400px;
+      height: 300px;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Cambiar el atributo + optimizar</h1>
+  <div>
+    <img src="img/punta_cana_1.jpg" alt="imagen de punta cana">
+  </div>
+  <script>
+    let imagen =  document.querySelector('img')
+    //activar el evento onclick sobre la imagen
+    imagen.onclick = cambiarImagen
+
+    function cambiarImagen(){
+      //cambiar el atributo del src
+      imagen.setAttribute ('src', 'img/punta_cana_3.jpg')                                      
+      // setAttribute dos parametros 1 el valor que lo quieres cambiar con la segunda.Cualquier atributo de la etiqueta que quieras. Si queremos leer el atributo 
+
+      //leer un atributo de un nodo
+      let valorAtributo = imagen.getAttribute('alt')
+      alert(valorAtributo)
+
+      //borrar un atributo de un nodo
+      imagen.removeAttribute('alt')                               //mirar en la consola el código 
+    }
+
+    
+  </script>
+</body>
+</html>

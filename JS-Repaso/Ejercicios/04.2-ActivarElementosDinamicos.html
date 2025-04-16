@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activar elemento dinámicos 2</title>
+  <style>
+    section {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  
+    div {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: antiquewhite;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Activar elemento dinámicos:2</h1>
+  <section>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+  </section>
+  <script>
+    //activar un evento para la caja contenedora ---- es un elemento estático
+    document.querySelector('section').onclick = function(ev){
+
+      //la función solo se ejecutará si hemos pulsado sobre una caja que se encuentre dentro de la section
+      if (ev.target.nodeName == 'DIV'){
+        mostrarContenido(ev)
+      }
+    }
+
+    function mostrarContenido(ev){
+      window.alert(ev.target.innerHTML)
+    }
+
+
+  </script>
+</body>
+</html>

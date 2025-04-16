@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de imagenes</title>
+  <style>
+    div {
+      text-align: center;
+    }
+
+    img {
+      width: 400px;
+      height: 300px;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <img src="img/punta_cana_1.jpg" alt="">
+    <button type="button" id="anterior">
+      << </button>
+        <button type="button" id="siguiente">>></button>
+  </div>
+  <script>
+    //crear un array con el nombre de 6 imagenes de forma que, al pulsar sobre los botones << o >> se muestre en pantalla la imagen anterior o siguiente del array. Inicialmente la imagen a mostrar será la que ocupe el índice 0
+    let imagenesArrays = [
+        { src: "img/punta_cana_1.jpg", titulo: "Foto 1", descripcion: "Descripción de la foto 1" },
+        { src: "img/punta_cana_2.jpg", titulo: "Foto 2", descripcion: "Descripción de la foto 2" },
+        { src: "img/punta_cana_3.jpg", titulo: "Foto 3", descripcion: "Descripción de la foto 3" },
+        { src: "img/punta_cana_4.jpg", titulo: "Foto 4", descripcion: "Descripción de la foto 4" },
+        { src: "img/punta_cana_5.jpg", titulo: "Foto 5", descripcion: "Descripción de la foto 5" },
+        { src: "img/punta_cana_6.jpg", titulo: "Foto 6", descripcion: "Descripción de la foto 6" }
+      ];
+
+    let imagenMostrada = 0; // variable que nos dice que imagen del array se está mostrando en cada momento (inicialmente es la que ocupa  el indice)
+    let imagen = document.querySelector('img') // recuperamos el nodo de imagen una sola vez para evitar accesos sucesivos al DOM cada vez que se pulsa lis botones anterior y siguiente
+
+    document.querySelector('#anterior').onclick = imagenAnterior
+    document.querySelector('#siguiente').onclick = imagenSiguiente
+
+    function imagenAnterior(){
+      if(imagenMostrada == 0){
+        imagenMostrada= imagenesArrays.length - 1
+      }else{
+        imagenMostrada --
+      }
+    //si estamos en la última y pulsamos >> se mostrará la primera
+      imagen.setAttribute('src', `${imagenesArrays[imagenMostrada].src}`)
+    }
+
+    function imagenSiguiente(){ 
+
+      //si ya estamos en la primera y pulsamos << se mostrará la última
+      if(imagenMostrada == imagenesArrays.length -1){
+        imagenMostrada = 0
+      }else{
+        imagenMostrada ++
+      }
+      imagen.setAttribute('src', `${imagenesArrays[imagenMostrada].src}`)
+      
+    }
+  </script>
+</body>
+
+</html>

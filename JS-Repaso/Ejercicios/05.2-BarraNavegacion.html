@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra de Navegación: ejercicio 2</title>
+  <style>
+    nav {
+      text-align: center;
+      margin: 50px
+    }
+
+    a {
+      border: 1px solid grey;
+      padding: 10px;
+      text-decoration: none;
+      color: black
+    }
+
+    .resaltar {
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+
+<body>
+    <h1>Barra de Navegación: Ejercicio 2</h1>
+  <nav>
+    <a href="#">Enlace 1</a>
+    <a href="#">Enlace 2</a>
+    <a href="#">Enlace 3</a>
+    <a href="#">Enlace 4</a>
+  </nav>
+  <script>
+    
+    /* ejercicio 2:
+    Al pulsar sobre cada enlace cambiará el color del fondo utilizando la clase resaltar
+
+    Si hubiera otro botón, distinto del pulsado, con la clase resaltar activa se eliminará ésta
+    */
+
+    //variable para guardar el enlace activo
+    let enlaceActivo = null;
+    //obtener la lista de nodos con las etiquetas <a>
+    let enlace = document.querySelectorAll('a')
+
+    //iterar sobre la lista de nodos para activar el evento onclick para cada uno de ellos 
+    enlace.forEach(enlace => enlace.onclick=resaltarEnlace)
+    
+    //función para añadir la clase al anlace pulsado y eliminar la clase al enlace que teniamos pulsado antes
+
+    function resaltarEnlace(ev) {
+      //añadir la clase al enlace pulsado
+      ev.target.classList.add('resaltar')
+      //eliminar la clase del enlace que se había pulsado antes 
+      if (enlaceActivo){
+        enlaceActivo.classList.remove('resaltar')
+      }
+      //guardar el enlace activo en la variable 
+      enlaceActivo= ev.target
+    }
+
+  </script>
+</body>
+
+</html>

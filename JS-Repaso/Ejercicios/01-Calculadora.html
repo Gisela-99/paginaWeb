@@ -83,6 +83,7 @@
     <input type="text" id="primerNum">
     <input type="text" id="segundoNum">
     <select name="operadores" id="operadores">
+      <option value="operacion" disabled selected>operación</option>
       <option value="+">+</option>
       <option value="-">-</option>
       <option value="*">*</option>
@@ -93,22 +94,36 @@
   </form>
 
   <script>
+
+    document.querySelector('#primerNum').oninput = BorrarInputs
+    document.querySelector('#segundoNum').oninput = BorrarInputs 
+    
+    function BorrarInputs(){
+      document.querySelector('#resultado').value =null
+    }
+
     document.querySelector('#calcular').onclick = function (){
       const num1 = Number(document.querySelector('#primerNum').value)
       const num2 = Number(document.querySelector('#segundoNum').value)
       const operador = document.querySelector('#operadores').value
 
+
       const resultadoFinal = calcularOperacion(num1, num2, operador)
       document.querySelector('#resultado').value = resultadoFinal
     }
-
+      // VALIDAR DATOS
+      if(isNaN(primerNum) || isNaN(segundoNum)){
+        window.alert('Los dos números deben ser numéricos')
+        return
+      } 
+      //REALIZAR EL CÁLCULO
     function calcularOperacion (num1, num2, operador){
       let resultado;
       if (operador === '+') {
         resultado = num1 + num2;
       } else if (operador === '-') {
         resultado = num1 - num2;
-      } else if (operador === '*') {
+      } else if (operador === 'X') {
         resultado = num1 * num2;
       } else if (operador === '/') {
         if (num2 !== 0) {
@@ -122,6 +137,76 @@
       return resultado
       
     }
+
+    /*OPCIÓN 2:
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="number" id="num1">
+        <select id="oper">
+            <option disabled selected>Operación</option>
+            <option>+</option>
+            <option>-</option>
+            <option>x</option>
+            <option>/</option>
+        </select>
+        <input type="number" id="num2">
+        <span> = </span>
+        <input type="text" id="resultado" disabled>
+    </form>
+    <script>
+        //activar el evento sobre la combo
+        document.querySelector('#oper').oninput = calcular
+        document.querySelector('#num1').oninput = borrarResultado 
+        document.querySelector('#num2').oninput = borrarResultado
+
+        function borrarResultado() {
+            document.querySelector('#resultado').value = null 
+        }
+
+        function calcular() {
+            //recoger los datos
+            let num1 = Number(document.querySelector('#num1').value) 
+            let num2 = Number(document.querySelector('#num2').value) 
+            let oper = document.querySelector('#oper').value 
+
+            //validar los datos
+            if (isNaN(num1) || isNaN(num2)) {
+                window.alert('Los dos números deben ser numéricos')
+                return
+            }
+
+            //realizar el cálculo
+            let resultado;
+
+            switch (oper) {
+                case '+':
+                    resultado = num1 + num2
+                    break;
+                case '-': 
+                    resultado = num1 - num2 
+                    break
+                case 'x': 
+                    resultado = num1 * num2 
+                    break
+                case '/': 
+                    resultado = num1 / num2 
+                    break
+                default:
+                    window.alert('Operación incorrecta') 
+                    return
+            }
+
+            //mostrar el resultado
+            document.querySelector('#resultado').value = resultado
+        }
+  */
   </script>
 </body>
 </html>

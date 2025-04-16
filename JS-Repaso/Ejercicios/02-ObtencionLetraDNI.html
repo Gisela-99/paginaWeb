@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obtención de la letra DNI</title>
+  <style>
+     * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #74ebd5, #98aaf8);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    form {
+      background-color: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"]{
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      transition: border 0.3s;
+    }
+
+    input[type="text"]:focus{
+      border-color: #6c63ff;
+      outline: none;
+    }
+      button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background-color: #6c63ff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #5848c2;
+    }
+
+    input[disabled] {
+      background-color: #f2f2f2;
+      color: #333;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+  <form> 
+    <h1>Obtención de la letra de DNI</h1>
+    <input type="text" placeholder="DNI sin letra" id="numeroDni">
+    <button type="button">Obten la letra DNI</button>
+    <input type="text" id="letra" disabled>
+  </form>
+  <script>
+    //activar el evento del botón 
+    document.querySelector('button').onclick = calcularLetra
+    const LETRAS = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E']; // también se puede como cadena de texto
+
+    function calcularLetra(){
+      //recuperar número
+      let numero = Number(document.querySelector('#numeroDni').value)
+
+      if(isNaN(numero)){
+        window.alert('Dni debe de ser numérico')
+        return
+      }
+      //calcular letra 
+      let resto = numero % 23
+      // mostrar letra
+      document.querySelector('#letra').value = LETRAS[resto]
+    }
+  </script>
+</body>
+</html>

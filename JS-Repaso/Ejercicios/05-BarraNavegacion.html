@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra de Navegación</title>
+  <style>
+    nav {
+      text-align: center;
+      margin: 50px
+    }
+
+    a {
+      border: 1px solid grey;
+      padding: 10px;
+      text-decoration: none;
+      color: black
+    }
+
+    .resaltar {
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Barra de Navegación: Ejercicio 1</h1>
+  <nav>
+    <a href="#">Enlace 1</a>
+    <a href="#">Enlace 2</a>
+    <a href="#">Enlace 3</a>
+    <a href="#">Enlace 4</a>
+  </nav>
+  <script>
+    /* ejercicio 1:
+    Al pasar el ratón por encima de cada enlace cambiará el color del fondo utilizando la clase resaltar (onmouseover= onMouseOver )
+
+    Cuando el ratón sale del enlace se restablece el color de fondo original (onmouseout = onMouseOut)
+    */
+
+      //obtener todos los enlaces (etiquetas <a>)
+        let enlaces = document.querySelectorAll('a')
+        //console.log(enlaces)
+      
+        //activar los dos eventos para cada enlace
+        //Array.from(enlaces).map()
+        enlaces.forEach(enlace => {
+          enlace.onmouseover = cambiarFondo
+          enlace.onmouseout = quitarFondo
+
+          /*Opcion para una opción
+              enlace.onmouseover = resaltarFondo
+
+
+              function resaltarFondo(ev){
+              ev.target.classList.toggle('resaltar')
+              }
+          */
+        })
+      
+        //función para añadir o elminar la clase resaltar 
+        function cambiarFondo(ev){
+         //alert('hola')
+          ev.target.classList.add('resaltar')
+          
+        }
+        function quitarFondo(ev){
+          ev.target.classList.remove('resaltar')
+        
+        }
+    
+    /* ejercicio 2:
+    Al pulsar sobre cada enlace cambiará el color del fondo utilizando la clase resaltar
+
+    Si hubiera otro botón, distinto del pulsado, con la clase resaltar activa se eliminará ésta
+    */
+
+    document.querySelectorAll('a').onclick= cambiarColor
+    
+    enlace.forEach(enlace => {
+      enlace.onclick = cambiarColor
+    })
+
+    function cambiarColor(ev){
+      document.querySelector('body').classList.toggle('resaltar')
+    }
+
+  </script>
+</body>
+
+</html>
