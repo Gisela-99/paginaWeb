@@ -107,15 +107,15 @@
       const num2 = Number(document.querySelector('#segundoNum').value)
       const operador = document.querySelector('#operadores').value
 
-
+       // Validar datos
+      if (isNaN(num1) || isNaN(num2)) {
+        alert('Los dos números deben ser numéricos');
+        return;
+      }
       const resultadoFinal = calcularOperacion(num1, num2, operador)
       document.querySelector('#resultado').value = resultadoFinal
     }
-      // VALIDAR DATOS
-      if(isNaN(primerNum) || isNaN(segundoNum)){
-        window.alert('Los dos números deben ser numéricos')
-        return
-      } 
+      
       //REALIZAR EL CÁLCULO
     function calcularOperacion (num1, num2, operador){
       let resultado;

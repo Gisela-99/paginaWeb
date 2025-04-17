@@ -1,0 +1,22 @@
+* {
+	font-family: arial;
+}
+#contenedor {
+	width: 75%;
+	margin: auto;
+	padding: 30px;
+	border-radius: 5px;
+	border: 1px solid grey;
+	background-color: lightgrey;
+	text-align: center;
+}
+
+#galeria img {
+	width: 260px; height: 200px;
+}
+
+#fotos img {
+	width: 120px; height: 90px;
+}
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create by Element</title>
+  <style>
+    div {
+      width: 300px;
+      height: 200px;
+      display: inline-block;
+      padding: 5px;
+      border: 1px solid grey;
+      vertical-align: top;
+      /*si se utiliza del display block hay que utilizar el vertical-align, ya que lo centra por el contenido OJO recuerda las imagenes de la playa*/
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <div>
+      <img src="img/punta_cana_1.jpg" alt="PLaya de punta cana">
+    </div>
+  </section>
+
+  <script>
+
+    const IMAGENES = ['punta_cana_2.jpg', 'punta_cana_3.jpg', 'punta_cana_4.jpg', 'punta_cana_5.jpg', 'punta_cana_6.jpg'];
+    const SECTION = document.querySelector('section')
+
+    //crear una estructura <div><img src alt></div>
+    IMAGENES.map(imagen => confeccionarNodo(imagen))          //recoger una array con el map, función flecha con una función con su parametro
+    
+    function confeccionarNodo(imagen){
+      //alert(imagen)
+      //confeccionar nodo con innerHTML o insertAdjacentHTML
+      /*let nodo = `<div class='galeria'><img src='img/${imagen}' alt='Playas de Punta Cana' onclick='nombreImagen()'></div>` // en este caso se tiene que poner los eventos en línea y poner la clase
+      SECTION.insertAdjacentHTML('beforeend', nodo)     */     // segundo parametro es para poner las etiquetas quiero añadir 
+      // Opción 2: document.querySelector('section').innerHTML += nodo
+      
+
+      //CONFECCIONAR LOS NODOS CON CREATE ELEMENT
+      let div = document.createElement('div')         //creamos una caja = crear nodo div
+      div.classList.add('galeria')                    //añadir una clase
+      let img = document.createElement('img')
+      img.setAttribute('src', `img/${imagen}` )      //setAttribute= para añadir un atributo. En este caso src
+      img.setAttribute('alt', `Playas de Punta Cana`)
+
+      //Cuando el usuario haga click sobre una imagen se mostrarà una alerta con el nombre de la misma
+      img.onclick = nombreImagen 
+
+      div.appendChild(img)                           //appendChild = añadir hijo . En este caso, colocar la imagen dentro de la caja.
+      //console.log(div)
+      SECTION.appendChild(div)
+    }
+
+    function nombreImagen(ev) {
+      alert(ev.target.getAttribute ('src'))
+    }
+
+  </script>
+</body>
+
+</html>

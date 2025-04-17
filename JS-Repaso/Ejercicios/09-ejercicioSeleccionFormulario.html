@@ -73,41 +73,114 @@
     Una vez se hayan trasladado se limpiará el formulario
     --innerHTML adjacentHTML
     */
-    document.querySelector('button').onclick = insertarUsuario
+    const FORM = document.querySelector('form')
+    const BOTONMODI = document.querySelector('#modi')
+    const BOTONBAJA = document.querySelector('#baja')
 
-    function insertarUsuario(){
+    document.querySelector('#alta').onclick = insertarUsuario
+
+    function insertarUsuario() {
       let nombre = document.querySelector('#nombre').value.trim()
       let apellidos = document.querySelector('#apellidos').value.trim()
-
       if (nombre === '' || apellidos === '') {
         alert('Por favor, introduce nombre y apellidos.');
         return;
       }
 
-      let filaHTML=`<tr> <td class="nombre">${nombre} </td> <td class="apellidos"> ${apellidos}</td> </tr>`
-      document.querySelector('table').insertAdjacentHTML('beforeend', filaHTML)
+      let filaHTML = `<tr onclick='modificarFomulario(event)'> <td class="nombre">${nombre} </td> <td class="apellidos"> ${apellidos}</td> </tr>`
+      document.querySelector('tbody').insertAdjacentHTML('beforeend', filaHTML)
+
+      FORM.reset()  
+    }
+    /*OPCIÓN 2:
+
+    const TBODY= document.querySelector('tbody')
+    const FORM= document.querySelector('form')
+    const BOTONMODI=document.querySelector('#modi')
+    const BOTONBAJA=document.querySelector('#baja')
+
+    document.querySelector('#alta').onclick = altaPersona
+
+    function altaPersona (){
+
+      //recuperar datos 
+      let nombre = document.querySelector('#nombre').value.trim()
+      let apellidos = document.querySelector('#apellidos').value.trim()
+
+      //validar los datos
+        if(!nombre || !apellidos){
+          alert('Nombre y apellidos obligatorios')
+          return
+        }
+      
+      //confeccionar una fila de la tabla 
+      let fila = `<tr onclick='trasladarDatos(event)'><td>${nombre}</td> <td>${apellidos}</td></tr>`
+
+      //enviar la fila en la tabla
+      TBODY.insertAdjecent('beforeend', fila)
+
+      //limpiar el formulario
+      FORM.reset()                                      //limpiar el formulario. ----------reset()= Restablecer los valores por defector del formulario
+
+
+    }
+    PARTE 2:
+
+    function trasladarDatos(ev){
+      //recuperar nombre y apellidos de la fila pulsada
+      let TD = ev.target                                          //etiquetas td (nombre o apellidos)
+      TD.closest('tr')                                            //buscar la etiqueta tr que engloba las td
+      let nombre = TD.querySelector('.nombre').innerHTML
+      let apellidos = TD.querySelector('.apellidos').innerHTML
+
+      document.querySelector(#nombre).value = nombre
+      document.querySelector(#apellidos).value = apellidos
+
+
     }
 
+    */
 
     //PARTE 2: Tabla consulta
     /*
     Al pulsar sobre una fila de la tabla (que no sea la de las cabeceras) se trasladará el nombre y apellidos de la fila pulsada a  los inputs del formulario y se activarán los botones de modificación y baja (que inicialmente están desactivados)
     */
 
-    document.querySelectorAll('tr').onclick = modificarFomulario 
-    function modificarFomulario(){
-      alert('Hola')
+    document.querySelectorAll(' tbody tr').forEach(fila => {
+      //fila.addEventListener('click', modificarFomulario);
+      fila.onclick = modificarFomulario;
+    })
+
+    function modificarFomulario(ev) {
+      const fila = ev.currentTarget;
+
+      const nombre = fila.querySelector('.nombre').innerText.trim();
+      const apellidos = fila.querySelector('.apellidos').innerText.trim();
+
+      document.querySelector('#nombre').value = nombre;
+      document.querySelector('#apellidos').value = apellidos;
+
+      //activar botones eliminando el atributo disabled
+      BOTONMODI.removeAttribute('disabled')
+      BOTONBAJA.removeAttribute('disabled')
+
+
     }
+
     //PARTE 3: Formulario modificación
     /*
     Al pulsar el botón de modificación se modificará el nombre y apellidos de la persona que hemos seleccionado antes en la tabla y se trasladarán los cambios a la tabla situada debajo previa validación de los datos (nombre y apellidos son obligatorios).
     */
+
+
 
     //PARTE 4: Formulario baja
     /*
     Al pulsar el botón de baja se borrará la persona que hemos seleccionado antes de la tabla.
     Una vez borrada se desactivarán los botones de baja y modificación 
     */
+
+
   </script>
 </body>
 
