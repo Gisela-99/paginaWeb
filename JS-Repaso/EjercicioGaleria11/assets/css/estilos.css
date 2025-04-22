@@ -18,19 +18,34 @@
 #fotos img {
 	width: 120px; height: 90px;
 }
-#imagenesGaleria img.borrar {
+#galeria img.borrar {
 	width: 20px;
 	height: 20px;
 	position: absolute;
-	right: 5px;
 	top: 5px;
-	background-color: blue;
+	right: 5px;
+	cursor: pointer;
 }
 #galeria div.imagenesGaleria{
 	position: relative;
 	display: inline-block;
 	margin-right: 5px;
-	background-color: brown;
-
 }
 
+#siguiente{
+	transform: rotate(180deg)
+}
+
+#lightbox{
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.6);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+#fotoLightbox{
+	
+}

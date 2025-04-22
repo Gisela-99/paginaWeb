@@ -1,7 +1,5 @@
 
 //EJERCICIO 2.1: CREACIÓN DE LA FOTOTECA PARA LA SELECCIÓN DE FOTOS
-
-
 //Crearemos un array al inicio del código javascript con el nombre de todas las fotos que tenemos en la carpeta img (este array de aquí en adelante le llamaremos array fototeca
 let arrayFototeca = [
         { src: "casa1.jpg", titulo: "Foto 1", descripcion: "Casa 1" },
@@ -49,33 +47,58 @@ function agregarGaleria(ev){
     /* let imagenCopia = ev.target.cloneNode(true)
     GALERIA.appendChild(imagenCopia)*/
 
+    let div= document.createElement('div')
+    div.classList.add('imagenesGaleria')
+
     let imagen=document.createElement('img')
     imagen.setAttribute('src', rutaFoto)
     imagen.classList.add('imagenGaleria')
+    imagen.onclick = agrandarFoto;
+
+    let imgBorrar= document.createElement('img')
+    imgBorrar.classList.add('borrar')
+    imgBorrar.setAttribute('src','img/borrar.png')
+    imgBorrar.setAttribute('data-img',nombreFoto) //crear un atributo
+
+    imgBorrar.onclick = borrarFotoGaleria
+  
+    div.appendChild(imagen)
+    div.appendChild(imgBorrar)
     
-    GALERIA.append(imagen)
+    GALERIA.appendChild(div)
   }
 
   console.log("Fotos en galería:", arrayGaleria)
-  
-  eliminarCasa()
-
-
 }
 //EJERCICIO 4.1 :BORRAR FOTOS DE LA GALERIA
 
-function eliminarCasa(ev){
-  let div= document.createElement('div')
-  div.classList.add('imagenesGaleria')
-
-  let img= document.createElement('img')
-  img.classList.add('borrar')
-  img.setAttribute('src','img/borrar.png')
+function borrarFotoGaleria(ev){
+  //console.log('hola')
+  //recuperar el nombre de la foto
+  let nombreFoto= ev.target.getAttribute('data-img')
+  console.log(nombreFoto)
+  //buscar el nombre del array para conocer el índice
+  let indiceFoto= arrayGaleria.indexOf(nombreFoto)
+  console.log(indiceFoto)
+  //borrar el elemento del array
+  arrayGaleria.splice(indiceFoto,1)
+  //borrar el nodo de la caja galeria
+  document.querySelectorAll('.imagenesGaleria')[indiceFoto].remove()
   
-  div.appendChild(img)
-  GALERIA.appendChild(div)
-  console.log('Flecha agregada');
 }
 
+function agrandarFoto(ev){
+  //recuperar el nombre de la foto
+  let nombreFoto= ev.target.getAttribute('data-img')
+  console.log("Agrandando foto:",nombreFoto)
+  //buscar el nombre del array para conocer el índice
+  let rutaFoto = `img/${nombreFoto}`;
+
+  let lightbox=document.querySelector('#lightbox')
+  lightbox.style.display='block'
+
+  let lightboxImage = lightbox.querySelector('img');
+  lightboxImage.setAttribute('src', `src${rutaFoto}`);
+}
 
 

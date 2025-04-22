@@ -200,7 +200,13 @@
     */
     BOTONBAJA.onclick = darseBajar
     function darseBajar(){
-      tr.parentNode.removeChild(tr) // borrar un nodo hijo desde el nodo padre
+      //tr.parentNode.removeChild(tr) // borrar un nodo hijo desde el nodo padre
+      tr.remove()
+      FORM.reset()
+
+      //desactivar los botones de modificar y baja
+      BOTONMODI.setAttribute('disabled', true) 
+      BOTONBAJA.setAttribute('disabled',true)
     }
 
 

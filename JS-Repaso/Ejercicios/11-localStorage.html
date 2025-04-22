@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage</title>
+  <style>
+    section {
+      width: 250px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid grey
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <input type="text" id="producto">
+    <button type="button">Añadir</button>
+    <hr>
+    <ul></ul>
+  </section>
+  <script>
+    //array vacío para añadir los productos
+    let productos = []
+
+    //lista con los nodos de los productos
+    const LISTA = document.querySelector('ul')
+
+    //activar evento para añadir productos
+    document.querySelector('button').onclick = nuevoProducto
+
+    //recuperar los productos 
+    leerStorage()
+
+    function nuevoProducto() {
+      let producto = document.querySelector('#producto').value.trim()
+
+      //confeccionar nodo producto
+      nodoProducto(producto)
+
+      //guardar producto en el array
+      productos.push(producto)
+
+      //guardar el array en el storage de Javascript : se crea una función
+      guardarStorage()
+
+      //
+    }
+
+    function nodoProducto(producto) {
+      let li = document.createElement('li')
+      let texto = document.createTextNode(producto)  //aquí no se utiliza el innertext o innerhtml porque tiene ese punto
+
+      //li.textContent = producto
+      li.append(texto)
+      LISTA.appendChild(li)
+    }
+    function guardarStorage(){
+      let productosTexto = productos.join('/') //nos transforma en una cadena de texto
+      //sessionStorage.setItem('productos', productos) // si cerramos el navegador se va al garete. Set item añador, get itme cosnultar, remove es borrar
+      localStorage.setItem('productos', productosTexto)// siempre se guarda, incluso que se cierre el navegador. No podemos guardar array en el store, hay que transformarlo en una cadena de texto
+
+    
+    }
+
+    function leerStorage(){
+      productos  = localStorage.getItem('productos')?.split('/')         // para que la cadena de texto se convierta de nuevo en array.Tiene que ser una función independiende
+      console.log(productos)
+      if(productos){
+      //confeccionar el nodo para cada elemento
+      productos.forEach(producto=> nodoProducto(producto))
+      }else{
+        productos=[]
+      }
+    }
+  </script>
+</body>
+
+</html>
