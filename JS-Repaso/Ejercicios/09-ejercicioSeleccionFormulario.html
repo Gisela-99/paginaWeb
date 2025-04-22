@@ -76,6 +76,7 @@
     const FORM = document.querySelector('form')
     const BOTONMODI = document.querySelector('#modi')
     const BOTONBAJA = document.querySelector('#baja')
+    let tr =null; // variable global que nos permite identificar la fila sobre la que el usuario ha pulsado en la tabla
 
     document.querySelector('#alta').onclick = insertarUsuario
 
@@ -163,6 +164,7 @@
       //activar botones eliminando el atributo disabled
       BOTONMODI.removeAttribute('disabled')
       BOTONBAJA.removeAttribute('disabled')
+      tr = fila; 
 
 
     }
@@ -172,13 +174,34 @@
     Al pulsar el botón de modificación se modificará el nombre y apellidos de la persona que hemos seleccionado antes en la tabla y se trasladarán los cambios a la tabla situada debajo previa validación de los datos (nombre y apellidos son obligatorios).
     */
 
+    BOTONMODI.onclick=modificarPersona
+    function modificarPersona(){
+      //recuperar los datos del formulario
+      let nombre = document.querySelector('#nombre').value.trim()
+      let apellidos = document.querySelector('#apellidos').value.trim()
+      //validar los datos ------------siempre es mejor validar los datos. OJO EN EL EXAMEN.
+      if (!nombre || !apellidos) {
+        alert('Nombre y apellidos son obligatorios.');
+        return;
+      }
 
+      //enviar los datos a la fila que corresponda
+      //opción 1
+      tr.querySelector('.nombre').innerText = nombre
+      tr.querySelector('.apellidos').innerText = apellidos
+      //una coleccion de nodos dentro de otro es como una lista de array, y que se accede como ell.
+
+    }
 
     //PARTE 4: Formulario baja
     /*
     Al pulsar el botón de baja se borrará la persona que hemos seleccionado antes de la tabla.
     Una vez borrada se desactivarán los botones de baja y modificación 
     */
+    BOTONBAJA.onclick = darseBajar
+    function darseBajar(){
+      tr.parentNode.removeChild(tr) // borrar un nodo hijo desde el nodo padre
+    }
 
 
   </script>

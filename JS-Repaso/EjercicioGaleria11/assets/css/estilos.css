@@ -18,5 +18,19 @@
 #fotos img {
 	width: 120px; height: 90px;
 }
+#imagenesGaleria img.borrar {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	background-color: blue;
+}
+#galeria div.imagenesGaleria{
+	position: relative;
+	display: inline-block;
+	margin-right: 5px;
+	background-color: brown;
 
+}
 

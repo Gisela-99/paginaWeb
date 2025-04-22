@@ -46,7 +46,7 @@ function agregarGaleria(ev){
     arrayGaleria.push(nombreFoto)
 
     // También puedes clonar y añadir la imagen a la galería visual
-   /* let imagenCopia = ev.target.cloneNode(true)
+    /* let imagenCopia = ev.target.cloneNode(true)
     GALERIA.appendChild(imagenCopia)*/
 
     let imagen=document.createElement('img')
@@ -57,6 +57,8 @@ function agregarGaleria(ev){
   }
 
   console.log("Fotos en galería:", arrayGaleria)
+  
+  eliminarCasa()
 
 
 }
@@ -68,9 +70,9 @@ function eliminarCasa(ev){
 
   let img= document.createElement('img')
   img.classList.add('borrar')
-  img.setAttribute('src','img/flecha.png')
-  div.appendChild('img')
-
+  img.setAttribute('src','img/borrar.png')
+  
+  div.appendChild(img)
   GALERIA.appendChild(div)
   console.log('Flecha agregada');
 }
