@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 en Raya</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    section {
+      width: 300px;
+      margin: 50px auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 6em
+    }
+
+    aside {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div data-index="0"></div>
+    <div data-index="1"></div>
+    <div data-index="2"></div>
+    <div data-index="3"></div>
+    <div data-index="4"></div>
+    <div data-index="5"></div>
+    <div data-index="6"></div>
+    <div data-index="7"></div>
+    <div data-index="8"></div>
+  </section>
+  <aside>
+    <p id="mensajes"></p>
+    <button type="button">Reiniciar juego</button>
+  </aside>
+  <script>
+    const LINEAS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
+
+    const MENSAJES = document.querySelector('#mensajes')
+
+    let jugador, contador, arrayFichas
+
+    document.querySelector('button').onclick = reiniciarJuego
+
+    reiniciarJuego()
+
+    function reiniciarJuego() {
+      jugador = true
+      contador = 0
+      arrayFichas = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+      //activar eventos y vaciar tablero
+      let divs = document.querySelectorAll('div')
+
+      divs.forEach(div => {
+        div.onclick = ficha   // esto es una función
+        div.innerText = ''
+      })
+
+      MENSAJES.innerText = ''
+    }
+
+    function ficha(ev) {
+      let hasGanado = false
+      let ficha = ev.target
+      let indice = ficha.getAttribute('data-index')
+
+      //comprobar jugador para poner ficha
+      if (jugador) {
+        ficha.innerText = 'X'
+        arrayFichas[indice] = 1
+      } else {
+        ficha.innerText = 'O'
+        arrayFichas[indice] = -1
+      }
+
+      //desactivar el evento de la caja donde se ha puesto ficha
+      ficha.onclick = null
+
+      //contador de jugadas
+      contador++
+
+      //para comprobar ganador se necesita un mínimo de 5 fichas
+      if (contador >= 5) {
+        hasGanado = comprobarGanador()
+      }
+
+      if (hasGanado) {
+        ganador()
+      } else if (contador >= 9) {
+        finJuego()
+      }
+
+      //cambiar de jugador
+      jugador = !jugador
+    }
+
+    function comprobarGanador() {
+      
+      let ganador = false
+
+      LINEAS.forEach(linea => {
+        let suma = arrayFichas[linea[0]] + arrayFichas[linea[1]] + arrayFichas[linea[2]]
+
+        if (Math.abs(suma) == 3) {
+          ganador = true
+          return
+        }
+      })
+      return ganador
+
+    }
+
+    function ganador() {
+      MENSAJES.innerText = 'Enhorabuena has ganado'
+
+      //desactivar eventos
+      let divs = document.querySelectorAll('div')
+
+      divs.forEach(div => {
+        div.onclick = null
+      })
+    }
+
+    function finJuego() {
+      MENSAJES.innerText = 'Fin del juego sin ningún ganador'
+    }
+
+  </script>
+</body>
+
+</html>

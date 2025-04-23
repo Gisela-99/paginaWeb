@@ -32,8 +32,8 @@
 	margin-right: 5px;
 }
 
-#siguiente{
-	transform: rotate(180deg)
+#anterior,#siguiente{
+	width: 50px;
 }
 
 #lightbox{
@@ -43,9 +43,15 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	display: none;
 }
-
 #fotoLightbox{
-	
+	width: 40%;
+}
+
+#siguiente{
+	transform: rotate(180deg)
 }

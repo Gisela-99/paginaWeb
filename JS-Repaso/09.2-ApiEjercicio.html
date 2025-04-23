@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Api Vinos</title>
+  <style>
+      body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      width: 80%;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse; /* Elimina espacios entre celdas */
+    }
+
+    thead {
+      background-color: #4CAF50;
+      color: white;
+      text-align: left;
+      font-size: 1.1em;
+    }
+
+    td,
+    th {
+      border: 1px solid #ddd;
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    td img {
+      max-width: 200px;
+      border-radius: 5px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2; /* Fila alternada con un color de fondo diferente */
+    }
+
+    tr:hover {
+      background-color: #608861; /* Efecto hover sobre las filas */
+    }
+
+    th,
+    td {
+      text-align: center;
+    }
+
+    tfoot {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+
+    caption {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <table>
+      <thead>
+        <td>Vino</td>
+        <td>Bodega</td>
+        <td>Denominación</td>
+        <td>Foto botella</td>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+  <script>
+    const API = 'https://api.sampleapis.com/wines/reds/'
+
+    fetch(API)
+    .then( respuesta => {
+      if(respuesta.ok){
+        return respuesta.json()
+      }else{
+        throw(`La petición no ha ido bien ${respuesta.status}`)
+      }
+    }
+
+    )
+    .then( vinos => {
+      const tbody = document.querySelector('tbody')
+
+      vinos.forEach(vino =>{
+        /* En esta sección tienes que crear el elmento, llamarlo y mostrarlo*/
+
+        const tr = document.createElement('tr')
+
+        const tdVino = document.createElement('td')
+        tdVino.textContent = vino.wine;
+        tr.appendChild(tdVino);
+
+        const tdBodega= document.createElement('td')
+        tdBodega.textContent = vino.winery;
+        tr.appendChild(tdBodega)
+
+        const tdDenominacion = document.createElement('td')
+        tdDenominacion.textContent = vino.location;
+        tr.appendChild(tdDenominacion)
+
+
+        const tdImagen = document.createElement('td')
+        const img = document.createElement('img')
+        img.src =vino.image;
+        img.alt= vino.wine;
+        img.style.width='100px'
+        tdImagen.appendChild(img)
+        tr.appendChild(tdImagen)
+
+        tbody.appendChild(tr)
+
+        //console.log(vino.location) --- aquí puedes especificar lo que quieres encontrar
+      })
+       // console.log(vinos) --- te muestra todo el array del objeto con sus atributos
+    })
+    .catch(error =>{
+      alert(error)
+    })
+
+    /*
+    FORMATO RESPUESTA API https://api.sampleapis.com/wines/reds/
+    [
+        {
+            "winery": "Maselva",
+            "wine": "Emporda 2012",
+            "rating": {
+                "average": "4.9",
+                "reviews": "88 ratings"
+            },
+            "location": "Spain\n·\nEmpordà",
+            "image": "https://images.vivino.com/thumbs/ApnIiXjcT5Kc33OHgNb9dA_375x500.jpg",
+            "id": 1
+        },
+        {
+            "winery": "Ernesto Ruffo",
+            "wine": "Amarone della Valpolicella Riserva N.V.",
+            "rating": {
+                "average": "4.9",
+                "reviews": "75 ratings"
+            },
+            "location": "Italy\n·\nAmarone della Valpolicella",
+            "image": "https://images.vivino.com/thumbs/nC9V6L2mQQSq0s-wZLcaxw_pb_x300.png",
+            "id": 2
+        },
+    ]   
+    */
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Api fetch</title>
+</head>
+<body>
+  <h1>Api fetch</h1>
+  <script>
+    //peticiones al back-end: es una librería nativa
+    //1r conectarse con un back-end
+    //JSON es un formato de tipo texto que todos los lenguajes lo entiende
+    //cors= peticiones de diferentes dominios
+    //cuantos peticiones: las más usuales get (consulta los datos),  post(darse de alta un recurso), put(modificar totalmente recurso/actualizar), delete(borrar el resurso).
+
+
+    //realizar una petición a una Api externa para consultar la lista de todas las particulas subatómicas que se han descubierto
+    
+    const API = 'https://alcyon-it.com/WEBSERVICES/quantum/consulta.php'
+    
+    fetch(API)                                                //fecth(nombre de la api que queremos conectar)=peticción al servidor--> es una función asíncrona
+    .then(respuesta => {
+      if(respuesta.ok){
+        return respuesta.json()            //** otro tipo que puede recibir es .text()= text o blob() = el mapa de imagen, es para cosas binarias. *****el ARRAY NO EXISTE *****
+      }else{
+        throw(`La petición no ha ido bien ${respuesta.status}`)
+      }
+    })                                                        //respuesta del servidor. función anónimca
+    .then(mensaje => {
+      //console.log(mensaje)
+      let codigo= mensaje[0]
+      let particulas = mensaje[1]
+      particulas.map( particula => {
+        document.write(particula.nombre , ' ', particula.tipo, '<br>')
+      })
+    })                                                        //que queremos hacer . operativa a realizar con la respuesta
+    .catch(error => {
+      window.alert(error)
+    })                                                        //operativa a realizar en caso de error
+    
+
+    console.log('me ejecuto antes que nadie')
+
+    //ASINCRÓNIA el fecth esta haciendo una peticion, mientras que el código siguiente se sigue ejecutando
+
+  </script>
+</body>
+</html>
