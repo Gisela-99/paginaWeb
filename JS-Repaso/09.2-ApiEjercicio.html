@@ -74,10 +74,10 @@
   <main>
     <table>
       <thead>
-        <td>Vino</td>
-        <td>Bodega</td>
-        <td>Denominación</td>
-        <td>Foto botella</td>
+        <th>Vino</th>
+        <th>Bodega</th>
+        <th>Denominación</th>
+        <th>Foto botella</th>
       </thead>
       <tbody></tbody>
     </table>
@@ -118,6 +118,7 @@
 
         const tdImagen = document.createElement('td')
         const img = document.createElement('img')
+        //img.setAttribute('src', vino.image)
         img.src =vino.image;
         img.alt= vino.wine;
         img.style.width='100px'

@@ -1,0 +1,38 @@
+<div class='row'>
+  <form class="d-flex justify-content-center">
+    <div class="m-3">
+        <label class="form-label">Buscar por título:</label>
+        <input autofocus type="search" class="form-control" id="filtro" name="filtro">
+    </div>
+    <div class="m-3">
+        <label class="form-label">Categoría:</label>
+        <select class="form-select" name="idcategoria">
+          <option value="0">Todas las categorías</option>
+        </select>
+    </div>
+  </form>
+</div>
+<hr>
+<div class="row row-cols-12">
+  <div class="card m-2 mb-5">
+    <div class="alert alert-warning" role="alert">
+      No se han encontrado peliculas
+    </div>
+  </div>
+</div>
+<div class="row row-cols-3 d-flex justify-content-evenly" id="contenedorPeliculas" >
+  <div class="card m-2 mb-5" >
+      <img class="card-img-top" src="assets/img/sinportada.jpg">
+      <div class="card-body">
+          <h4 class="card-title">título pelicula</h4>
+          <p class="card-text">sinopsis</p>
+          <p class="card-text"></p>
+          <p class="card-text">Dirección:</p>
+          <p class="card-text">
+          <small class="text-muted">Año:</small>
+          </p>
+          <span onclick="cargarSeccion('detalle', 'id')" class="btn btn-outline-primary btn-block">Ver más...</span>&nbsp;
+          <span onclick="cargarSeccion('mantenimiento', 'id')" class="btn btn-outline-primary btn-block">Mantenimiento</span>
+      </div>
+  </div>
+</div>

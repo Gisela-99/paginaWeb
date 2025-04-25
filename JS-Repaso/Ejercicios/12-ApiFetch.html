@@ -12,21 +12,21 @@
     //1r conectarse con un back-end
     //JSON es un formato de tipo texto que todos los lenguajes lo entiende
     //cors= peticiones de diferentes dominios
-    //cuantos peticiones: las más usuales get (consulta los datos),  post(darse de alta un recurso), put(modificar totalmente recurso/actualizar), delete(borrar el resurso).
+    //¿cuántas peticiones? las más usuales:1. get (consulta los datos), 2.post(darse de alta un recurso), 3.put(modificar totalmente recurso/actualizar), 4.delete(borrar el resurso).
 
 
     //realizar una petición a una Api externa para consultar la lista de todas las particulas subatómicas que se han descubierto
     
     const API = 'https://alcyon-it.com/WEBSERVICES/quantum/consulta.php'
     
-    fetch(API)                                                //fecth(nombre de la api que queremos conectar)=peticción al servidor--> es una función asíncrona
+    fetch(API)                                                //fecth(nombre de la api que queremos conectar)=peticción al servidor--> es una función asíncrona.Nos entrega una promesa (te prometo que cuando el servidor me responda te envío la respuesta )
     .then(respuesta => {
       if(respuesta.ok){
-        return respuesta.json()            //** otro tipo que puede recibir es .text()= text o blob() = el mapa de imagen, es para cosas binarias. *****el ARRAY NO EXISTE *****
+        return respuesta.json()            //** otro tipo que puede recibir es .text()= text o blob()= el mapa de imagen, es para cosas binarias. *****el ARRAY NO EXISTE *****
       }else{
         throw(`La petición no ha ido bien ${respuesta.status}`)
       }
-    })                                                        //respuesta del servidor. función anónimca
+    })                                                        //respuesta del servidor. función anónimca. es callback
     .then(mensaje => {
       //console.log(mensaje)
       let codigo= mensaje[0]
@@ -34,10 +34,10 @@
       particulas.map( particula => {
         document.write(particula.nombre , ' ', particula.tipo, '<br>')
       })
-    })                                                        //que queremos hacer . operativa a realizar con la respuesta
+    })                                                        //que queremos hacer . Operativa a realizar con la respuesta
     .catch(error => {
       window.alert(error)
-    })                                                        //operativa a realizar en caso de error
+    })                                                        //Operativa a realizar en caso de error
     
 
     console.log('me ejecuto antes que nadie')

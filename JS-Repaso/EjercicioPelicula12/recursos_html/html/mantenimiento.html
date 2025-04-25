@@ -1,0 +1,65 @@
+<div class='row'>
+  <div class="column col-8">
+    <div class="alert alert-warning" role="alert">
+      <h4>Película no existe</h4>
+    </div>
+  </div>
+  <div class='column col-8'>
+    <div class="card m-auto">
+      <form id='formulario' enctype="multipart/form-data">
+        <div class="card-body">
+            <h2 class="card-title">
+              <input name='titulo' type='text' required>
+            </h2>
+            <hr>
+            <div class="row mb-2">
+              <label class="col-sm-2 col-form-label"><h5 class="card-subtitle mb-2 text-muted">Categoría</h5></label>
+              <div class="col-sm-8">
+                <select class="form-select" name="idcategoria" aria-label="Categorias" required>
+                  <option disabled selected value="0">Seleccione una categoría</option>
+                  <option>categoria</option>
+                </select>
+              </div>
+            </div>
+
+            <h5 class="card-subtitle mb-2 text-muted">Dirección:
+              <input name='direccion' required>
+            </h5>
+            <h5 class="card-subtitle mb-2 text-muted">Año:
+              <input name='anio' type='number' min='1900' max='2100' required>
+            </h5>
+            <hr>
+            <textarea rows='8' cols='90' name='sinopsis' required></textarea>
+            <hr>
+            <input type="file" class="form-control" name="portada" id='portada' accept='image/*'>
+            <hr>
+            <button type="submit" class="btn btn-warning">Modificar película</button>
+            &nbsp;
+            <button type="submit" class="btn btn-danger">Baja película</button>
+            <span onclick="cargarSeccion('consulta')" class="btn btn-outline-primary btn-block" style='float:right'>Volver a listado</span>
+        </div>
+      </form>
+      <br>
+      <div class="alert alert-danger">
+        <div>
+          El titulo es obligatorio
+        </div>
+        <div>
+          Se debe seleccionar una categoría
+        </div>
+        <div>
+          Dirección es obligatoria
+        </div>
+        <div>
+          Año es obligatorio
+        </div>
+        <div>
+          Sinopsis es obligatoria
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='column col-4'>
+      <img src='assets/img/sinportada.jpg' alt="previsualizar" id='previsualizar'>
+  </div>
+</div>
