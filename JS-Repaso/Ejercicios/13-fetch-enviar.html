@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API:POST</title>
+</head>
+
+<body>
+  <h1>Post</h1>
+  <form>
+    <input type="file" id="img">
+    <button type="button" onclick="alta()">Alta</button>
+  </form>
+  <script>
+    function alta(){
+      const API = "https://movies.alcyon-it.com/api/peliculas"
+      //recuperar una imagen
+      let imagen=document.querySelector('#img').files[0] // siempre es un array,
+      //console.log(imagen)
+      let titulo = 'chocolate'
+      let direccion = 'Dino de Laurentiis'
+      let anio = 1985
+      let idcategoria = 1
+      let sinopsis = 'Sin sinopsis'
+
+      //crear el objeto from-data = una caja contenedora, donde se guarda los dator para enviar al servidor
+      const formdata = new FormData()
+      formdata.append('titulo', titulo)
+      formdata.append('direccion', direccion)
+      formdata.append('anio', anio)
+      formdata.append('idcategoria', idcategoria)
+      formdata.append('sinopsis', sinopsis);
+      if(imagen)formdata.append('img', imagen); //no podemos enviar a la api un atributo sin informar (o lo enviamos informando con una imagen o NO lo envíamos)
+
+      //crear el objeto con los parametros de la petición
+
+      const parametro = {
+        'method': 'POST', // alta de recurso (pelicula)
+        'body': formdata, // datos a enviar al servidor
+      }
+
+      fetch(API, parametro)
+        .then(respuesta => {
+          if (respuesta.ok) {
+            return respuesta.json()
+          } else {
+            //lanzamos una excepción con la respuesta en formato json porque la API, en caso de error, nos va enviar un json con el array de errores
+            throw (respuesta.json())
+          }
+        })
+        .then(mensaje => console.log(mensaje))
+        .catch(error => error.then(er => console.log(er))
+          //es una promesa que ha sido recogido de ese throw de json
+        )
+    }
+    
+
+  </script>
+</body>
+
+</html>

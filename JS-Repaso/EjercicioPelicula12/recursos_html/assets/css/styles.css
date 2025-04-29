@@ -52,3 +52,6 @@ h4 {text-align:center}
 .pelimg{
   width: 100%;
 }
+.avisos{
+  display: none;
+}

@@ -1,0 +1,1 @@
+/**1. modificar el fichero script js para que, una vez cargado el componente de alta. se ejecute la función que se encargue */

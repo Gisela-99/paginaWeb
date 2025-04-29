@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prevsiualizar IMAGEN</title>
+  <style>
+    section {
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <form enctype="multipart/form-data">
+      <input type="file" name="imagen" id="imagen" oninput="previsualizar()">
+    </form>
+    <div>
+      <img src="img/sinportada.jpg">
+    </div>
+  </section>
+
+  <script>
+      function previsualizar(){
+        //recuparar la imagen seleccionada
+        let imagen= document.querySelector('#imagen').files[0]
+
+        //obtener una url temporal para poder utilizarla en el etiqueta img
+        let urlImagen = URL.createObjectURL(imagen)// es un método, lo que hace es crear una url de la imagen 
+        //modificar el atributo src de la etiqueta img para añadir la nueva url de la imagen
+        document.querySelector('img').setAttribute('src', urlImagen)
+      }
+  </script>
+</body>
+
+</html>

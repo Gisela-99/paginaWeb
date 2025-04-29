@@ -13,7 +13,7 @@ function consultaCategorias(){
       //console.log("Categorías recibidas:", categorias);
 
       //confeccionar las etiquetas
-      const selectCategoria= document.querySelector('[name=idcategoria]')                                                               //OPCIÓN 2: insertAdjacentHTML('beforeend',options)
+      const selectCategoria= document.querySelector('#idcategoria')                                                               //OPCIÓN 2: insertAdjacentHTML('beforeend',options)
       selectCategoria.innerHTML='<option value="0">Todas las categorías</option>'
 
       categorias.map(categoria => {

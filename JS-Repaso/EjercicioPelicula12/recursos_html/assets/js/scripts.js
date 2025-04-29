@@ -17,22 +17,16 @@ function cargarSeccion(seccion, id=null) {
     //await
     fetch(`html/${seccion}.html`)
     .then(response => response.text())
-    .then(seccionhtml => document.querySelector('#contenido').innerHTML = seccionhtml)
-
-    switch(seccion){
-        case 'consulta':
-            //todas las acciones que hay que realizar cuando se cargue el componente, en este caso de consulta:
-            consulta()
-            break;
-        default: 
-        break;
-    }
+    .then(seccionhtml => {
+        document.querySelector('#contenido').innerHTML = seccionhtml
+        iniciarComponente(seccion)
+    })
 
 }
 
 
 //si se carga antes de otro asincrono y no sale en la consola
-/*function iniciarComponente(sección){
+function iniciarComponente(seccion){
     switch(seccion){
         case 'consulta':
             consulta()
@@ -40,13 +34,7 @@ function cargarSeccion(seccion, id=null) {
         default: 
         break;
     }
-}*/
-
-
-
-
-
-
+}
 
 
 
