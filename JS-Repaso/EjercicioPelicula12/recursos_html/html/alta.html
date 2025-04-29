@@ -1,6 +1,6 @@
 <div class='row'>
   <div class='column col-8'>
-    <form enctype="multipart/form-data">
+    <form enctype="multipart/form-data" id="formalta">
       <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Título</label>
         <div class="col-sm-10">
@@ -40,9 +40,10 @@
           </div>
       </div>
       <hr>
-      <button type="button"  id="altapelicula" class="btn btn-primary" >Alta película</button>
+      <button type="submit"  id="altapelicula" class="btn btn-primary" >Alta película</button>
     </form>
     <br>
+    <div class="alert alert-success avisos"> Alta efectuada</div>
     <div class="alert alert-danger avisos">
       <div>
         El titulo es obligatorio
@@ -62,6 +63,6 @@
     </div>
   </div>
   <div class='column col-4'>
-      <img src='assets/img/sinportada.jpg' alt="previsualizar" id='previsualizar' oninput="previsualizarImagen()" >
+      <img src='assets/img/sinportada.jpg' alt="previsualizar" id='previsualizar' >
   </div>
 </div>
