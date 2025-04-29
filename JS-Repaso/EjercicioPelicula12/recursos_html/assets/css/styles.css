@@ -49,3 +49,6 @@ h4 {text-align:center}
 .fadeIn {
   animation-name: fadeIn;
 }
+.pelimg{
+  width: 100%;
+}

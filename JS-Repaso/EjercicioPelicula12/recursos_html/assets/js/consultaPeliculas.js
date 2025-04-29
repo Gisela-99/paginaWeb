@@ -16,8 +16,9 @@ function consultaPeliculas(){
     contenedorPeliculas.innerHTML =''
     peliculas.map(pelicula=>{
       const targetHTML=`
+      <div class="col-12 col-sm-6 col-md-4">
       <div class="card m-2 mb-5">
-        <img class="card-img-top" src="${pelicula.img}" alt="${pelicula.titulo}" >
+        <img class="card-img-top pelimg" src="${pelicula.img}" alt="${pelicula.titulo}" >
         <div class="card-body">
             <h4 class="card-title">${pelicula.titulo}</h4>
             <p class="card-text">${pelicula.sinopsis}</p>
@@ -29,6 +30,7 @@ function consultaPeliculas(){
             <span onclick="cargarSeccion('detalle', ${pelicula.id})" class="btn btn-outline-primary btn-block">Ver más...</span>&nbsp;
             <span onclick="cargarSeccion('mantenimiento', ${pelicula.id})" class="btn btn-outline-primary btn-block">Mantenimiento</span>
         </div>
+      </div>
       </div>`
 
       contenedorPeliculas.insertAdjacentHTML('beforeend', targetHTML)
