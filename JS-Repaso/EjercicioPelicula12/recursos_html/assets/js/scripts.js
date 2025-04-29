@@ -1,3 +1,4 @@
+
 //cargar componente de inicio
 cargarSeccion('inicio')
 
@@ -30,6 +31,9 @@ function iniciarComponente(seccion){
     switch(seccion){
         case 'consulta':
             consulta()
+            break;
+        case 'alta':
+            alta()
             break;
         default: 
         break;

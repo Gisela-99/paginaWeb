@@ -4,47 +4,46 @@
       <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Título</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" name="titulo" required>
+          <input type="text" class="form-control" id="titulo" required>
         </div>
       </div>
       <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Categoría</label>
         <div class="col-sm-10">
-          <select class="form-select" name="idcategoria" aria-label="Categorias" required >
+          <select class="form-select" id="idcategoria" aria-label="Categorias" required >
             <option disabled selected value="0">Seleccione una categoría</option>
-            <option>nombre categoría</option>
           </select>
         </div>
       </div>
       <div class="row mb-3">
           <label class="col-sm-2 col-form-label">Dirección</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" name="direccion" required>
+            <input type="text" class="form-control" id="direccion" required>
           </div>
       </div>
       <div class="row mb-3">
           <label class="col-sm-2 col-form-label">Año</label>
           <div class="col-sm-10">
-            <input type="number" class="form-control" name="anio" required  min='1940' max='2100'>
+            <input type="number" class="form-control" id="anio" required  min='1940' max='2100'>
           </div>
       </div>
       <div class="row mb-3">
           <label class="col-sm-2 col-form-label">Portada</label>
           <div class="col-sm-10">
-            <input type="file" class="form-control" name="portada" id='portada' accept='image/*' required>
+            <input type="file" class="form-control" id="portada" id='portada' accept='image/*' required>
           </div>
       </div>
       <div class="row mb-3">
           <label class="col-sm-2 col-form-label">Sinopsis</label>
           <div class="col-sm-10">
-            <textarea class="form-control" name="sinopsis" rows="5" required></textarea>
+            <textarea class="form-control" id="sinopsis" rows="5" required></textarea>
           </div>
       </div>
       <hr>
-      <button type="submit" class="btn btn-primary">Alta película</button>
+      <button type="button"  id="altapelicula" class="btn btn-primary" >Alta película</button>
     </form>
     <br>
-    <div class="alert alert-danger">
+    <div class="alert alert-danger avisos">
       <div>
         El titulo es obligatorio
       </div>
@@ -63,6 +62,6 @@
     </div>
   </div>
   <div class='column col-4'>
-      <img src='assets/img/sinportada.jpg' alt="previsualizar" id='previsualizar'>
+      <img src='assets/img/sinportada.jpg' alt="previsualizar" id='previsualizar' oninput="previsualizarImagen()" >
   </div>
 </div>

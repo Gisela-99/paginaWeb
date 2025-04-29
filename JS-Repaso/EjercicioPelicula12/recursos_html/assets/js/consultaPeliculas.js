@@ -44,7 +44,6 @@ function consultaPeliculas(){
         </div>
       </div>
   `
-     
     })
 
      //desactivar la altera en caso de que esta este visible
@@ -61,5 +60,13 @@ function consultaPeliculas(){
   .catch(error=>{
     alert('error: ', error)
   })
+  
+}
+
+function previsualizarImagen(ev){
+  
+  let imagen = ev.target.files[0]
+  let urlImagen = URL.createObjectURL(imagen)
+  document.querySelector('img').setAttribute('src', urlImagen)
   
 }
