@@ -1,12 +1,12 @@
 const API_PELICULAS='http://localhost:3000/api/peliculas'
 function altaPelicula(){
-  // recuperar las cajas de avisos y errores
-  const avisoOK = document.querySelector('.alert-success')
-  const avisoNOK = document.querySelector('.alert-danger')
-  
-  //ocultar las cajas de avisos y errores
-  avisoOk.classList.add('avisos')
-  avisoNOK.classList.add('avisos')
+  //recuperar las cajas de avisos y errores
+    const avisosOK = document.querySelector('.alert-success')
+    const avisosNOK = document.querySelector('.alert-danger')
+
+    //ocultar las cajas de avisos y errores
+    avisosOK.classList.add('avisos')
+    avisosNOK.classList.add('avisos')
   
 
   //const API_Alta= 'https://movies.alcyon-it.com/api/peliculas/'
@@ -48,7 +48,7 @@ function altaPelicula(){
       'method':'POST',
       'body': JSON.stringify(datos),
       'headers':{
-        'Content Type':'application/json'
+        'Content-Type':'application/json'
       }
     } // los datos lo convierte en un json al servidor. aqui hay que enviar una cabeceras adicionales
 
@@ -63,10 +63,14 @@ function altaPelicula(){
         throw('Algo ha ido mal')
       }
     })
-    .then(mensaje => {console.log(mensaje)
-      avisoOK.classList.remove('avisos')}
+    .then(mensaje => {
+      console.log(mensaje)
+      avisosOK.classList.remove('avisos')}
   )
-  .catch(error => error )
+  .catch(error => {
+    avisosNOK.innerHTML = error //mostrar errores en la caja
+    avisosNOK.classList.remove('avisos') //visualizar la caja
+  } )
     /*.catch(error => error.then(er => {
     console.log(er)
     let errores = ''
@@ -232,9 +236,10 @@ function consultaDetalle(id) {
     })
     .catch(error => window.alert(error))
 }
-function previsualizarImagen(){
+function previsualizarImagen(ev){
   
-  let imagen = document.querySelector('#portada').files[0]
+  //let imagen = document.querySelector('#portada').files[0]
+  let imagen = ev.target.files[0]
   let urlImagen = URL.createObjectURL(imagen)
   document.querySelector('img').setAttribute('src', urlImagen)
 

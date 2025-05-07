@@ -10,7 +10,7 @@ function consultaPeliculas(){
   
   let api = API_Peliculas
 
-  if(filtro || categoria > 0){
+  if(categoria > 0){
     //api +=`?categoria=${categoria}&filtro=${filtro}`
     api +=`http://localhost:3000/api/categorias/${categoria}/peliculas`
   }  
@@ -31,7 +31,7 @@ function consultaPeliculas(){
     peliculas.map(pelicula=>{
       fichas +=`   
       <div class="card m-2 mb-5">
-        <img class="card-img-top pelimg" src="assets/img${pelicula.img}" alt="${pelicula.titulo}" >
+        <img class="card-img-top pelimg" src="assets/img/${pelicula.img}" alt="${pelicula.titulo}" >
         <div class="card-body">
             <h4 class="card-title">${pelicula.titulo}</h4>
             <!--<p class="card-text">${pelicula.sinopsis}</p>-->
