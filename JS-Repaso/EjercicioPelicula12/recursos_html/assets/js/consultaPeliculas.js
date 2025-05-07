@@ -1,17 +1,18 @@
 //utilizar la Api Fecth para consultar todas las películas 
-const API_Peliculas='https://movies.alcyon-it.com/api/peliculas'
+//const API_Peliculas='https://movies.alcyon-it.com/api/peliculas'
+const API_Peliculas='http://localhost:3000/api/peliculas'
 
 function consultaPeliculas(){
   
   //recuperar los valores que puedan tener los filtros de búsqueda (titulo + categoria)
   let filtro = document.querySelector('#filtro').value.trim()
- 
   let categoria = document.querySelector('#idcategoria').value
   
   let api = API_Peliculas
 
   if(filtro || categoria > 0){
-    api +=`?categoria=${categoria}&filtro=${filtro}`
+    //api +=`?categoria=${categoria}&filtro=${filtro}`
+    api +=`http://localhost:3000/api/categorias/${categoria}/peliculas`
   }  
 
   fetch(api)
@@ -25,12 +26,12 @@ function consultaPeliculas(){
   .then(peliculas=>{
     // const contenedorPeliculas= document.querySelector('.peliculas')
     // contenedorPeliculas.innerHTML =''
-    
+    console.log(peliculas)
     let fichas ='';
     peliculas.map(pelicula=>{
       fichas +=`   
       <div class="card m-2 mb-5">
-        <img class="card-img-top pelimg" src="${pelicula.img}" alt="${pelicula.titulo}" >
+        <img class="card-img-top pelimg" src="assets/img${pelicula.img}" alt="${pelicula.titulo}" >
         <div class="card-body">
             <h4 class="card-title">${pelicula.titulo}</h4>
             <!--<p class="card-text">${pelicula.sinopsis}</p>-->

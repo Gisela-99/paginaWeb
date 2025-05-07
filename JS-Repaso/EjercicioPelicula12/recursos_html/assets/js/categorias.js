@@ -1,4 +1,5 @@
-const APICategorias=' https://movies.alcyon-it.com/api/categorias'
+//const APICategorias=' https://movies.alcyon-it.com/api/categorias'
+const APICategorias='http://localhost:3000/api/categorias'
 
 function consultaCategorias(){
   fetch(APICategorias)
@@ -11,7 +12,6 @@ function consultaCategorias(){
     })
     .then(categorias =>{
       //console.log("Categorías recibidas:", categorias);
-
       //confeccionar las etiquetas
       const selectCategoria= document.querySelector('#idcategoria')                                                               //OPCIÓN 2: insertAdjacentHTML('beforeend',options)
       selectCategoria.innerHTML='<option value="0">Todas las categorías</option>'
