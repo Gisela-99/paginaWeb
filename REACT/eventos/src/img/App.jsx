@@ -1,10 +1,8 @@
-
 import './App.css';
 //import microm from './img/new_brain.png'
 import imagen1 from './img/kill-bill.jpg'
 import imagen2 from './img/los_bingueros.jpg'
 import imagen3 from './img/saw.jpg'
-import portada from './img/sinportada.jpg'
 
 function App() {
   //código de JavaScript con data binding
@@ -14,34 +12,6 @@ function App() {
 
   let titulos = ['Kill Bill', 'Los bingueros', 'Saw']
 
-  function cambiarTexto(e){
-    let h3 = e.target
-    if(h3.innerText === 'Visto'){
-      h3.innerText = ''
-    }else{
-      h3.innerText = 'Visto'
-    }
-  }
-  
-  function cambiarImagen(ev){
-    //let nombre= ev.target.getAttribute('src')
-    let nombre= ev.target
-    console.log(nombre)
-
-    if(nombre.src.includes ('portada')){
-      //ocultar la imagen
-      nombre.style.visibility = 'hidden'
-    }else {
-      nombre.src = portada
-      nombre.parentNode.style.backgroundColor='initial'  // poner clase al padre contenedora, es decir, la ficha que es su clase
-    }
-
-    // if(nombre === imagen1|| nombre === imagen2 ||nombre === imagen3){
-    //   ev.target.setAttribute('src', imagen4)
-    // }else if(nombre === imagen4){
-      
-    // }
-  }
   return (
     <div className="App">
       {/* 
@@ -54,18 +24,18 @@ function App() {
       <h1>Actividad 2</h1>
       <div className='peliculas'>
         <div className='ficha'>
-          <img src={imagen1} alt="Kill-bill" onClick={cambiarImagen} />
-          <h3  onClick={cambiarTexto}>{titulos[0]}</h3>
+          <img src={imagen1} alt="Kill-bill" />
+          <h3>{titulos[0]}</h3>
         </div>
 
         <div className='ficha'>
-          <img src={imagen2} alt="Los Bingueros" onClick={cambiarImagen}/>
-          <h3   onClick={cambiarTexto}>{titulos[1]}</h3>
+          <img src={imagen2} alt="Los Bingueros" />
+          <h3>{titulos[1]}</h3>
         </div>
 
         <div className='ficha'>
-          <img src={imagen3} alt="saw" onClick={cambiarImagen}/>
-          <h3   onClick={cambiarTexto}>{titulos[2]}</h3>
+          <img src={imagen3} alt="saw" />
+          <h3>{titulos[2]}</h3>
         </div>
       </div>
 

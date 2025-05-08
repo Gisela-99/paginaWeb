@@ -2,35 +2,14 @@
   text-align: center;
 }
 
-h2{
-  background-color: #5fb46a;
-}
-.peliculas{
-  display: flex;
-  justify-content: center;
- 
-  max-width: 1200px;
-  margin: auto;
-}
-
-.peliculas .ficha{ 
-  margin-top: 2em;
-  margin-left: 2em;
-}
-.peliculas h3 {
-  text-align: center;
-}
-.ficha img{
-  width: 100%;
-}
-.ficha{
-  background-color: #5fb46a;
-}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
+ img {
+    width: 200px;
+ }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

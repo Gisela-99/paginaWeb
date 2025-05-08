@@ -20,12 +20,7 @@ h2{
 .peliculas h3 {
   text-align: center;
 }
-.ficha img{
-  width: 100%;
-}
-.ficha{
-  background-color: #5fb46a;
-}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
