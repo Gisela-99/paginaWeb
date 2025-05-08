@@ -82,9 +82,8 @@ function App() {
         >
           Learn React
         </a>
-      </header> */}
+      </header> solo quiero comentar */}
     </div>
   );
 }
-
 export default App;
