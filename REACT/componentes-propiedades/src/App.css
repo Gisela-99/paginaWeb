@@ -1,3 +1,29 @@
 .App {
   text-align: center;
 }
+.app {
+  width: 50%;
+  margin: auto;
+}
+.fichas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap:20px;
+}
+
+.ficha {
+  width:30%;
+  border: 2px solid lightskyblue;
+  border-radius: 10px;
+  overflow: hidden;
+  background-image: url('./img/fondo_vintage.jpg');
+}
+
+.datos {
+  padding: 20px;
+}
+
+.ficha img {
+  width: 100%;
+}
