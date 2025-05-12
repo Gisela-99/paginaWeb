@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prova pràctica">
+  <meta name="author" content="Gisela Carballo">
+  <link rel="stylesheet" href="style.css">
+  <title>PROVA PRÀCTICA</title>
+</head>
+<body>
+  <header>
+    <div class="container titulo">
+      <h1>Evaluacion MF0491</h1>
+    </div>
+    
+    <nav class="container cajaGrande">
+      <ul class="navegacion">
+        <li><a href="#">Página 1</a></li>
+        <li><a href="#">Página 2</a></li>
+        <li><a href="#">Página 3</a></li>
+      </ul>
+    </nav>
+  
+  </header>
+  <main class="container">
+      <form oninput ="inputColores(event)">
+        <div>
+          <label for="texto" class="negrita">Texto</label>
+          <input type="text" id="texto" class="centrear">
+        </div>
+        <div>
+          <label for="number" class="negrita">Numero</label>
+          <input type="number" id="number">
+        </div>
+        <div>
+          <label for="checks" class="negrita">Checks</label>
+          <label for="1"> 1
+          <input type="checkbox" id="1"  value="1" name="checks"></label>
+          <label for="2"> 2 
+          <input type="checkbox" id="2" value="2" name="checks"></label>
+          <label for="3">3
+          <input type="checkbox" id="3" value="3" name="checks"></label>
+          <label for="4">4
+          <input type="checkbox" id="4" value="4" name="checks"></label>
+        </div>
+        <div id="boton">
+          <button type="button">Validar</button>
+        </div>
+        <div class="box">
+          <input type="text" id="mensaje" disabled >
+        </div>
+      </form>
+
+    <section id="fondo">
+      <div id="imagen">
+        <img src="./recursos/nature.jpg" alt="La naturaleza">
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio quibusdam similique sed accusantium dolor enim dolorum ullam ab placeat provident non voluptas illum impedit blanditiis earum amet odio quas ipsum corporis esse, sequi quod. Iure perferendis debitis repudiandae corporis tempore nemo consectetur harum blanditiis consequuntur officiis at placeat laudantium, optio, ullam praesentium voluptatum iusto sit.Iure perferendis debitis repudiandae corporis tempore nemo consectetur harum blanditiis consequuntur officiis at placeat
+      laudantium, optio, ullam praesentium voluptatum iusto sit </p>
+
+
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur mollitia rem, tempore libero a repellendus, molestias obcaecati officiis illo magni? Reprehenderit adipisci nesciunt dicta tempore eum unde, vel, minima blanditiis aliquid voluptates facere iure optio non dolores quam, totam corporis necessitatibus accusantium repellat est esse at debitis modi? Asperiores!</p>
+
+      <select id="color" >
+        <option value="white" selected>Blanco</option>
+        <option value="yellow">Amarillo</option>
+        <option value="green">Verde</option>
+        <option value="blue">Azul</option>
+        <option value="red">Rojo</option>
+        <option value="initial">Transparente</option>
+      </select>
+
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>Avaluació Formativa MF0491_3</p>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>
