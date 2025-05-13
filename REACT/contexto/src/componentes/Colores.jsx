@@ -8,7 +8,7 @@ function Colores() {
   
   function asignarColor(e){
     //leer el color de la caja del circulito
-    let color= e.target.style.backgroundColor 
+    let color= window.getComputedStyle(e.target).getPropertyValue("background-color")
     //asignar el color a la variable del contexto color
     setColor(color)
   }
