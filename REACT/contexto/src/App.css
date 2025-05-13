@@ -1,0 +1,44 @@
+.ficha{
+  width: 100%;
+  border: 1px solid black;
+}
+
+.ficha img {
+  width: 50%;
+}
+
+.colores {
+  width: 50%;
+  margin: auto;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+.Contenedor{
+  max-width: 100%;
+  display: flex;
+  gap: 100px;
+  border: 1px solid black;
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.color:nth-child(1){
+  background-color: aqua;
+}
+.color:nth-child(2){
+background-color: chocolate;
+
+}
+.color:nth-child(3){
+  background-color: crimson;
+}
+.color:nth-child(4){
+  background-color: cornflowerblue;
+}

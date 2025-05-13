@@ -6,7 +6,13 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.Chuck{
+  width: 500px;
+  border: 1px solid black;
+  height: 25vh;
+  margin: auto;
+  margin-bottom: 20px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
