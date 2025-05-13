@@ -2,12 +2,12 @@ import React from 'react'
 
 function FichasMicros({datos,total1}) {
   console.log(datos)
-  //importar una imagen de forma dinámica
+  //importar una imagen de forma dinámica, INDICA DÓNDE ESTA LA IMAGEN
   const imagen = require(`../img/${datos.imagen}`)
 
   function comprar(ev){
     total1((t)=> t + datos.precio) 
-    // nos trae el valor de ese momento de la variable con la función callback, y esto es sumar lo que has seleccionado
+    // Es el SETtotal Nos trae el valor de ese momento de la variable con la función callback, y esto es sumar lo que has seleccionado
 
     //eliminar la ficha comprado
     //1.Buscar el nodo a ocultar

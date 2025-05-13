@@ -17,7 +17,7 @@ function App() {
       <Micros nombre="Oric Atmos" memoria ="64"/> 
             {/* nombres, y memoria son atributos creados, que son propiedades */}
       <Micros2 micro={{nombres:"Commodores 64", memoria:"64"}}></Micros2> 
-      {/* con las llaves lo primero indicamos que se trata de un array o un objetos, el segundo es para un objeto */}
+      {/* con las llaves lo primero indicamos que se trata de un array o un objetos, el segundo es para un objeto == DESESTRUCTURACIÓN*/}
       <hr />
       <h2>Actividad 4</h2>
       <div className='app'>
@@ -26,7 +26,7 @@ function App() {
         <div className='fichas'>
           {
           datos.map((micro,index) => {
-            return <FichasMicros key={index} datos={micro} total1={setTotal}/>;
+            return <FichasMicros key={index} datos={micro} total1={setTotal}/>; //set Total es la función que se encargará
           })
                       
           }
