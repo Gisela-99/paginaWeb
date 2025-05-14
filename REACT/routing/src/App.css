@@ -1,0 +1,14 @@
+nav a{
+  padding:20px;
+  background-color: blueviolet;
+  text-decoration: none;
+  color: white;
+}
+
+nav a:hover{
+  background-color: white;
+  color: blueviolet;
+}
+.active{
+  background-color: gold;
+}

@@ -1,0 +1,54 @@
+ *{
+   box-sizing: border-box;
+  
+ }
+
+
+ .App {
+   width: 50%;
+   margin: auto;
+   padding: 20px;
+   border: 1px solid grey;
+   margin-left: 500px;
+  }
+
+img {
+  width: 100%;
+  vertical-align: top;
+}
+
+.idiomas {
+  display: flex;
+  justify-content: center;
+}
+
+.bandera {
+  width: 75px;
+  margin: 10px
+}
+
+.botones {
+  text-align: center;
+}
+
+.botones button {
+  width: 150px;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px dotted blue;
+  color: white;
+  background-color: brown;
+  font-size: 1.1em;
+}
+
+.profesora,
+.ubicacion {
+  width: 320px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: brown;
+  padding-bottom: 15px;
+  color: white;
+  margin: auto;
+}
