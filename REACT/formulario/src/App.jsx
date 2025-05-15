@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
 
-  const { register, handleSubmit, formState:{errors} } = useForm()
+  const { register, handleSubmit, formState:{errors}, watch} = useForm()
 
   function recogerDatos(datos) {
     //recoger datos formulario
@@ -43,8 +43,14 @@ function App() {
           
           <div className='pregunta'>
             <label htmlFor='edad'>Edad: </label>
-            <input type='number' id='edad' placeholder='Escribe tu edad' {...register('edad')} />
+            <input type='number' id='edad' placeholder='Escribe tu edad' {...register('edad',{maxLength:40})} />
           </div>
+          {
+            errors.number?.type== 'maxLength' &&
+            <div className='errores'>
+            El email no ha de ser mayor a 30 caracteres
+          </div>
+          }
           <div className='pregunta'>
             <label htmlFor='email'>Email: </label>
             <input type='email' id='email' placeholder='Escribe tu email' {...register('email')} />
@@ -58,6 +64,8 @@ function App() {
             <input type='submit' />
           </div>
         </form>
+        <hr />
+        <p>Me llamo {watch('nombre')}, mi edad es {watch('edad')}, y mi teléfono es el {watch('telefono')}</p>
       </div>
     </>
   )
