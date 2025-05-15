@@ -1,7 +1,8 @@
-import { Contexto } from '../Contexto'
+import { useContext } from 'react'
+import { Contexto } from '../Contexto/Contexto'
 
 function Idiomas() {
- 
+ const{setIdioma} =useContext(Contexto)
 
   const banderaEs = 'spain.jpg'
   const banderaFr = 'francia.png'
@@ -9,13 +10,13 @@ function Idiomas() {
   return (
   <div className='idiomas'>
       <div className='bandera'>
-      <img src={`/img/${banderaEs}`} alt="bandera"/>
+      <img src={`/img/${banderaEs}`} alt="bandera"  onClick={()=> setIdioma(0)} />
       </div>
       <div className='bandera'>
-      <img src= {`/img/${banderaUk}`} alt="bandera"/>
+      <img src= {`/img/${banderaUk}`} alt="bandera" onClick={()=> setIdioma(1)} />
       </div>
       <div className='bandera'>
-      <img src={`/img/${banderaFr}`}alt="bandera"/>
+      <img src={`/img/${banderaFr}`}alt="bandera" onClick={()=> setIdioma(2)} />
       </div>
   </div>
 

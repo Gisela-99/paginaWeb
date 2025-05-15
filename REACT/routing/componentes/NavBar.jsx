@@ -8,7 +8,8 @@ function NavBar() {
         <NavLink to={'/'}>Inicio</NavLink>
         <NavLink to={'/dragon'}>Dragon</NavLink>
         <NavLink to={'/new-Brain'}>New Brain</NavLink>
-        <NavLink to={'/pagina3/10'}>Cric</NavLink>
+        <NavLink to={'/oric'}>Oric</NavLink>
+        <NavLink to={'/spectrum'}>Oric</NavLink>
         <NavLink to={'/Toshiba'}>Toshiba</NavLink>
         <NavLink to={'/ZX-81'}>ZX 81</NavLink>
       </nav>
