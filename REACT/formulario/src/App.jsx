@@ -22,20 +22,20 @@ function App() {
             <input id='nombre' placeholder='Escribe tu nombre' autoFocus {...register('nombre', {required:true,minLength:2,maxLength:30})} />
           </div>
           {
-            errors.nombre?.type =='required' &&
+            errors.nombre?.type === 'required' &&
             <div className='errores'>
               El nombre es obligatorio
             </div>
           }
           {
-            errors.nombre?.type=='minLength'&&
+            errors.nombre?.type ==='minLength'&&
             <div className='errores'>
             Nombre no puede tener menos de 2 caracteres
           </div>
           }
           
           {
-            errors.nombre?.type=='maxLength'&&
+            errors.nombre?.type ==='maxLength'&&
             <div className='errores'>
             Nombre no puede tener más de 30 caracteres
           </div>
