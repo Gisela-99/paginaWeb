@@ -9,9 +9,9 @@ function NavBar() {
         <NavLink to={'/dragon'}>Dragon</NavLink>
         <NavLink to={'/new-Brain'}>New Brain</NavLink>
         <NavLink to={'/oric'}>Oric</NavLink>
-        <NavLink to={'/spectrum'}>Oric</NavLink>
-        <NavLink to={'/Toshiba'}>Toshiba</NavLink>
-        <NavLink to={'/ZX-81'}>ZX 81</NavLink>
+        <NavLink to={'/spectrum'}>Spectrum</NavLink>
+        <NavLink to={'/toshiba'}>Toshiba</NavLink>
+        <NavLink to={'/zx81'}>ZX 81</NavLink>
       </nav>
     </div>
   )

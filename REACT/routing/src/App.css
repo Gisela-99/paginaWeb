@@ -1,8 +1,8 @@
 nav a{
   padding:20px;
-  background-color: blueviolet;
+  background-color: rgb(22, 22, 22);
   text-decoration: none;
-  color: white;
+  color: rgb(190, 43, 43);
 }
 
 nav a:hover{
@@ -11,4 +11,36 @@ nav a:hover{
 }
 .active{
   background-color: gold;
+}
+
+.ficha {
+  width: 30%;
+  margin: 50px auto;
+  border: 1px solid grey;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+
+.micro {
+  width: 26%;
+  cursor: pointer
+}
+
+.enlacesmicros{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.App{
+  width: 90%;
+}
+.enlacesmicros img{
+  width: 30%;
+}
+.ficha{
+  background-color: brown;
+  padding: 10px;
 }
