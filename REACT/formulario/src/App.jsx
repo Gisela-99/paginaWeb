@@ -1,16 +1,22 @@
 import { useForm } from 'react-hook-form'
 import './App.css'
+import { useState } from 'react'
 
 function App() {
 
-  const { register, handleSubmit, formState:{errors}, watch} = useForm()
-
+  const { register, handleSubmit, formState:{errors}, watch, reset,setFocus} = useForm()
+   const [persona,setPersona]=useState({
+      nombre:'Vernita Green',
+      edad:39,
+      email:'vernita@mail.com',
+      telefono: 999666999,
+   })
   function recogerDatos(datos) {
     //recoger datos formulario
     console.table(datos)
-    //validar los datos
-
     //enviar los datos a un servidor 
+    reset()
+    setFocus('nombre')
   }
 
   return (
@@ -19,7 +25,7 @@ function App() {
         <form onSubmit={handleSubmit(recogerDatos)}>
           <div className='pregunta'>
             <label htmlFor='nombre'>Nombre: </label>
-            <input id='nombre' placeholder='Escribe tu nombre' autoFocus {...register('nombre', {required:true,minLength:2,maxLength:30})} />
+            <input id='nombre' placeholder='Escribe tu nombre' autoFocus {...register('nombre', {required:true,minLength:2,maxLength:30})} defaultValue ={persona.nombre} />
           </div>
           {
             errors.nombre?.type === 'required' &&
@@ -65,6 +71,8 @@ function App() {
           </div>
         </form>
         <hr />
+        
+        {watch('nombre')} &&
         <p>Me llamo {watch('nombre')}, mi edad es {watch('edad')}, y mi teléfono es el {watch('telefono')}</p>
       </div>
     </>

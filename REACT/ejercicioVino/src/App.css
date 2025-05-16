@@ -1,0 +1,32 @@
+nav{
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding:0  20px;
+}
+ul li {
+  display: inline-block;
+}
+ul a {
+  text-decoration: none;
+  display: block;
+  color: pink;
+  transition: 0.5s;
+  list-style-type: none;
+  background-color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 2px;
+}
+ul a:hover{
+  background-color: pink;
+  color: black;
+}
+footer{
+  background-color: black;
+  color: white;
+  padding: 5px;
+}
