@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Caja con Espirales</title>
+  <style>
+    body {
+     margin: 0;
+     padding: 0;
+    }
+
+    .box {
+      display: flex;
+      flex-wrap: wrap;
+      /* Para que las imágenes bajen si no caben */
+      gap: 20px;
+      padding: 20px;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 90%;
+    }
+
+    .spiral {
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .rotate {
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Contenedor principal -->
+  <div class="box" id="spiralBox"></div>
+
+  <script>
+    const spiralSrc = "./espiral.jpg"; 
+    const count = 12;
+    const container = document.getElementById("spiralBox");
+
+    for (let i = 0; i < count; i++) {
+      const img = document.createElement('img');
+      img.src = spiralSrc;
+      img.classList.add('spiral');
+
+      img.addEventListener('click', () => {
+        img.classList.toggle('rotate');
+      });
+
+      container.appendChild(img);
+    }
+  </script>
+
+</body>
+
+</html>

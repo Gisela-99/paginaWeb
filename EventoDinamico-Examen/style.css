@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.image-container {
+  display: flex;
+  gap: 20px;
+}
+
+img {
+  margin-top: 100px;
+  width: 300px;
+  cursor: pointer;
+  transition: transform 1s ease-in;
+}
+
+/* Animación de rotación infinita */
+@keyframes rotat {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-infinite {
+  animation: rotat 1s ease-in infinite;
+}

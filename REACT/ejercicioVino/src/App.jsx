@@ -24,10 +24,10 @@ function App() {
       </Routes>
     </BrowserRouter>
 
-    <Footer></Footer>
+    <Footer></Footer>                                         
 
     </>
-  )
+  )                                 
 }
 
 export default App
