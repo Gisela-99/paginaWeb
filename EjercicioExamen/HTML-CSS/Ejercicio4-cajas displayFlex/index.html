@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cajas de display flex</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+      max-width: 600px;
+      height: 15vh;
+      display: flex;
+      gap:20px;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      margin: 0 auto;
+      margin-top: 10%;
+    }
+    .circulo{
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+    .rojo{
+      background-color: red;
+    }
+    .amarillo{
+      background-color: yellow;
+    }
+    .verde{
+      background-color: green;
+    }
+    .azul{
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="circulo rojo"></div>
+      <div class="circulo amarillo"></div>
+      <div class="circulo verde"></div>
+      <div class="circulo azul"></div>
+    </div>
+</body>
+</html>
