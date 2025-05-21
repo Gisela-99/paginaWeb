@@ -1,0 +1,103 @@
+*{
+  box-sizing: border-box;
+}
+
+/**** Ejercicio 1: Párrafo con estilos *****/
+#seccion1 p{
+  text-align: justify;
+  line-height: 30px;
+}
+.negrita{
+  font-weight: bold;
+}
+.azul{
+  color: blue;
+}
+
+/****Ejercicio 2: Imágenes *****/
+#seccion2{
+  background-image: url(../img/fondo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#seccion2 img{
+  width: 250px;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+.clearfix::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/****Ejercicio 3: tablas y listas *****/
+table {
+  margin: 0 auto;
+}
+table,th,td {
+  border: 1px solid rgb(202, 26, 26);
+}
+td{
+  margin-bottom: 5px;
+}
+thead th {
+  border-bottom: 1px solid rgb(202, 26, 26);
+  padding: 20px;
+  font-weight: bold;
+}
+tbody td {
+  padding: 8px;
+}
+
+#seccion3 ol {
+  list-style-type: lower-latin;
+}
+#seccion3 ul {
+  list-style-type: square;
+}
+
+/****Ejercicio 4:  cajas adyacentes con flex *****/
+#seccion4 .contenedor{
+  margin: 0 auto;
+  max-width: 1600px;
+  height: 20vh;
+  display: flex;
+  gap: 100px;
+  justify-content: space-between;
+}
+.circulo{
+  width: 200px;
+  border-radius: 50%;
+  border: 1px solid blue;
+}
+.azul2{
+  background-color: #02feff;
+}
+.rosa{
+  background-color: #ffb7c2;
+}
+.naranja{
+  background-color: #ff9f7c;
+}
+.verde{
+  background-color: #21b0aa;
+}
+
+/****Ejercicio 5: posicionamientos absolutos *****/
+
+#seccion5 article{
+  max-width: 500px;
+  height: 300px;
+  border: 1px solid blue;
+  margin: 0 auto;
+  position: relative;
+}
+
+#seccion5 img{
+  position: absolute;
+  top:50px;
+  left:100px;
+}
+
