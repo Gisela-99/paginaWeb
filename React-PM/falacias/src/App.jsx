@@ -34,6 +34,14 @@ function App() {
   }, [])
 
   const cambiarFalacia = (pos) => {
+    const esCorrecta = pos === correctaIndex;
+
+    if (esCorrecta) {
+      alert('¡Has cambiado la falacia correcta!');
+    } else {
+      alert('Has cambiado una falacia incorrecta.');
+    }
+
     const nuevaFalacia = falaciasData[Math.floor(Math.random() * falaciasData.length)]
 
     setSeleccionadas((prev) => {
@@ -48,9 +56,11 @@ function App() {
       return nuevo
     })
 
-    // Si cambias la correcta, se escoge nuevo sample
-    if (pos === correctaIndex) {
-      setCorrectaIndex(Math.floor(Math.random() * bloques))
+    // Si cambias la correcta, se escoge nuevo sample y nuevo índice correcto
+    if (esCorrecta) {
+      const nuevoIndexCorrecta = Math.floor(Math.random() * bloques)
+      setCorrectaIndex(nuevoIndexCorrecta)
+
       const nuevoSample =
         nuevaFalacia.samples[Math.floor(Math.random() * nuevaFalacia.samples.length)]
       setFraseSample(nuevoSample)
