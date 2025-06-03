@@ -54,12 +54,34 @@ const Create = () => {
       />
      </div>
      <button onClick={handleCreate}>Crear</button>
-
-     <div>
-      {people.map(p=> (
-        <p key={p.id}>{p.name}-{p.surName}-{p.fecha}</p>
-      ))}
-     </div>
+        <table>
+            <tr>
+              <td>Id</td>
+              <td>Name</td>
+              <td>Surname</td>
+              <td>date</td>
+            </tr>
+          </table>
+     <table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {people.map((p) => (
+      <tr key={p.id}>
+        <td>{p.id}</td>
+        <td>{p.name}</td>
+        <td>{p.surName}</td>
+        <td>{p.fecha}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
     </div>
   );
 };
