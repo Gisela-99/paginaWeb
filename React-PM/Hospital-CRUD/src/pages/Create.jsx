@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
+import { createPerson } from '../services/api';
 import  './Create.css'
-import { getItems,createPerson } from '../services/api';
 
 const Create = () => {
   const[name, setName]= useState('')
   const[surName, setSurName]=useState('')
   const [fecha, setFecha] = useState('');
-  const[people, setPeople]=useState([])
+  //const[people, setPeople]=useState([])
 
-  const queryData = async () =>{
+  {/*const queryData = async () =>{
     const data = await getItems()
     setPeople(data)
   }
 
   useEffect(()=>{
     queryData()
-  }, [])
+  }, [])*/}
 
   const handleCreate = async () => {
     if(!name.trim() || !surName.trim() || !fecha) return
@@ -23,7 +23,7 @@ const Create = () => {
     setName('')
     setSurName('')
     setFecha('')
-    queryData()
+    //queryData()
   }
   return (
     <div>
@@ -54,34 +54,27 @@ const Create = () => {
       />
      </div>
      <button onClick={handleCreate}>Crear</button>
-        <table>
-            <tr>
-              <td>Id</td>
-              <td>Name</td>
-              <td>Surname</td>
-              <td>date</td>
+       
+      {/* <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {people.map((p) => (
+            <tr key={p.id}>
+              <td>{p.id}</td>
+              <td>{p.name}</td>
+              <td>{p.surName}</td>
+              <td>{p.fecha}</td>
             </tr>
-          </table>
-     <table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    {people.map((p) => (
-      <tr key={p.id}>
-        <td>{p.id}</td>
-        <td>{p.name}</td>
-        <td>{p.surName}</td>
-        <td>{p.fecha}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+          ))}
+        </tbody>
+      </table> */}
     </div>
   );
 };
