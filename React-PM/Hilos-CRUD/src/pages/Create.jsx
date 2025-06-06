@@ -7,7 +7,7 @@ function Create() {
   const [name, setName] = useState('')
   const handleCreate = async () =>{
     await createHilo ({name})
-    setName
+    setName('')
   }
 
   return (

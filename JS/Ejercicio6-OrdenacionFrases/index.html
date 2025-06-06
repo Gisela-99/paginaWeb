@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ordena la frase</title>
+</head>
+
+<body>
+  <h1>Ordena la frase</h1>
+  <div id="contenedor"></div>
+  <p>Tu frase:</p>
+  <div id="frase-usuario"></div>
+  <button id="verificar">Verificar</button>
+
+  <script>
+    const frases = [
+      'Jin visitó el Salar de Uyuni',
+      'El perro duerme en el sofá',
+      'Ana pintó un cuadro hermoso',
+      'Hoy llueve en la ciudad',
+      'Carlos prepara una tortilla',
+      'Las estrellas brillan de noche',
+      'Mi abuela hace galletas ricas',
+      'Pedro olvidó su paraguas',
+      'Laura escribe un poema triste',
+      'El tren llega con retraso',
+      'A veces canto en la ducha',
+      'Los niños juegan en el parque',
+      'Lucía tomó fotos del atardecer',
+      'El gato se esconde bajo la cama',
+      'Comimos pizza en la plaza',
+      'Mañana empieza la primavera',
+      'Aunque llovía, decidió salir sin paraguas',
+      'El enigma fue resuelto tras largas investigaciones',
+      'Apenas amanecía cuando el tren partió silencioso',
+      'No todo lo que brilla es oro, pero a veces engaña',
+      'De haberlo sabido, jamás habría abierto la caja',
+      'El silencio en la sala era más elocuente que mil palabras',
+      'Tan pronto llegó, se dio cuenta del error cometido',
+      'Las luces parpadeaban como si algo estuviera mal',
+      'El susurro del viento traía consigo un mensaje antiguo',
+      'Aunque nadie lo esperaba, ella ganó con claridad',
+      'La casualidad quiso que tomaran el mismo camino',
+      'Su mirada decía más de lo que las palabras podrían',
+      'Lo importante no siempre es lo evidente',
+      'Cuando el reloj marcó la hora exacta, todo cambió',
+      'El eco repetía una y otra vez la misma frase extraña',
+      'Por más que insistió, nadie creyó su historia',
+      'La clave estaba oculta en el último párrafo del libro',
+      'Aquella promesa olvidada pesaba como una piedra',
+      'A lo lejos, se oía una melodía que parecía conocida',
+      'Los papeles volaban como hojas en medio del caos',
+      "El sol se ocultaba lentamente tras las montañas mientras el viento susurraba secretos antiguos entre los árboles",
+      "A pesar de la tormenta feroz, el barco mantuvo el rumbo firme hacia el horizonte desconocido",
+      "Las complejas ecuaciones matemáticas desvelaron patrones que nadie había imaginado antes",
+      "En medio del bullicio de la ciudad, ella encontró un remanso de paz en un pequeño café olvidado",
+      "Las palabras que pronunció aquella noche cambiaron para siempre el destino de la nación",
+      "Entre las ruinas antiguas, se descubrió un manuscrito que narraba historias de civilizaciones perdidas",
+      "El arte de la música clásica tiene el poder de evocar emociones profundas y transportar a otros tiempos",
+      "Mientras la luna llena iluminaba el desierto, una figura solitaria caminaba buscando respuestas invisibles",
+      "La filosofía occidental ha debatido durante siglos la naturaleza de la realidad y la percepción humana",
+      "La investigación científica constante nos acerca cada vez más a comprender los misterios del universo",
+      "Durante el crepúsculo, los colores del cielo se mezclaban en una sinfonía visual indescriptible",
+      "La paciencia y la perseverancia son cualidades esenciales para alcanzar cualquier meta significativa en la vida",
+      "El escritor plasmó en su novela las contradicciones y dilemas de la condición humana con gran maestría",
+      "La complejidad de la mente humana supera incluso a los sistemas tecnológicos más avanzados",
+      "Bajo la lluvia torrencial, las calles se convirtieron en ríos que reflejaban las luces de la ciudad",
+      "El legado cultural de antiguas civilizaciones sigue siendo fuente de inspiración para generaciones actuales",
+      "Aunque el tiempo parecía detenido, en realidad, cada segundo marcaba el inicio de un nuevo ciclo",
+      "La resiliencia demostrada por las comunidades tras la catástrofe fue un ejemplo de esperanza y fortaleza",
+      "La interacción entre el arte y la ciencia ha dado lugar a innovaciones sorprendentes a lo largo de la historia",
+      "En el corazón del bosque encantado, los ecos de leyendas olvidadas aún parecen susurrar entre las hojas"
+    
+    ];
+
+    let fraseAleatoria = '';
+    let fraseDesordenada = [];
+    let palabrasUsuario = [];
+
+    const contenedor = document.querySelector('#contenedor');
+    const salida = document.querySelector("#frase-usuario");
+    const verificarBtn = document.querySelector("#verificar");
+
+    function mezclarFrase(frase) {
+      const palabras = frase.split(" ");
+      for (let i = palabras.length - 1; i > 0; i--) {
+        const p = Math.floor(Math.random() * (i + 1));
+        [palabras[i], palabras[p]] = [palabras[p], palabras[i]];
+      }
+      return palabras;
+    }
+
+    function iniciarJuego() {
+      // Limpiar datos previos
+      contenedor.innerHTML = '';
+      salida.innerHTML = '';
+      palabrasUsuario = [];
+
+      // Elegir frase aleatoria
+      fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+      fraseDesordenada = mezclarFrase(fraseAleatoria);
+
+      // Crear botones para cada palabra desordenada
+      fraseDesordenada.forEach(palabra => {
+        const boton = document.createElement("button");
+        boton.textContent = palabra;
+        boton.style.margin = "5px";
+        boton.addEventListener("click", () => {
+          const span = document.createElement("span");
+          span.textContent = palabra + " ";
+          salida.appendChild(span);
+
+          palabrasUsuario.push(palabra);
+          boton.disabled = true;
+        });
+        contenedor.appendChild(boton);
+      });
+    }
+
+    function evaluarFrase() {
+      const fraseUsuario = palabrasUsuario.join(" ");
+      if (fraseUsuario === fraseAleatoria) {
+        alert('¡Correcto! Se carga una nueva frase.');
+        iniciarJuego();  // Reiniciar para nueva frase
+      } else {
+        alert('Incorrecto. La frase correcta era:\n\n' + fraseAleatoria);
+      }
+    }
+
+    verificarBtn.addEventListener('click', evaluarFrase);
+
+    // Iniciar juego al cargar la página
+    iniciarJuego();
+
+  </script>
+</body>
+
+</html>

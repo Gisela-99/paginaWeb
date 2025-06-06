@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
       <h1> Ejercicio: hilos </h1>
       <nav>
         <ul>
-          {/* <li><Link to="/">Home</Link></li> */}
+          {/* <li><Link to="/">Inicio</Link></li>  */}
           <li><Link to="/Read">Ver Hilos</Link></li>
           <li><Link to="/Create">Crear Hilos</Link></li>
         </ul>

@@ -1,3 +1,29 @@
 .input{
   margin-bottom: 10px;
 }
+.comentario {
+  background-color: #d1ebba;
+  border-left: 4px solid #4caf50;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comentario p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.comentario p.nombre{
+  font-weight: bold;
+}
+.comentario strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.comentario span {
+  color: #777;
+  font-size: 0.8rem;
+}
