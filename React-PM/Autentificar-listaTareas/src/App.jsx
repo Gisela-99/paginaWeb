@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useUserContext } from './providers/UserProvider'; 
 import { auth } from './services/config';
-import Home from './pages/Home'; 
 import Login from './pages/Login';   
 import Router from './app/Router';
 function App() {

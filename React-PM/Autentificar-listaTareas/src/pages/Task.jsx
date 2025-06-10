@@ -3,12 +3,15 @@ import { collection, getDocs } from '../services/config'
 import { db } from '../services/config'
 import { createComentario, deleteItem, updateItem } from '../services/api'
 import { useUserContext } from '../providers/UserProvider'
+import './style.css'
 
 function Task() {
   const { user } = useUserContext()
   const [comentario, setComentario] = useState('')
   const [comentarios, setComentarios] = useState([])
-  const [editandoId, setEditandoId] = useState(null)
+  const [mostrarModal, setMostrarModal] = useState(false)
+  const [comentarioEditando, setComentarioEditando] = useState(null)
+  const [textoTemporal, setTextoTemporal] = useState('')
 
   const obtenerComentarios = async () => {
     if (!user?.uid) return
@@ -30,40 +33,32 @@ function Task() {
   }
 
   const eliminarComentario = async (id) => {
-    console.log('ID a eliminar:', id)
-    console.log('User ID:', user.uid)
     const rutaCompleta = `${user.uid}/comments/${id}`
-    console.log('Ruta completa:', rutaCompleta)
-    
     await deleteItem(rutaCompleta)
     obtenerComentarios()
   }
 
-  // Activar modo edición
-  const activarEdicion = (id) => {
-    setEditandoId(id)
+  // Abrir modal de edición
+  const abrirModalEdicion = (comentario) => {
+    setComentarioEditando(comentario)
+    setTextoTemporal(comentario.texto)
+    setMostrarModal(true)
+  }
+
+  // Cerrar modal
+  const cerrarModal = () => {
+    setMostrarModal(false)
+    setComentarioEditando(null)
+    setTextoTemporal('')
   }
 
   // Guardar cambios
-  const guardarComentario = async (id) => {
-    const comentarioActualizado = comentarios.find(c => c.id === id)
-    await updateItem(`${user.uid}/comments/${id}`, { texto: comentarioActualizado.texto })
-    setEditandoId(null)
+  const guardarCambios = async () => {
+    if (textoTemporal.trim() === '') return
+    
+    await updateItem(`${user.uid}/comments/${comentarioEditando.id}`, { texto: textoTemporal })
+    cerrarModal()
     obtenerComentarios()
-  }
-
-  // Cancelar edición
-  const cancelarEdicion = () => {
-    setEditandoId(null)
-    obtenerComentarios() // Restaurar valores originales
-  }
-
-  // Actualizar texto mientras se edita
-  const actualizarTextoLocal = (id, nuevoTexto) => {
-    const nuevosComentarios = comentarios.map((comentario) =>
-      comentario.id === id ? { ...comentario, texto: nuevoTexto } : comentario
-    )
-    setComentarios(nuevosComentarios)
   }
 
   return (
@@ -71,32 +66,38 @@ function Task() {
       <h1>Comentarios</h1>
       {comentarios.map(c => (
         <div key={c.id}>
-          {editandoId === c.id ? (
-            // Modo edición
-            <>
-              <input
-                type="text"
-                value={c.texto}
-                onChange={(e) => actualizarTextoLocal(c.id, e.target.value)}
-              />
-              <button onClick={() => guardarComentario(c.id)}>Guardar</button>
-              <button onClick={cancelarEdicion}>Cancelar</button>
-            </>
-          ) : (
-            // Modo visualización
-            <>
-              <p>{c.texto}</p>
-              <button onClick={() => eliminarComentario(c.id)}>Borrar</button>
-              <button onClick={() => activarEdicion(c.id)}>Actualizar</button>
-            </>
-          )}
+          <span>{c.texto}</span>
+          <button onClick={() => eliminarComentario(c.id)}>Borrar</button>
+          <button onClick={() => abrirModalEdicion(c)}>Editar</button>
         </div>
       ))}
-      <textarea 
-        value={comentario}
-        onChange={e => setComentario(e.target.value)}
-      />
+            
+      <div className='input'>
+        <textarea
+          value={comentario}
+          onChange={e => setComentario(e.target.value)}
+        />
+      </div>
       <button onClick={agregarComentario}>Añadir Comentario</button>
+
+      {/* Modal de edición */}
+      {mostrarModal && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <h3>Editar Comentario</h3>
+            <textarea
+              value={textoTemporal}
+              onChange={(e) => setTextoTemporal(e.target.value)}
+              rows="4"
+              cols="50"
+            />
+            <div className="modal-buttons">
+              <button onClick={guardarCambios}>OK</button>
+              <button onClick={cerrarModal}>Cancelar</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
