@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useUserContext } from '../providers/UserProvider';
-import {signUp} from '../services/auth'
+import {signUp, signIn} from '../services/auth'
 
 
 const Login = () => {
@@ -10,32 +10,34 @@ const Login = () => {
     const[error,setError]=useState('')
    
     
-    const handleSignIn =() =>{
-      if(email && password){
-        setError('');
-        if (!email || !password) {
-      setError('Por favor, rellena email y contraseña');
-      return;
-    }
-          setUser({email})
+    const handleSignIn = async() =>{
+        if(!email||!password){
+          setError('Por favor, rellena email y contraseña')
+          return
+        }
+        setError('')
+        try{
+          const user= await signIn (email, password)
+            setUser({uid: user.uid, email: user.email})
+        }catch(err){
+        setError(err.message || 'error al inicio')
       }
     }
-
     const handleSignUp = async () => {
-  if (!email || !password /* || !name si lo quieres pedir */) {
-    setError('Por favor, rellena todos los campos');
-    return;
-  }
-  setError('');
-  try {
-    // Aquí llamas a la función que crea el usuario, por ejemplo:
-    const uid = await signUp(email, password);
-    // Luego actualizas el estado de usuario con info:
-    setUser({ uid, email /*, name si tienes */ });
-  } catch (err) {
-    setError(err.message || 'Error en el registro');
-  }
-};
+      if (!email || !password ) {
+        setError('Por favor, rellena todos los campos');
+        return;
+      }
+      setError('');
+      try {
+        // Aquí llamas a la función que crea el usuario, por ejemplo:
+        const user = await signUp(email, password);
+        // Luego actualizas el estado de usuario con info:
+        setUser({ uid:user.uid, email:user.email });
+      } catch (err) {
+        setError(err.message || 'Error en el registro');
+      }
+    };
 
     return (
       <> 
