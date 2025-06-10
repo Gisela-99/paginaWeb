@@ -4,12 +4,15 @@ import { useUserContext } from './providers/UserProvider';
 import { auth } from './services/config';
 import Home from './pages/Home'; 
 import Login from './pages/Login';   
+import Router from './app/Router';
 function App() {
   const { user, setUser } = useUserContext();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
+  onAuthStateChanged(auth, user => {
+      console.log('rrrrrrrrrrrrr')
       if (user) {
+        console.log('tttttttttttttttt')
         //console.log('user', user, ' userId:', user.uid);
         setUser(user);
       } else {
@@ -18,11 +21,10 @@ function App() {
       }
     });
 
-    // Limpieza del listener cuando se desmonta el componente
-    return () => unsubscribe();
+ 
   }, []);
 
-  return user ? <Home /> : <Login />;
+  return user ? <Router /> : <Login />;
 }
 
 export default App;

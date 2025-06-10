@@ -1,13 +1,19 @@
 import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail, fetchSignInMethodsForEmail, sendEmailVerification, db, doc, getDoc, getDocs, collection, setDoc, updateDoc, deleteDoc, addDoc, query, where, onSnapshot } from "./config";
 
-const collectionName = 'lista-tareas';
+const collectionName = 'users';
 
 // CREATE
-export const createPerson = async(obj) => {
-    const colRef = collection(db, collectionName);
+export const createComentario = async(userId,obj) => {
+    console.log('yyyyyyyyyyyyyyy')
+    const colRef = collection(db, 'users', userId, 'comments');
     const data = await addDoc(colRef, obj);
     return data.id;
-}
+ }
+// export const createComentario = async (userId, taskId, obj) => {
+//   const colRef = collection(db, 'users', userId, 'tasks', taskId, 'comentarios');
+//   const data = await addDoc(colRef, obj);
+//   return data.id;
+// };
 
 // UPDATE
 export const updateItem = async (id, obj) => {

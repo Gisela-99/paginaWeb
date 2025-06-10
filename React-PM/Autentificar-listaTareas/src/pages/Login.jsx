@@ -31,8 +31,9 @@ function Login() {
     }
     setError('')
     try{
-      const user = await signUp(email, password)
-      setUser({uid:user.uid, email: user.email})
+      const userID = await signUp(email, password)
+      setUser({uid:userID, email})
+
     }catch(err){
       setError(err.message||'Error al registro')
     }
