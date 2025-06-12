@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
 import Home from '../pages/Home';
-import Mensajeria from '../pages/Mensajeria';
+import Read from '../pages/Read';
+import WriteMessage from '../pages/WriteMessage';
 
 
 
@@ -12,7 +13,8 @@ const Router = () => (
         <Routes>   
             <Route path='/' element={<Home/>} />
             {/* <Route path='/login' element={<Login/>} /> */}
-            <Route path='/mensajeria' element={<Mensajeria />} />
+            <Route path='/read' element={<Read />} />
+            <Route path='/write' element={<WriteMessage/>}/>
             <Route path="*" element={<div>404</div> } />
         </Routes>
       </Layout>
