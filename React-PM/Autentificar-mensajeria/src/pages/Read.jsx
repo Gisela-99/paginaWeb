@@ -43,7 +43,7 @@
 
 
 import React, { useEffect, useState } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection,  getDocs } from "firebase/firestore";
 import { db } from "../services/config";
 import { useUserContext } from "../providers/UserProviders";
 
