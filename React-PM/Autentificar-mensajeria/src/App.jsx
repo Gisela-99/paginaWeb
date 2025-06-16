@@ -13,12 +13,16 @@ function App() {
       if(user){
         console.log('Usuario ha entrado')
         setUser(user)
+        // setUser({
+        //   id: firebaseUser.uid,
+        //   name: firebaseUser.email, 
+        // })
       }else{
         console.log('No logueado')
         setUser(null)
       }
     })
-  },[])
+  },[setUser])
 
   return user? <Router/> : <Login/>
 }

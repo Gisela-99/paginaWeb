@@ -53,6 +53,7 @@ function Read() {
 
   useEffect(() => {
     if (!user || !user.uid) return;
+    
 
     const fetchMensajes = async () => {
       try{

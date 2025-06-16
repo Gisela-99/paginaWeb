@@ -1,4 +1,4 @@
-import {db, auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, doc, setDoc} from "./config";
+import {db, auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, doc, setDoc,} from "./config";
 
 export const signUp = async (email, password) => {
     try {
@@ -31,3 +31,4 @@ export const signIn = async (email, password) => {
 
 export const getCurrentUserId = async () => await auth.currentUser?.uid;
 export const logout = async () => await signOut(auth);
+
