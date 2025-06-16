@@ -8,7 +8,7 @@ import { logout } from "../services/auth";
 export default function Home() {
   const{setUser, user}=useUserContext()
   const [nombre, setNombre]= useState('')
-   const navigate = useNavigate()
+  const navigate = useNavigate()
   
 
   useEffect(()=>{
@@ -57,12 +57,10 @@ export default function Home() {
 
     {user && (
       <div>
-        <h3>Usuario conectado:</h3>
         {user.name}
       </div>
     )}    
-   
-   
+
    </>
   );
 }

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { createRoom, onRoomUpdated } from "../services/room";
+import { createRoom, } from "../services/room.js";
 
 const RoomContext = createContext();
 
@@ -10,19 +10,21 @@ const RoomProvider = ({ children }) => {
   const [roomData, setRoomData] = useState(null);
 
   useEffect(() => {
-    if (!roomId) return;
+   const roomId = Math.floor(Math.random()*1000);
     createRoom(roomId).then(() => {
       console.log("Room created", roomId);
-    });
-  }, [roomId]);
+            setRoomData({roomId});
 
-  useEffect(() => {
-    if (!roomId) return;
-    const unsubscribe = onRoomUpdated(roomId, (data) => {
-      setRoomData(data);
     });
-    return () => unsubscribe && unsubscribe();
-  }, [roomId]);
+  }, []);
+
+  // useEffect(() => {
+  //   if (!roomId) return;
+  //   const unsubscribe = onRoomUpdated(roomId, (data) => {
+  //     setRoomData(data);
+  //   });
+  //   return () => unsubscribe && unsubscribe();
+  // }, [roomId]);
 
   return (
     <RoomContext.Provider value={{ roomId, setRoomId, roomData, setRoomData }}>
