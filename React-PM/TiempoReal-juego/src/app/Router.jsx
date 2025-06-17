@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
 import Home from '../pages/Home';
 import CrearSala from '../pages/CrearSala'
+import UnirSala from '../pages/UnirSala';
 
 const Router = () => (
  
@@ -11,6 +12,7 @@ const Router = () => (
             <Route path='/' element={<Home/>} />
             {/* <Route path='/login' element={<Login/>} /> */}
             <Route path='/crear' element={<CrearSala/>}/>
+            <Route path='/unirse' element={<UnirSala />}/>
             <Route path="*" element={<div>404</div> } />
         </Routes>
       </Layout>

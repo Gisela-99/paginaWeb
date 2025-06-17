@@ -1,8 +1,13 @@
-
+import {db, doc, setDoc} from './config'
 export async function createRoom(roomId) {
   // Aquí pones la lógica para crear una sala,
   // por ejemplo crear un documento en Firebase o llamar a una API
   console.log("Crear sala con ID:", roomId);
+  const docRef = doc(db,'rooms', String(roomId))
+  await setDoc(docRef, {
+    roomId: roomId,
+    users:[],
+  })
   // Simula una espera para que sea async
   return new Promise((resolve) => setTimeout(resolve, 500));
 }

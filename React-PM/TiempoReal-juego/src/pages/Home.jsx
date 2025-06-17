@@ -53,7 +53,8 @@ export default function Home() {
    </div>
 
     <button onClick={()=> navigate("/crear")}>Crear</button>
-    <button onClick={crearUsuario}>Unirse</button>
+    <button onClick={()=> navigate('/unirse')}>Unirse</button>
+    <button onClick={crearUsuario}>Crear Usuario</button>
 
     {user && (
       <div>

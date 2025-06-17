@@ -1,8 +1,9 @@
+import { arrayUnion, onSnapshot } from "firebase/firestore";
 import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail, fetchSignInMethodsForEmail, sendEmailVerification, db, doc, getDoc, getDocs, collection, setDoc, updateDoc, deleteDoc, addDoc, query, where} from "./config";
 
 const collectionName = 'rooms';
 
-// CREATE
+// CREATE USUARIOS
 
  export const createUsuario = async (name) =>{
     const colRef = collection(db, collectionName)
@@ -56,5 +57,49 @@ const getArrayFromCollection = (collection) => {
 }
 
 
+// CREAR SALAS
 
+export const createRoom = async(roomId)=>{
+    const room = await getRoomById(roomId)
+    if(room){
+        console.log('Sala existe')
+    }else{
+        const colRef= collection(db, collectionName)
+        await setDoc(doc(colRef, roomId), {
+            });
+    }
+    return roomId
+}
+// Añadir usuario a la sala
+
+export const addUserToRoom= async(roomId, userName)=>{
+    const docRef = doc(db, collectionName, roomId)
+    await updateDoc(docRef,{
+        users:arrayUnion(userName)
+    })
+}
+
+//Leer sala
+
+export const getRoomById= async (id)=>{
+    const docRef = doc(db, collectionName, id)
+    const result = await getDoc(docRef)
+    return result.data()
+}
+
+//Actualizar sala
+
+export const onRoomUpdated = (roomId, callback)=>{
+    return onSnapshot (doc(db,"rooms",roomId), (doc)=>{
+        if (doc.exists()) callback(doc.data());
+    })
+}
+
+//Huésped entrar a la sala
+export const guestEnterInRoom= async (roomId)=>{
+    const docRef = doc(db, collectionName,roomId)
+    await updateDoc(docRef,{
+        guestIsReady:true,
+    })
+}
 
