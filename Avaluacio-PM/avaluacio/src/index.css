@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Playfair+Display:wght@700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Merriweather', serif;
+  background-image: url('./img/pink-794507_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #111;
+  min-height: 100vh;
+}
