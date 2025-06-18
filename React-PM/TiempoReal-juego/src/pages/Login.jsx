@@ -7,6 +7,7 @@ import{
 
 function Login() {
   const {setUser} = useUserContext()
+  const[name, setName]=useState('')
   const[email,setEmail]= useState('')
   const[password, setPassword]= useState('')
   const[error, setError]=useState('')
@@ -30,7 +31,7 @@ function Login() {
     }
     setError('')
     try{
-      const user =  await signUp(email, password)
+      const user =  await signUp(email, password,name)
       setUser({uid:user.uid, email})
 
     }catch(err){
@@ -39,6 +40,7 @@ function Login() {
   }
   return (
     <div>
+      <input type="text" name='name' id='name' placeholder='nombre' value={name} onChange={e=> setName(e.target.value)} />
       <input type="email" name='email' id='email' placeholder='email' value={email} onChange={e=> setEmail(e.target.value)} />
       <input type="password" name='password' id='password' placeholder='password' value={password} onChange={e=> setPassword(e.target.value)} />
       {error && <div>{error}</div>}

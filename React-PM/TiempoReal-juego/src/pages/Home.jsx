@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { createUsuario, getItems } from "../services/api";
+import { useEffect} from "react";
+import {  getItems } from "../services/api";
 import { useUserContext } from "../providers/UserProviders";
 import { logout } from "../services/auth";
 
 
 export default function Home() {
   const{setUser, user}=useUserContext()
-  const [nombre, setNombre]= useState('')
+  //const [nombre, setNombre]= useState('')
   const navigate = useNavigate()
   
 
@@ -19,27 +19,27 @@ export default function Home() {
     fetchUsuarios()
   }, [])
 
-  const crearUsuario = async() =>{
-    if(!nombre.trim()) return
+  // const crearUsuario = async() =>{
+  //   if(!nombre.trim()) return
 
-    try {
-      const id = await createUsuario (nombre)
-      if(id){
-        setUser({id, name:nombre})
-        setNombre('')
-        navigate("/unirse")
-      }
-    }catch(error){
-      console.log(error)
-    }
+  //   try {
+  //     const id = await createUsuario (nombre)
+  //     if(id){
+  //       setUser({id, name:nombre})
+  //       setNombre('')
+  //       navigate("/unirse")
+  //     }
+  //   }catch(error){
+  //     console.log(error)
+  //   }
     
-  }
+  // }
 
  const handleLogout = async () => {
   try {
     await logout();       // llama a Firebase signOut
     setUser(null);        // limpia el contexto
-    setNombre('');        // opcional: limpia el input
+    //setNombre('');        // opcional: limpia el input
   } catch (error) {
     console.error("Error al cerrar sesión:", error);
   }
@@ -48,13 +48,12 @@ export default function Home() {
   return (
    <>
    <div>
-     <h1>Juego</h1>   
      <button onClick={handleLogout}>Cerrar sesión</button>
-   </div>
-
-    <button onClick={()=> navigate("/crear")}>Crear</button>
-    <button onClick={()=> navigate('/unirse')}>Unirse</button>
-    <button onClick={crearUsuario}>Crear Usuario</button>
+   </div> 
+    <h1>Escoge una opción</h1>
+    <button onClick={()=> navigate("/crear")} style={{fontSize:15, padding:20}}>Crear una sala</button>
+    <button onClick={()=> navigate('/unirse')} style={{fontSize:15, padding:20}}>Unirse a una sala</button>
+    {/* <button onClick={crearUsuario}>Crear Usuario</button> */}
 
     {user && (
       <div>

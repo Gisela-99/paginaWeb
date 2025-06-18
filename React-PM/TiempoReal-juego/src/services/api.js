@@ -1,5 +1,5 @@
 import { arrayUnion, onSnapshot } from "firebase/firestore";
-import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail, fetchSignInMethodsForEmail, sendEmailVerification, db, doc, getDoc, getDocs, collection, setDoc, updateDoc, deleteDoc, addDoc, query, where} from "./config";
+import {db, doc, getDoc, getDocs, collection, setDoc, updateDoc, deleteDoc, addDoc, query, where} from "./config";
 
 const collectionName = 'rooms';
 
@@ -59,30 +59,63 @@ const getArrayFromCollection = (collection) => {
 
 // CREAR SALAS
 
-export const createRoom = async(roomId)=>{
-    const room = await getRoomById(roomId)
-    if(room){
-        console.log('Sala existe')
-    }else{
-        const colRef= collection(db, collectionName)
-        await setDoc(doc(colRef, roomId), {
-            });
-    }
-    return roomId
-}
+// export const createRoom = async(roomId)=>{
+//     const room = await getRoomById(roomId)
+//     if(room){
+//         console.log('Sala existe')
+//     }else{
+//         const colRef= collection(db, collectionName)
+//         await setDoc(doc(colRef, roomId), {
+//             });
+//     }
+//     return roomId
+// }
+ export const createRoom = async (roomId, creatorName) => {
+      console.log("CREANDO SALA CON:", { roomId, creatorName });
+   const room = await getRoomById(roomId);
+   if (!room) {
+     const colRef = collection(db, collectionName);
+     await setDoc(doc(colRef, String(roomId)), {
+       creator: creatorName,
+       users: [creatorName],
+       guestIsReady: false
+     });  }
+   return roomId;
+ };
+
+
+
+
 // Añadir usuario a la sala
 
-export const addUserToRoom= async(roomId, userName)=>{
-    const docRef = doc(db, collectionName, roomId)
-    await updateDoc(docRef,{
-        users:arrayUnion(userName)
-    })
-}
+// export const addUserToRoom= async(roomId, userName)=>{
+//     const docRef = doc(db, collectionName, roomId)
+//     await updateDoc(docRef,{
+//         users:arrayUnion(userName)
+//     })
+// }
+export const addUserToRoom = async (roomId, userName) => {
+  const docRef = doc(db, collectionName, roomId);
+  const room = await getRoomById(roomId);
+
+  if (!room.invitado && room.creator !== userName) {
+    await updateDoc(docRef, {
+      invitado: userName,
+      users: arrayUnion(userName)
+    });
+  } else {
+    await updateDoc(docRef, {
+      users: arrayUnion(userName)
+    });
+  }
+};
+
 
 //Leer sala
 
 export const getRoomById= async (id)=>{
-    const docRef = doc(db, collectionName, id)
+    console.log('getRoomById id:', id, typeof id);
+    const docRef = doc(db, collectionName, String(id))
     const result = await getDoc(docRef)
     return result.data()
 }
@@ -96,10 +129,46 @@ export const onRoomUpdated = (roomId, callback)=>{
 }
 
 //Huésped entrar a la sala
-export const guestEnterInRoom= async (roomId)=>{
-    const docRef = doc(db, collectionName,roomId)
-    await updateDoc(docRef,{
-        guestIsReady:true,
-    })
-}
+// export const guestEnterInRoom= async (roomId)=>{
+//     const docRef = doc(db, collectionName,roomId)
+//     await updateDoc(docRef,{
+//         guestIsReady:true,
+//     })
+// }
+
+export const guestEnterInRoom = async (roomId, invitadoNombre) => {
+  if (!invitadoNombre) {
+    console.error('Error: invitadoNombre no puede ser undefined o null');
+    return; // Salir o manejar el error como prefieras
+  }
+
+  const docRef = doc(db, collectionName, roomId);
+  const room = await getRoomById(roomId);
+
+  if (!room.invitado && room.creator !== invitadoNombre) {
+    await updateDoc(docRef, {
+      guestIsReady: true,
+      invitado: invitadoNombre,
+      users: arrayUnion(invitadoNombre)
+    });
+  } else {
+    await updateDoc(docRef, {
+      guestIsReady: true
+    });
+  }
+};
+
+//
+export const joinRoom = async (roomId, userName) => {
+  const roomRef = doc(db, 'rooms', roomId.toString());
+  try {
+    await updateDoc(roomRef, {
+      users: arrayUnion(userName)
+    });
+    console.log(`Usuario ${userName} añadido a la sala ${roomId}`);
+  } catch (error) {
+    console.error("Error al añadir usuario a la sala:", error);
+  }
+};
+
 
