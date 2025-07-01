@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 const Layout = ({ children }) => {
   return (
     <div>
-      <h1> Autentificación: lista tareas</h1>
+      <h1> Ejercicio: Hospitalizados </h1>
       <nav>
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/Read">Read</Link></li>
+          <li><Link to="/Create">Crear</Link></li>
         </ul>
       </nav>
       <main>{children}</main>

@@ -3,12 +3,12 @@ import { Sequelize } from 'sequelize';
 import express from "express";
 import cors from "cors";
 import libroRouter from './routes/libro.js'
-import { startSocketServer } from './src/services/socketServer.js';
+
 
 const port = process.env.PORT || 3000;
 const app = express();
 
-
+// Configurar Express
 app.use(express.json());
 app.use(cors());
 app.use ('/libro', libroRouter)
@@ -34,6 +34,17 @@ app.get("/", async (req, res) => {
  });
 
 
+ app.post('/create',async (req,res)=>{
+  const {nombre} =req.body
+  if(!nombre) return res.status(400).send('Falta nombre')
+
+  await sequelize.query('INSERT INTO tabla (nombre) VALUES (:nombre)'),{
+    replacements:{nombre},
+    type:sequelize.QueryTypes.INSERT
+  }
+
+ })
+
 // app.get('/book', (req, res)=>{
 //   console.log("Llegamos a libro");
 //   res.send("Llegamos a libro");
@@ -56,4 +67,3 @@ app.get("/", async (req, res) => {
     console.log(`hudfiwerñfhrewiu`)
  });
 
- startSocketServer();
