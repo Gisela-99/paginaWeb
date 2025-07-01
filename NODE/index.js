@@ -3,6 +3,7 @@ import { Sequelize } from 'sequelize';
 import express from "express";
 import cors from "cors";
 import libroRouter from './routes/libro.js'
+import { startSocketServer } from './src/services/socketServer.js';
 
 const port = process.env.PORT || 3000;
 const app = express();
@@ -25,7 +26,7 @@ const sequelize = new Sequelize(database, user, password, {
 
 app.get("/", async (req, res) => {
   sequelize.query('INSERT INTO tabla (nombre) VALUES (:param1)',{
-    replacements:{param1: 3}, 
+    replacements:{param1: 'Mi nombre'}, 
     type:sequelize.QueryTypes.INSERT
   })
     res.send('Registro insertado')
@@ -50,6 +51,9 @@ app.get("/", async (req, res) => {
 // });
 
 
- app.listen(port, () => {   console.log(`listening on port ${port}`);
-   console.log(`hudfiwerñfhrewiu`)
+ app.listen(port, () => {   
+    console.log(`listening on port ${port}`);
+    console.log(`hudfiwerñfhrewiu`)
  });
+
+ startSocketServer();
