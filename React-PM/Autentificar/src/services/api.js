@@ -1,4 +1,4 @@
-import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail, fetchSignInMethodsForEmail, sendEmailVerification, db, doc, getDoc, getDocs, collection, setDoc, updateDoc, deleteDoc, addDoc, query, where, onSnapshot } from "./config";
+import { db, doc, getDoc, getDocs, collection, updateDoc, deleteDoc, addDoc, query, where, } from "./config";
 
 const collectionName = 'Registro';
 
