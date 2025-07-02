@@ -1,8 +1,6 @@
-// console.log("hola Mundo")
-import { Sequelize } from 'sequelize';
 import express from "express";
 import cors from "cors";
-import libroRouter from './routes/libro.js'
+import { db } from './db.js';
 
 
 const port = process.env.PORT || 3000;
@@ -11,59 +9,32 @@ const app = express();
 // Configurar Express
 app.use(express.json());
 app.use(cors());
-app.use ('/libro', libroRouter)
 
-const database = 'test';
-const user = 'root';
-const password = '';
-const host = 'localhost';
 
-const sequelize = new Sequelize(database, user, password, {
-    host,
-    dialect: 'mysql',
-    logging: console.log,
+//PARA CONSULTAR LOS DATOS
+app.get("/", (req, res) => {
+  // Esto es para insertar en la base de datos de XAMPP- recordar en que tienes que crear la base de datos con sus respectivas ¿casillas?
+  //  db.query('INSERT INTO invitado(nombre) VALUES(:param1)', {
+  //   replacements: { param1: 'Juan' },
+  //   type: db.QueryTypes.INSERT
+  // })
+
+  //const{name,age}=req.query
+  const name = req.query.name || 'Gisela';
+  const age= req.query.age || '26'
+
+  res.send("Registro insertado " + name + ' - '+age)
+});
+// http://localhost:3000/?name=Josefina&age=39  --> esto es lo que tenemos que poner en el postman del GET
+
+
+app.post("/misinvitados", (req, res) => {
+
+  res.send("Invitadoooos gfbirdegyprey")
 });
 
-app.get("/", async (req, res) => {
-  sequelize.query('INSERT INTO tabla (nombre) VALUES (:param1)',{
-    replacements:{param1: 'Mi nombre'}, 
-    type:sequelize.QueryTypes.INSERT
-  })
-    res.send('Registro insertado')
-   //res.json("Inicio");
- });
-
-
- app.post('/create',async (req,res)=>{
-  const {nombre} =req.body
-  if(!nombre) return res.status(400).send('Falta nombre')
-
-  await sequelize.query('INSERT INTO tabla (nombre) VALUES (:nombre)'),{
-    replacements:{nombre},
-    type:sequelize.QueryTypes.INSERT
-  }
-
- })
-
-// app.get('/book', (req, res)=>{
-//   console.log("Llegamos a libro");
-//   res.send("Llegamos a libro");
-// })
-
-// app.get('/book/:id', (req, res) => {
-//     const bookId = req.params.id; // Captura la id del libro
-//     res.send(`Id del libro ${bookId}`);
-// });
-
-// app.get('/user-init/:usuario', (req, res) => {
-//   const usuario = req.params.usuario; // Captura el valor dinámico
-//   console.log(`hola, como estás ${usuario} ?`);     // Muestra la traza en la terminal
-//   res.send(`hola ${usuario}`);        // Muestra la respuesta en el navegador
-// });
-
-
  app.listen(port, () => {   
-    console.log(`listening on port ${port}`);
+    console.log(`listening on http://localhost:${port}`);
     console.log(`hudfiwerñfhrewiu`)
  });
 
