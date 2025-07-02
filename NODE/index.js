@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { db } from './db.js';
+//import { db } from './db.js';
 
 
 const port = process.env.PORT || 3000;
@@ -21,16 +21,34 @@ app.get("/", (req, res) => {
 
   //const{name,age}=req.query
   const name = req.query.name || 'Gisela';
-  const age= req.query.age || '26'
+  const age= req.query.age || '26';
 
   res.send("Registro insertado " + name + ' - '+age)
 });
 // http://localhost:3000/?name=Josefina&age=39  --> esto es lo que tenemos que poner en el postman del GET
 
+//OTRA FORMA DE ENVIAR PARAMETROS
+
+app.get("/url12/:id", (req, res) => {
+  const {id}= req.params;
+  res.send("Registro insertado " + id)
+});
+
+// http://localhost:3000/url12/:id 
+
+app.get("/create", (req, res)=> {
+   const {nombre} = req.query;
+   if (!nombre) {
+     return res.status(400).send("❌ Falta el parámetro 'nombre'");
+   }
+
+   res.send('Paciente ' + nombre)
+})
+
 
 app.post("/misinvitados", (req, res) => {
-
-  res.send("Invitadoooos gfbirdegyprey")
+  const {nombre}= req.body
+  res.send("Invitadoooos " + nombre)
 });
 
  app.listen(port, () => {   

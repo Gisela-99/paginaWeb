@@ -6,7 +6,7 @@ const Read = () => {
 
   const queryData = async () => {
     try {
-      const res = await fetch('http://localhost:3001/pacientes');
+      const res = await fetch('http://localhost:3000/pacientes');
       if (!res.ok) throw new Error('Error al obtener pacientes');
       const data = await res.json();
       setPeople(data);

@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { deleteItem, updateItem, getItems } from '../services/api';
 import { useEffect, useState } from 'react';
 
 const Pacientes = () => {
@@ -9,7 +8,7 @@ const Pacientes = () => {
   const [fecha, setFecha] = useState('');
 
   const fetchPaciente = async () => {
-    const res = await fetch(`http://localhost:3001/pacientes/${id}`);
+    const res = await fetch(`http://localhost:3001/paciente/${id}`);
     if (res.ok) {
       const paciente = await res.json();
       setName(paciente.name);
@@ -25,7 +24,7 @@ const Pacientes = () => {
   }, [id]);
 
   const deletePaciente = async () => {
-    const res = await fetch(`http://localhost:3001/pacientes/${id}`, {
+    const res = await fetch(`http://localhost:3001/paciente/${id}`, {
       method: 'DELETE',
     });
     if (res.ok) {
@@ -37,7 +36,7 @@ const Pacientes = () => {
   };
 
   const updatePaciente = async () => {
-    const res = await fetch(`http://localhost:3001/pacientes/${id}`, {
+    const res = await fetch(`http://localhost:3001/paciente/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, surName, fecha }),
