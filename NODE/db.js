@@ -1,6 +1,6 @@
 import {Sequelize} from 'sequelize';
 
-const database = 'borrame';
+const database = 'hospital';
 const user = 'root';
 const password = '';
 const host = 'localhost';

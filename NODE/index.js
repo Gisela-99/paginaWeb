@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-//import { db } from './db.js';
+import { db } from './db.js';
 
 
 const port = process.env.PORT || 3000;
@@ -29,21 +29,55 @@ app.get("/", (req, res) => {
 
 //OTRA FORMA DE ENVIAR PARAMETROS
 
-app.get("/url12/:id", (req, res) => {
-  const {id}= req.params;
-  res.send("Registro insertado " + id)
-});
+// app.get("/url12/:id", (req, res) => {
+//   const {id}= req.params;
+//   res.send("Registro insertado " + id)
+// });
 
 // http://localhost:3000/url12/:id 
 
-app.get("/create", (req, res)=> {
-   const {nombre} = req.query;
-   if (!nombre) {
-     return res.status(400).send("❌ Falta el parámetro 'nombre'");
-   }
+app.get("/create", async (req, res) => {
+  const { nombre, edad } = req.query;
 
-   res.send('Paciente ' + nombre)
-})
+  if (!nombre || !edad) {
+    return res.status(400).send("Faltan los parámetros 'nombre' o 'edad'");
+  }
+
+  try {
+    await db.query(
+      'INSERT INTO invitados(nombre, edad) VALUES(:nombre, :edad)',
+      {
+        replacements: { nombre, edad },
+        type:db.QueryTypes.INSERT,
+      }
+    );
+
+    res.send("Paciente " + nombre + " insertado correctamente");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error al insertar el paciente");
+  }
+});
+
+
+
+app.delete("/delete", (req, res) => {
+  const { nombre } = req.query;
+  if (!nombre) {
+    return res.status(400).send(" Falta el parámetro 'nombre'");
+  }
+
+  res.send("Paciente eliminado: " + nombre);
+});
+
+app.put("/update", (req, res) => {
+  const { nombre } = req.body;
+  if (!nombre) {
+    return res.status(400).send(" Falta el parámetro 'nombre'");
+  }
+
+  res.send("Paciente actualizado: " + nombre);
+});
 
 
 app.post("/misinvitados", (req, res) => {
